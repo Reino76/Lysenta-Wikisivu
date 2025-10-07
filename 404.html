@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>404 | Kadonnut Sivu</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Custom styling for the 404 page to make the error dramatic */
+    .error-container {
+        text-align: center;
+        padding: 80px 20px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .error-container h1 {
+        font-family: 'Metal Mania', cursive; /* Use the dramatic font for the big error */
+        font-size: 5rem;
+        color: #eee; /* Primary text color */
+        margin-bottom: 0.5rem;
+        text-shadow: none;
+    }
+    .error-container h2 {
+        font-size: 2rem;
+        color: #eee;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    .error-container p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        color: var(--text-secondary);
+    }
+    .error-container .card {
+        padding: 25px;
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    .error-container .card a {
+        display: block;
+        padding: 12px 25px;
+        
+        /* Updated Button Styling: Black and White */
+        background: var(--bg-primary); /* Dark background (black) */
+        border: 2px solid #eee; /* White border */
+        color: #eee; /* White text color */
+        
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: var(--radius);
+        transition: all 0.2s ease-in-out; /* Smoother transition */
+    }
+    .error-container .card a:hover {
+        /* Hover effect: Solid white background, black text, no glow */
+        background-color: #eee; /* Solid white background */
+        color: var(--bg-primary); /* Dark text color */
+        box-shadow: none; /* Removed the glow effect */
+    }
+</style>
+</head>
+<body class="dark">
+
+<header class="site-header">
+  <a class="home" href="index.html">Takaisin alkusivulle</a>
+  <nav class="nav">
+    <a href="world.html">Lysentan Maailma</a>
+    <a href="characters.html">Hahmot</a>
+    <a href="sessions.html">Pelikerrat</a>
+  </nav>
+</header>
+
+<main class="container">
+    <div class="error-container">
+        <!-- Dramatic error code and message -->
+        <h2>Sivu, jota ei olla vielä luettu</h2>
+        <p>Näille urille tarina ei vielä ole astunut</p>
+        
+        <!-- Call to action using the card style for emphasis -->
+        <div class="card">
+            <!-- Changed href to call history.back() for previous page navigation -->
+            <a href="#" onclick="history.back(); return false;">Palaa Takaisin</a>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
