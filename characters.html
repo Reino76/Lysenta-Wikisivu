@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Characters</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+<header class="site-header">
+  <a class="home" href="index.html">Takaisin alkusivulle</a>
+  <nav class="nav">
+    <a href="world.html">Lysentan Maailma</a>
+    <a href="characters.html">Hahmot</a>
+    <a href="sessions.html">Pelikerrat</a>
+  </nav>
+</header>
+
+<div class="page-content">
+
+  <nav class="sidebar">
+    <h2>Kategoriat</h2>
+    <a href="#pc" class="category-link">Pelaajien Hahmot</a>
+    <a href="#npc" class="category-link">Sivuhahmot</a>
+    <a href="#faction" class="category-link">Ryhmät</a>
+    <a href="#creature" class="category-link">Olennot</a>
+
+    <h2>Hahmot</h2>
+    <a href="characters/pc/example_character.html">Esimerkkihahmo</a>
+  </nav>
+
+  <main class="container">
+    <section>
+      <h2>Hahmot</h2>
+
+      <div id="pc" class="category-break">Pelaajien Hahmot</div>
+      <div class="gallery">
+        <a href="characters/pc/example_character.html" id="example-character-card">
+          <div class="card">
+            <h3>Esimerkkihahmo_</h3>
+            <p>Esimerkkihahmon kuvaus</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="npc" class="category-break">Sivuhahmot</div>
+      <div class="gallery"></div>
+
+      <div id="faction" class="category-break">Ryhmät</div>
+      <div class="gallery"></div>
+
+      <div id="creature" class="category-break">Olennot</div>
+      <div class="gallery"></div>
+    </section>
+  </main>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

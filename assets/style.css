@@ -1,0 +1,760 @@
+/* Full site style - dark, responsive, Metal Mania/Texturina theme */
+
+/* Variables */
+:root {
+  --bg-primary: #121212; /* Main background */
+  --bg-secondary: #1a1a1a; /* Header, Card/Table background */
+  --bg-tertiary: #0d0d0d; /* Sidebar background */
+  --text-primary: #ddd;
+  --text-secondary: #aaa;
+  --border-color: #222;
+  --highlight-color: #00ffff; /* Cyan highlight for general accents */
+  --card-link-color: #cc5555; /* Faint Red/Maroon for Card links */
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Texturina', serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ======== HEADER ======== */
+.site-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-header .home {
+  font-family: 'Metal Mania', cursive;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--text-primary);
+  text-decoration: none;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.site-header .nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.site-header .nav a {
+  font-family: 'Texturina', serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-header .nav a:hover { color: #fff; }
+
+/* ======== CONTAINERS / LAYOUT ======== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 20px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Specific narrow container for index/sessions pages */
+.container.narrow {
+  max-width: 800px;
+  padding-top: 60px;
+}
+
+.page-content { /* For sidebar layouts (world, characters, and detail pages with sidebar) */
+  display: flex;
+  flex-direction: row;
+}
+
+/* Section headers (reused by index and world/character lists) */
+h1 { /* Used in index.html */
+  font-family: 'Metal Mania', cursive;
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  margin-bottom: 16px;
+  line-height: 1.1;
+  text-align: center;
+  word-break: break-word;
+}
+.hero p.muted { /* Used in index.html */
+  font-family: 'Texturina', serif;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-family: 'Metal Mania', cursive;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.category-break {
+  border-bottom: 2px solid #333;
+  margin: 40px 0 20px;
+  padding-bottom: 6px;
+  font-family: 'Metal Mania', cursive;
+  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  font-weight: normal;
+  color: #eee;
+}
+
+/* ======== CARDS & GRID (Updated hover animation) ======== */
+.grid { /* For index.html */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.gallery { /* For world.html, characters.html, and now detail pages */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.card-link, .gallery a {
+  text-decoration: none;
+  color: var(--card-link-color);
+  display: block;
+}
+
+.card-link .card, .gallery a .card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  /* Updated transition to include border-color change */
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: inherit;
+}
+
+.card-link:hover .card, .gallery a:hover .card {
+  transform: translateY(-4px);
+  background: #222;
+  /* Removed box-shadow glow */
+  box-shadow: none;
+  /* Added a distinct border color change on hover */
+  border-color: #555; 
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-family: 'Metal Mania', cursive;
+  color: var(--text-primary); /* Changed to neutral text color */
+  text-shadow: none; /* Removed glow */
+}
+
+.card p {
+  font-family: 'Texturina', serif;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+}
+
+/* ======== SIDEBAR (World/Characters/Detail Pages) ======== */
+.sidebar {
+  width: 260px;
+  background: var(--bg-tertiary);
+  border-right: 1px solid #333;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.sidebar h2 {
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  margin-top: 24px;
+  color: #666;
+  font-family: 'Texturina', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-align: left;
+}
+.sidebar h2:first-child { margin-top: 0; }
+.sidebar a {
+  display: block;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: #bbb;
+  font-size: 0.95em;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  word-wrap: break-word;
+}
+.sidebar a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  transform: translateX(4px);
+}
+.sidebar .category-link, .sidebar .active {
+  font-weight: 700;
+  color: #fff;
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--highlight-color);
+  padding-left: 9px;
+}
+.sidebar .category-link:hover, .sidebar .active:hover {
+  background: rgba(0,255,255,0.1);
+  border-left-color: var(--highlight-color);
+}
+.sidebar a:not(.category-link):not(.active) {
+  padding-left: 24px;
+  font-size: 0.9em;
+}
+
+
+/* ======== SESSION TABLE (Sessions) ======== */
+.session-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.session-table thead tr {
+  border-bottom: 2px solid #333;
+}
+.session-table th {
+  padding: 12px 16px;
+  text-align: left;
+  color: var(--text-secondary);
+  font-family: 'Texturina', serif;
+  font-weight: 700;
+}
+.session-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+.session-table tbody tr:hover {
+  background: var(--bg-secondary);
+  transform: translateX(2px);
+}
+.session-table td {
+  padding: 16px;
+}
+.session-table td.date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  width: 120px;
+  white-space: nowrap;
+}
+.session-table td.title {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.2rem;
+  width: 250px;
+}
+.session-table td.summary {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ======== MAP (World & Local) ======== */
+.map-wrap {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.map-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+/* Large, Red Pin (Used on World Map) */
+.map-pin {
+  position: absolute;
+  width: 1.25em; /* Large pin size (~20px), scales with monitor size */
+  height: 1.25em;
+  background: red; /* Red for major locations (default) */
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%); 
+  border: 2px solid #fff;
+  transition: transform 0.15s ease, background 0.2s ease;
+  display: block;
+}
+/* Small, Cyan Pin (Used on Continent Wiki Pages) */
+.map-pin.small {
+  width: 0.8em; /* Smaller size */
+  height: 0.8em;
+  background: var(--highlight-color); /* Cyan */
+  border: 1px solid #fff; /* Slightly thinner border for small pin */
+}
+/* Increased hover scale for better visibility */
+.map-pin:hover {
+  transform: translate(-50%, -50%) scale(1.5); 
+}
+.map-pin.small:hover {
+  transform: translate(-50%, -50%) scale(2.0); /* Scale up more since it's smaller */
+}
+
+/* Tooltip */
+.map-pin::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 150%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  font-family: 'Texturina', serif;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+.map-pin:hover::after {
+  opacity: 1;
+}
+
+/* ======================================= */
+/* DETAIL PAGES (Location, Session, Character) */
+/* ======================================= */
+
+/* --- Location/Article Layout (e.g., dragonpeak.html) --- */
+
+main.container.article {
+  flex: 1;
+  padding: 40px 24px;
+  max-width: 900px;
+  margin: auto;
+}
+
+main.container.article h1 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+main.container.article .location-meta {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+/* Sections */
+.article .section {
+  margin-bottom: 40px;
+}
+.article .section h2 {
+  font-family: 'Texturina', serif;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 6px;
+  color: #eee;
+}
+.article .section p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+/* Info box (reused for both location float and character stat block) */
+.infobox {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 16px;
+  font-size: 0.9rem;
+}
+
+/* Location Infobox: Floating style */
+.article .infobox {
+  float: right;
+  width: 280px;
+  margin: 0 0 20px 20px;
+}
+.infobox h3 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #eee;
+  text-align: center;
+}
+.infobox p {
+  margin: 4px 0;
+  color: var(--text-secondary);
+}
+
+/* --- Session Log Layout (e.g., session1.html) --- */
+
+main.container.session-log h1 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+main.container.session-log .session-meta {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+/* Log entries */
+.log-entry {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.log-entry h2 {
+  font-family: 'Texturina', serif;
+  margin-top: 0;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #eee;
+}
+.log-entry p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Character Detail Layout (e.g., placeholder.html) --- */
+
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 0.85em;
+  margin-bottom: 16px;
+  color: #888;
+  padding: 8px 0;
+}
+.breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+.breadcrumb a:hover { color: var(--highlight-color); }
+.breadcrumb span { color: #666; margin: 0 8px; }
+
+/* Two-column layout */
+.page-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.main-content { min-width: 0; }
+.page-title {
+  font-family: 'Metal Mania', cursive;
+  font-size: 2.5rem;
+  margin: 0 0 8px 0;
+  color: #fff;
+  border-bottom: 3px solid #333;
+  padding-bottom: 12px;
+}
+
+.category-tag {
+  display: inline-block;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* Character Infobox: Sticky/Grid style */
+.page-layout .infobox {
+  float: none; /* Override floating from location page */
+  width: auto;
+  margin: 0;
+  position: sticky;
+  top: 24px;
+  padding: 20px;
+}
+.page-layout .infobox h3 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.3rem;
+  margin: 0 0 16px 0;
+  border-bottom: 2px solid #333;
+  padding-bottom: 8px;
+}
+
+.infobox-section { margin-bottom: 16px; }
+.infobox-section h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 8px;
+}
+.stat {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.stat-label {
+  font-weight: 700;
+  color: var(--highlight-color);
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 4px;
+}
+.stat-value {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.infobox-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #222;
+  font-size: 0.9rem;
+}
+.infobox-item:last-child { border-bottom: none; }
+.infobox-label {
+  color: #888;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Main Content Styling */
+.content { line-height: 1.7; font-size: 1rem; }
+.content h2 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.8rem;
+  margin: 32px 0 16px 0;
+  color: #fff;
+  border-bottom: 2px solid #333;
+  padding-bottom: 8px;
+}
+.content p { margin-bottom: 16px; color: var(--text-primary); }
+.content strong { color: var(--highlight-color); font-weight: 700; }
+
+/* Ability Block */
+.ability-block {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--highlight-color);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 0 6px 6px 0;
+}
+.ability-block strong { display: block; margin-bottom: 6px; font-size: 1.05rem; }
+
+/* Footer */
+footer.site-footer {
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+  margin: 40px 0 16px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+}
+
+/* ======== RESPONSIVE ADJUSTMENTS ======== */
+@media (max-width: 900px) {
+  .page-content {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #333;
+    position: relative;
+    padding: 16px 10px;
+  }
+  .sidebar h2 {
+    text-align: center;
+    margin-top: 16px;
+  }
+  .sidebar a {
+    display: inline-block;
+    padding: 8px 10px;
+    margin: 4px;
+    font-size: 0.9rem;
+  }
+  .container {
+    padding-top: 20px;
+  }
+
+  /* Location Infobox (Article floating style) */
+  .article .infobox {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  /* Character Layout (Grid to single column) */
+  .page-layout { grid-template-columns: 1fr; }
+  .page-layout .infobox { position: relative; top: 0; }
+  .page-title { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+  /* Session table specific fix */
+  .session-table {
+    display: block;
+    overflow-x: auto;
+    border: 1px solid #333;
+    border-radius: 8px;
+  }
+  .session-table th, .session-table td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  .session-table td.title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* General mobile optimization */
+  .gallery, .grid {
+    grid-template-columns: 1fr;
+  }
+  .card-link .card, .gallery a .card {
+    padding: 16px 12px;
+  }
+  .site-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .site-header .nav {
+    gap: 8px;
+  }
+  main.container {
+    padding: 40px 12px 20px 12px;
+  }
+}
+
+/* Full site style - dark, responsive, Metal Mania/Texturina theme */
+
+/* ... existing styles ... */
+
+/* --- Session Log Layout (e.g., session1.html) --- */
+
+/* ... existing session-log styles ... */
+
+/* ======== TIMELINE LAYOUT (Session Details) ======== */
+.session-timeline {
+  position: relative;
+  padding-left: 50px; /* Space for the line and markers */
+  max-width: 800px; /* Constrain width for readability */
+  margin: 0 auto;
+}
+
+/* Vertical timeline line */
+.session-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px; /* Position of the line */
+  width: 2px;
+  background: var(--border-color); /* Dark grey line */
+}
+
+/* Individual item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 40px;
+}
+
+/* Timeline marker (the dot) */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 17px; /* Positioned on the line (20px - 3px radius) */
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--highlight-color);
+  border: 2px solid var(--bg-primary); /* Border to make it stand out against the line */
+  z-index: 1;
+}
+
+/* Content box */
+.timeline-content {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.timeline-content h2 {
+  font-family: 'Texturina', serif;
+  margin-top: 0;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #eee;
+  text-align: left; /* Override container's center align */
+}
+.timeline-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ... existing responsive adjustments ... */
+
+@media (max-width: 600px) {
+  /* ... existing mobile styles ... */
+  
+  /* Timeline responsive adjustments */
+  .session-timeline {
+    padding-left: 30px;
+  }
+  .session-timeline::before {
+    left: 10px;
+  }
+  .timeline-item {
+    padding-left: 25px;
+  }
+  .timeline-item::before {
+    left: 7px;
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Northlands – Locations of Lysent</title>
+<!-- Corrected path for assets due to new folder structure -->
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+<header class="site-header">
+  <!-- Corrected path for index.html -->
+  <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+  <nav class="nav">
+    <!-- Corrected paths for nav links -->
+    <a href="../../world.html">Lysentan Maailma</a>
+    <a href="../../characters.html">Hahmot</a>
+    <a href="../../sessions.html">Pelikerrat</a>
+  </nav>
+</header>
+
+<div class="page-content">
+
+  <nav class="sidebar">
+    <h2>Northlands Locations</h2>
+    <a href="#overview" class="active">Northlands (Overview)</a>
+    <a href="#hrafnborg">Hrafnborg (Capital)</a>
+    <a href="#frozen-pass">Frozen Pass</a>
+    <a href="#dragonpeak">Dragonpeak Mountain</a>
+  </nav>
+
+  <main class="container article">
+    <h1 id="overview">Northlands</h1>
+    <div class="location-meta"> A frigid region of ice, fjords, and old sagas.</div>
+
+    <!-- Map section now uses cyan pins to scroll to local cards -->
+    <div class="map-wrap" style="max-width: 800px; margin: 30px auto;">
+        <!-- Placeholder map image -->
+        <img src="../../assets/images/world-map.svg" alt="Local map placeholder (uses world map)">
+        
+        <!-- Cyan Pins - Jump to local card sections below (using data-target) -->
+        <!-- Pin 1: Hrafnborg (Capital) -->
+        <div class="map-pin cyan" style="top:50%; left:30%;" data-target="hrafnborg" title="Hrafnborg"></div>
+        <!-- Pin 2: Frozen Pass -->
+        <div class="map-pin cyan" style="top:35%; left:50%;" data-target="frozen-pass" title="Frozen Pass"></div>
+        <!-- Pin 3: Dragonpeak Mountain -->
+        <div class="map-pin cyan" style="top:15%; left:65%;" data-target="dragonpeak" title="Dragonpeak Mountain"></div>
+    </div>
+
+    <div class="infobox">
+      <h3>Northlands</h3>
+      <p><b>Type:</b> Continent/Region</p>
+      <p><b>Capital:</b> Hrafnborg</p>
+      <p><b>Population:</b> Sparse clans, raiders, exiles</p>
+      <p><b>Known for:</b> Endless winter, mead halls, sagas</p>
+    </div>
+
+    <div class="section">
+      <h2>Overview</h2>
+      <p>The Northlands are a frigid wilderness, home to ancient tribes, icy fjords, and beasts of legend. Few outsiders survive the long winters, and those who do are forever changed. The culture is dominated by Viking-like clans and a deep reverence for ancestral spirits and the harsh natural world.</p>
+    </div>
+
+    <div class="section">
+      <h2>Local Lore</h2>
+      <p>For centuries, the clans of the Northlands waged endless war with one another, until the coming of the frost seers, who unified them under shared omens. Yet the fragile peace never lasted long. Now, a new threat stirs on the highest mountain...</p>
+    </div>
+
+    <div class="category-break">Notable Locations</div>
+    
+    <div class="gallery">
+      <!-- Card 1: Hrafnborg - Target for the map pin -->
+      <a href="hrafnborg.html">
+        <div class="card" id="hrafnborg">
+          <h3>Hrafnborg</h3>
+          <p>A fortified village built around a sacred mead hall, and the current seat of the fractured Northlands alliance.</p>
+        </div>
+      </a>
+      <!-- Card 2: Frozen Pass - Target for the map pin -->
+      <a href="frozen-pass.html">
+        <div class="card" id="frozen-pass">
+          <h3>Frozen Pass</h3>
+          <p>A perilous mountain crossing haunted by trolls and worse. It is the only reliable path south when the ice thins.</p>
+        </div>
+      </a>
+      <!-- Card 3: Dragonpeak Mountain - Target for the map pin -->
+      <a href="dragonpeak.html">
+        <div class="card" id="dragonpeak">
+          <h3>Dragonpeak Mountain</h3>
+          <p>The looming, active volcano where legends claim an ancient, powerful dragon slumbers, occasionally waking to demand tribute.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>Factions & People</h2>
+      <p>The Wolfclaw Raiders sail the frozen seas. The Ice-Seer Order holds sway over the fragile politics. Scattered villages struggle for survival against the harsh elements.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+  // Script for smooth scrolling map pins to the card sections within this page
+  document.querySelectorAll('.map-pin').forEach(pin => {
+    pin.addEventListener('click', () => {
+      const targetId = pin.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        // Scroll smoothly to the card element
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
