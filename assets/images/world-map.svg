@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#071017"/><stop offset="1" stop-color="#0b1620"/></linearGradient></defs>
-  <rect width="100%" height="100%" fill="url(#g)"/>
-  <g fill="none" stroke="#15343a" stroke-opacity=".06" stroke-width="2">
-    <path d="M100 900 C300 700 500 800 800 700 S1400 500 1500 400"/>
-    <path d="M0 600 C250 500 600 650 1000 500"/>
-  </g>
-  <text x="50%" y="50%" fill="#5a6d6f" font-size="36" text-anchor="middle" font-family="sans-serif">World map placeholder</text>
-</svg>
