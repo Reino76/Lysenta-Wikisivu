@@ -13,6 +13,12 @@
   --radius: 12px;
 }
 
+/* **NEW ADDITION FOR SMOOTH SCROLLING** */
+html {
+  scroll-behavior: smooth;
+}
+/* **END NEW ADDITION** */
+
 * { box-sizing: border-box; }
 
 body {
@@ -306,7 +312,7 @@ h2 {
   display: block;
 }
 /* Small, Cyan Pin (Used on Continent Wiki Pages) */
-.map-pin.small {
+.map-pin.cyan { /* Adjusted from .map-pin.small to use your class */
   width: 0.8em; /* Smaller size */
   height: 0.8em;
   background: var(--highlight-color); /* Cyan */
@@ -316,9 +322,11 @@ h2 {
 .map-pin:hover {
   transform: translate(-50%, -50%) scale(1.5); 
 }
-.map-pin.small:hover {
+/* **NEW ADDITION: Ensuring the cyan pin also has a distinct hover scale** */
+.map-pin.cyan:hover {
   transform: translate(-50%, -50%) scale(2.0); /* Scale up more since it's smaller */
 }
+/* **END NEW ADDITION** */
 
 /* Tooltip */
 .map-pin::after {
