@@ -298,11 +298,13 @@ h2 {
   height: auto;
   border-radius: 8px;
 }
+
+/* --- Map Pin Sizing (Fix: Using Viewport Width units for relative scaling) --- */
 /* Large, Red Pin (Used on World Map) */
 .map-pin {
   position: absolute;
-  width: 1.25em; /* Large pin size (~20px), scales with monitor size */
-  height: 1.25em;
+  width: 1.0vw; /* Scales with screen width (adjust this value if it's too big/small) */
+  height: 1.0vw;
   background: red; /* Red for major locations (default) */
   border-radius: 50%;
   cursor: pointer;
@@ -312,22 +314,21 @@ h2 {
   display: block;
 }
 /* Small, Cyan Pin (Used on Continent Wiki Pages) */
-.map-pin.cyan { /* Adjusted from .map-pin.small to use your class */
-  width: 0.8em; /* Smaller size */
-  height: 0.8em;
+.map-pin.cyan { 
+  width: 0.6vw; /* Smaller size, scales proportionally */
+  height: 0.6vw;
   background: var(--highlight-color); /* Cyan */
   border: 1px solid #fff; /* Slightly thinner border for small pin */
 }
 /* Increased hover scale for better visibility */
 .map-pin:hover {
+  /* Using a fixed scale to make it easy to control the hover effect */
   transform: translate(-50%, -50%) scale(1.5); 
 }
-/* **NEW ADDITION: Ensuring the cyan pin also has a distinct hover scale** */
+/* Ensuring the cyan pin also has a distinct hover scale */
 .map-pin.cyan:hover {
-  transform: translate(-50%, -50%) scale(2.0); /* Scale up more since it's smaller */
+  transform: translate(-50%, -50%) scale(2.0);
 }
-/* **END NEW ADDITION** */
-
 /* Tooltip */
 .map-pin::after {
   content: attr(title);
@@ -350,6 +351,14 @@ h2 {
 .map-pin:hover::after {
   opacity: 1;
 }
+
+/* --- Responsive adjustment for very small screens if needed --- */
+@media (max-width: 480px) {
+  .map-pin {
+    border: 1px solid #fff; /* Thinner border on very small phones */
+  }
+}
+/* --- End of Map Pin Scaling Fix --- */
 
 /* ======================================= */
 /* DETAIL PAGES (Location, Session, Character) */
@@ -673,11 +682,24 @@ footer.site-footer {
   main.container {
     padding: 40px 12px 20px 12px;
   }
+
+  /* Timeline responsive adjustments */
+  .session-timeline {
+    padding-left: 30px;
+  }
+  .session-timeline::before {
+    left: 10px;
+  }
+  .timeline-item {
+    padding-left: 25px;
+  }
+  .timeline-item::before {
+    left: 7px;
+    width: 8px;
+    height: 8px;
+  }
 }
 
-/* Full site style - dark, responsive, Metal Mania/Texturina theme */
-
-/* ... existing styles ... */
 
 /* --- Session Log Layout (e.g., session1.html) --- */
 
@@ -743,26 +765,4 @@ footer.site-footer {
   margin: 0;
   color: var(--text-secondary);
   line-height: 1.6;
-}
-
-/* ... existing responsive adjustments ... */
-
-@media (max-width: 600px) {
-  /* ... existing mobile styles ... */
-  
-  /* Timeline responsive adjustments */
-  .session-timeline {
-    padding-left: 30px;
-  }
-  .session-timeline::before {
-    left: 10px;
-  }
-  .timeline-item {
-    padding-left: 25px;
-  }
-  .timeline-item::before {
-    left: 7px;
-    width: 8px;
-    height: 8px;
-  }
 }
