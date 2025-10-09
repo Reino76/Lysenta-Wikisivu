@@ -218,7 +218,7 @@ a:hover {
 }
 
 
-/* ======== CARD / GALLERY LAYOUTS ======== */
+/* ======== CARD / GALLERY LAYOUTS (including new Lore Box) ======== */
 .grid {
   display: grid;
   gap: 20px;
@@ -236,12 +236,22 @@ a:hover {
   border-radius: var(--radius);
   padding: 20px;
   height: 100%;
-  transition: transform 0.2s, box-shadow 0.2s;
+  /* Ensure all properties involved in the highlight have transitions */
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s; 
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(89, 166, 166, 0.5); /* Subtle muted cyan shadow */
+}
+
+/* NEW: Highlight effect for map pin target */
+.card.highlight-target {
+  /* Bright glow */
+  box-shadow: 0 0 25px 5px var(--highlight-color), 0 0 10px 2px rgba(255, 255, 255, 0.5);
+  /* Ensure highlight transition is fast */
+  transition: box-shadow 0.2s ease-in-out;
+  transform: scale(1.02); /* Pop out slightly */
 }
 
 .card h3 {
@@ -254,6 +264,33 @@ a:hover {
 
 .card p {
   color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* New style for foundational lore blocks */
+.lore-box {
+  background: var(--bg-secondary);
+  /* A strong, thematic border */
+  border: 2px solid var(--highlight-color); 
+  border-radius: var(--radius);
+  padding: 20px;
+  height: 100%;
+  /* Remove all card interaction/transition */
+  transition: none; 
+  transform: none; 
+  box-shadow: 0 0 15px rgba(89, 166, 166, 0.3); /* A static, soft glow */
+}
+
+.lore-box h3 {
+  font-family: 'Metal Mania', cursive;
+  color: var(--highlight-color); /* Highlight the title */
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.lore-box p {
+  color: var(--text-primary); /* Make the body text brighter */
   margin-bottom: 0;
 }
 

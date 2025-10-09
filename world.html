@@ -35,14 +35,14 @@
       <div class="map-wrap">
         <img src="assets/images/Lysenta_Raw.png" alt="World map of Lysenta">
         
-        <a class="map-pin" href="#exampleregion-card" style="top:20%; left:40%;" title="Exampleregion"></a>
+        <a class="map-pin general" href="#exampleregion-card" style="top:20%; left:40%;" title="Exampleregion"></a>
       </div>
       <div class="grid" style="margin-bottom: 40px; margin-top: 10px;">
-        <div class="card">
+        <div class="lore-box">
           <h3>Nielemät (The Swallowing)</h3>
           <p>Lysenta on maailma, jonka yllä leijuu ikuinen varjo. "Nielemät" on pimeä mahti, joka pyrkii kuluttamaan kaiken valon ja toivon. Tämä ikiaikainen taistelu hyvän ja pahan välillä määrittää koko maailman historian ja maantieteen.</p>
         </div>
-        <div class="card">
+        <div class="lore-box">
           <h3>Ensimmäinen Loimu ja Myytit</h3>
           <p>Muinaisten myyttien mukaan Lysenta syntyi Ensimmäisen Lohen (First Flame) sammuessa, jolloin pimeä aine alkoi sulaa todellisuuteen. Suuret mantereet ovat eristyksissä toisistaan myrskyisten merien ja maagisten esteiden vuoksi.</p>
         </div>
@@ -60,6 +60,34 @@
     </section>
   </main>
 </div>
+
+<script>
+  document.querySelectorAll('.map-pin').forEach(pin => {
+    pin.addEventListener('click', () => {
+      // 1. Get the target ID from the href (e.g., '#exampleregion-card')
+      const targetId = pin.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      // The element with the ID is the parent anchor (<a>)
+      const targetAnchor = document.querySelector(targetId);
+      
+      // FIX: The actual card to highlight is the nested <div> with class "card"
+      const targetCard = targetAnchor ? targetAnchor.querySelector('.card') : null;
+
+      if (targetCard) {
+        // 2. Apply the highlight class to the nested card
+        targetCard.classList.add('highlight-target');
+
+        // 3. Remove the highlight class after 1000ms (1 second)
+        setTimeout(() => {
+          targetCard.classList.remove('highlight-target');
+        }, 1000);
+      }
+      
+      // Allow the default link behavior (smooth scroll) to proceed
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Northlands – Locations of Lysent</title>
-<!-- Corrected path for assets due to new folder structure -->
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 
@@ -15,10 +14,8 @@
 <body class="dark">
 
 <header class="site-header">
-  <!-- Corrected path for index.html -->
   <a class="home" href="../../index.html">Takaisin alkusivulle</a>
   <nav class="nav">
-    <!-- Corrected paths for nav links -->
     <a href="../../world.html">Lysentan Maailma</a>
     <a href="../../characters.html">Hahmot</a>
     <a href="../../sessions.html">Pelikerrat</a>
@@ -39,28 +36,19 @@
     <h1 id="overview">Northlands</h1>
     <div class="location-meta"> A frigid region of ice, fjords, and old sagas.</div>
 
-    <!-- Map section now uses distinct pin types (town, general, landmark) -->
     <div class="map-wrap" style="max-width: 800px; margin: 30px auto;">
-        <!-- Placeholder map image -->
         <img src="../../assets/images/Lysenta_Raw.png" alt="Local map placeholder (uses world map)">
         
-        <!-- Pin 1: Hrafnborg (Capital) - TOWN Pin -->
-        <div class="map-pin town" style="top:50%; left:30%;" data-target="hrafnborg" title="Hrafnborg (Capital)"></div>
+        <a class="map-pin town" href="#hrafnborg" style="top:50%; left:30%;" title="Hrafnborg (Capital)"></a>
         
-        <!-- Pin 2: Frozen Pass - GENERAL Pin -->
-        <div class="map-pin general" style="top:35%; left:50%;" data-target="frozen-pass" title="Frozen Pass"></div>
+        <a class="map-pin general" href="#frozen-pass" style="top:35%; left:50%;" title="Frozen Pass"></a>
         
-        <!-- Pin 3: Dragonpeak Mountain - LANDMARK Pin -->
-        <div class="map-pin landmark" style="top:15%; left:65%;" data-target="dragonpeak" title="Dragonpeak Mountain"></div>
+        <a class="map-pin landmark" href="#dragonpeak" style="top:15%; left:65%;" title="Dragonpeak Mountain"></a>
 
-        <!-- EXAMPLE PINS to show off the new types -->
-        <!-- Example Town Pin -->
-        <div class="map-pin tower" style="top:70%; left:15%;" data-target="hrafnborg" title="Example Outpost Town"></div>
-        <!-- Example Landmark Pin -->
-        <div class="map-pin landmark" style="top:25%; left:80%;" data-target="dragonpeak" title="Example Hidden Shrine"></div>
+        <a class="map-pin tower" href="#hrafnborg" style="top:70%; left:15%;" title="Example Outpost Town"></a>
+        <a class="map-pin landmark" href="#dragonpeak" style="top:25%; left:80%;" title="Example Hidden Shrine"></a>
     </div>
 
-    <!-- FIX: Overrides the sticky positioning (position: sticky) from style.css's .infobox -->
     <div class="infobox" style="position: static; top: unset;">
       <h3>Northlands Summary</h3>
       <p><b>Type:</b> Continent/Region</p>
@@ -82,21 +70,18 @@
     <div class="category-break">Notable Locations</div>
     
     <div class="gallery">
-      <!-- Card 1: Hrafnborg - Target for the map pin -->
       <a href="hrafnborg.html">
         <div class="card" id="hrafnborg">
           <h3>Hrafnborg</h3>
           <p>A fortified village built around a sacred mead hall, and the current seat of the fractured Northlands alliance.</p>
         </div>
       </a>
-      <!-- Card 2: Frozen Pass - Target for the map pin -->
       <a href="frozen-pass.html">
         <div class="card" id="frozen-pass">
           <h3>Frozen Pass</h3>
           <p>A perilous mountain crossing haunted by trolls and worse. It is the only reliable path south when the ice thins.</p>
         </div>
       </a>
-      <!-- Card 3: Dragonpeak Mountain - Target for the map pin -->
       <a href="dragonpeak.html">
         <div class="card" id="dragonpeak">
           <h3>Dragonpeak Mountain</h3>
@@ -113,15 +98,26 @@
 </div>
 
 <script>
-  // Script for smooth scrolling map pins to the card sections within this page
   document.querySelectorAll('.map-pin').forEach(pin => {
     pin.addEventListener('click', () => {
-      const targetId = pin.getAttribute('data-target');
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        // Scroll smoothly to the card element
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+      // 1. Get the target ID from the href (e.g., '#hrafnborg')
+      const targetId = pin.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      // 2. Directly select the target card element, as the ID is on the div.card
+      const targetCard = document.querySelector(targetId); 
+
+      if (targetCard && targetCard.classList.contains('card')) {
+        // 3. Apply the highlight class
+        targetCard.classList.add('highlight-target');
+
+        // 4. Remove the highlight class after 1000ms (1 second)
+        setTimeout(() => {
+          targetCard.classList.remove('highlight-target');
+        }, 1000);
       }
+      
+      // Allow the default link behavior (smooth scroll) to proceed
     });
   });
 </script>
