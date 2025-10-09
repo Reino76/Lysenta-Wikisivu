@@ -19,50 +19,66 @@
         max-width: 600px;
         margin: 0 auto;
     }
-    .error-container h1 {
-        font-family: 'Metal Mania', cursive; /* Use the dramatic font for the big error */
-        font-size: 5rem;
-        color: #eee; /* Primary text color */
-        margin-bottom: 0.5rem;
-        text-shadow: none;
+    
+    /* New Dramatic Error Code Styling */
+    .error-code {
+        font-family: 'Metal Mania', cursive;
+        font-size: 8rem; /* Make it massive */
+        color: var(--highlight-color); /* Use the theme's highlight color (Cyan) */
+        margin-bottom: 0;
+        line-height: 1;
+        /* Add a dramatic cyan glow to fit the Metal Mania aesthetic */
+        text-shadow: 0 0 10px rgba(89, 166, 166, 0.8), 0 0 20px rgba(89, 166, 166, 0.5);
     }
+    
     .error-container h2 {
         font-size: 2rem;
-        color: #eee;
-        margin-top: 0;
-        margin-bottom: 30px;
+        color: var(--text-primary);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        /* Add a separator line using the border style from the site theme */
+        border-bottom: 2px solid var(--border-color); 
+        padding-bottom: 10px;
     }
+    
     .error-container p {
         font-size: 1.1rem;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         color: var(--text-secondary);
     }
+    
     .error-container .card {
         padding: 25px;
         background-color: var(--bg-secondary);
         border: 1px solid var(--border-color);
         display: inline-block;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        /* Use a standard, subtle card shadow */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        border-radius: var(--radius);
     }
+    
     .error-container .card a {
         display: block;
         padding: 12px 25px;
         
-        /* Updated Button Styling: Black and White */
-        background: var(--bg-primary); /* Dark background (black) */
-        border: 2px solid #eee; /* White border */
-        color: #eee; /* White text color */
+        /* THEME BUTTON STYLING: Cyan Highlight */
+        background: var(--highlight-color); /* Highlight background */
+        border: 2px solid var(--highlight-color); /* Full border matching the background */
+        color: var(--bg-primary); /* Dark text on bright background */
         
         text-decoration: none;
         font-weight: 700;
+        font-family: 'Metal Mania', cursive; /* Use the dramatic font for the button text */
         border-radius: var(--radius);
-        transition: all 0.2s ease-in-out; /* Smoother transition */
+        transition: all 0.2s ease-in-out; 
     }
+    
     .error-container .card a:hover {
-        /* Hover effect: Solid white background, black text, no glow */
-        background-color: #eee; /* Solid white background */
-        color: var(--bg-primary); /* Dark text color */
-        box-shadow: none; /* Removed the glow effect */
+        /* Hover effect: Invert to dark background, cyan border/text, and add a subtle glow */
+        background-color: var(--bg-primary); 
+        color: var(--highlight-color); 
+        border-color: var(--highlight-color);
+        box-shadow: 0 0 10px var(--highlight-color); /* Subtle cyan glow on hover */
     }
 </style>
 </head>
@@ -79,13 +95,12 @@
 
 <main class="container">
     <div class="error-container">
-        <!-- Dramatic error code and message -->
+        <div class="error-code">404</div>
+        
         <h2>Sivu, jota ei olla vielä luettu</h2>
         <p>Näille urille tarina ei vielä ole astunut</p>
         
-        <!-- Call to action using the card style for emphasis -->
         <div class="card">
-            <!-- Changed href to call history.back() for previous page navigation -->
             <a href="#" onclick="history.back(); return false;">Palaa Takaisin</a>
         </div>
     </div>

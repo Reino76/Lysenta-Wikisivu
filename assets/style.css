@@ -285,24 +285,57 @@ a:hover {
   display: block;
 }
 
+/* Base Pin Styling - No Background Color, uses SVG/icon */
 .map-pin {
   position: absolute;
-  width: 16px;
-  height: 16px;
-  background: var(--highlight-color);
-  border-radius: 50%;
-  border: 3px solid var(--bg-primary);
+  width: 20px; /* Increased size slightly for visibility of icons */
+  height: 20px;
+  background-color: transparent; /* Changed to transparent for SVG use */
+  border-radius: 0; /* Changed to 0 for non-dot pins */
+  border: none; /* Removed border */
   cursor: pointer;
   transform: translate(-50%, -50%);
   transition: transform 0.2s, box-shadow 0.2s;
   z-index: 10;
+  
+  /* Shared Icon Properties */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.8)); /* Small shadow for contrast */
 }
 
 .map-pin:hover {
-  transform: translate(-50%, -50%) scale(1.5);
+  transform: translate(-50%, -50%) scale(1.4); /* Increased scale on hover */
   box-shadow: 0 0 10px var(--highlight-color);
 }
 
+/* 1. Default/General Location Pin (The original dot) */
+.map-pin.general {
+  width: 16px;
+  height: 16px;
+  background-color: var(--highlight-color);
+  border-radius: 50%;
+  border: 3px solid var(--bg-primary);
+  background-image: none;
+}
+
+/* 2. Town/Structure Pin */
+.map-pin.tower {
+  background-image: url(../../assets/images/tower.png);
+}
+
+/* 3. Landmark Pin */
+.map-pin.landmark {
+  background-image: url(../../assets/images/mountain.png);
+}
+
+/* 4. Landmark Pin */
+.map-pin.town {
+  background-image: url(../../assets/images/town.png);
+}
+
+/* FIXED: Reduced padding, font-size, and margin-bottom to prevent clipping */
 .map-pin[title]:hover::after {
   content: attr(title);
   position: absolute;
@@ -312,68 +345,74 @@ a:hover {
   white-space: nowrap;
   background: var(--bg-secondary);
   color: var(--text-primary);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
+  padding: 3px 8px; /* Reduced padding */
+  border-radius: 4px; /* Slightly smaller radius */
+  font-size: 0.8rem; /* Reduced font size */
+  margin-bottom: 5px; /* Reduced margin */
   border: 1px solid var(--highlight-color);
   pointer-events: none;
+  z-index: 20; /* Added z-index to ensure visibility */
 }
 
-/* ======== CHARACTER INFOBOX LAYOUT ======== */
+/* ======== CHARACTER INFOBOX LAYOUT (Updated for style2 look) ======== */
 .page-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  display: grid; /* Use grid for better control */
+  grid-template-columns: 1fr 320px; /* Main content and infobox width */
+  gap: 24px;
+  margin-top: 16px;
 }
 
 @media (min-width: 900px) {
-  .page-layout {
-    flex-direction: row;
-  }
   .main-content {
-    flex: 3;
     min-width: 0;
-  }
-  .infobox-sidebar {
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px;
   }
 }
 
 .page-title {
   font-family: 'Metal Mania', cursive;
-  font-size: 3rem;
+  font-size: 2.5rem; /* Reduced size */
   color: var(--text-primary);
-  margin-top: 0;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 10px;
+  margin: 0 0 8px 0; /* Updated margins */
+  border-bottom: 3px solid #333; /* Darker, thicker line */
+  padding-bottom: 12px; /* Increased padding */
 }
 
 .category-tag {
   display: inline-block;
-  background: var(--highlight-color);
-  color: var(--bg-primary);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
+  background: var(--bg-secondary); /* Changed background */
+  border: 1px solid var(--border-color); /* Added border */
+  color: var(--text-secondary); /* Muted text color */
+  padding: 4px 12px; /* Updated padding */
+  border-radius: 6px; /* Reduced radius */
+  font-weight: 400; /* Removed bold */
+  font-size: 0.85rem; /* Reduced size */
+  margin-bottom: 24px; /* Increased bottom margin */
 }
 
-.infobox-sidebar {
+.infobox { /* Updated infobox styling for character stat block */
   background: var(--bg-secondary);
-  padding: 20px;
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
+  padding: 20px; /* Increased padding */
   height: fit-content;
+  position: sticky; /* Make it sticky */
+  top: 24px;
+}
+
+.infobox h3 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.3rem;
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+  text-align: center;
+  border-bottom: 2px solid #333;
+  padding-bottom: 8px;
 }
 
 .infobox-section {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px dashed var(--border-color);
+  margin-bottom: 16px; /* Reduced margin */
+  padding-bottom: 0; /* Remove padding */
+  border-bottom: none; /* Remove border */
 }
 
 .infobox-section:last-child {
@@ -383,19 +422,46 @@ a:hover {
 }
 
 .infobox-section h4 {
-  font-family: 'Metal Mania', cursive;
+  font-size: 0.75rem; /* Smaller, uppercase */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-family: 'Texturina', serif; /* Use Texturina for labels */
+}
+
+/* Stat Grid for STR/DEX/CON... */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 8px;
+}
+.stat {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.stat-label {
+  font-weight: 700;
   color: var(--highlight-color);
-  margin-top: 0;
-  margin-bottom: 10px;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 4px;
+}
+.stat-value {
+  color: #fff;
   font-size: 1.1rem;
 }
 
 .infobox-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 3px 0;
-  border-bottom: 1px dotted var(--border-color);
-  font-size: 0.95rem;
+  display: block; /* Change from flex to block for label/value stacking */
+  padding: 8px 0;
+  border-bottom: 1px solid #222; /* Thinner line */
+  font-size: 0.9rem;
 }
 
 .infobox-item:last-of-type {
@@ -403,9 +469,32 @@ a:hover {
 }
 
 .infobox-label {
-  font-weight: 700;
-  color: var(--text-secondary);
+  font-weight: 400; /* Lighter weight */
+  color: #888; /* Darker color */
+  font-size: 0.85rem;
+  display: block; /* Ensures label is on its own line */
+  margin-bottom: 4px;
 }
+
+/* New ability block style */
+.ability-block {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--highlight-color); /* Highlight bar on left */
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 0 6px 6px 0;
+}
+.ability-block strong { 
+  display: block; 
+  margin-bottom: 6px; 
+  font-size: 1.05rem; 
+  color: #fff; /* White title */
+}
+.ability-block p {
+  margin-bottom: 0;
+  color: var(--text-primary);
+}
+
 
 /* Session Table Styles (Sessions Page) */
 .session-table {
@@ -519,4 +608,21 @@ a:hover {
   color: var(--text-primary);
   border-bottom: 1px dotted var(--border-color);
   padding-bottom: 5px;
+}
+
+@media (max-width: 900px) {
+  .page-layout { grid-template-columns: 1fr; }
+  .infobox { position: relative; top: 0; }
+  .page-title { font-size: 2rem; }
+}
+
+/* Restore the original infobox-item style for smaller screens if needed, but keeping the new one for consistency */
+@media (max-width: 600px) {
+  .infobox-item {
+    padding: 8px 0;
+    font-size: 0.9rem;
+  }
+  .infobox-label {
+    font-size: 0.85rem;
+  }
 }

@@ -39,22 +39,30 @@
     <h1 id="overview">Northlands</h1>
     <div class="location-meta"> A frigid region of ice, fjords, and old sagas.</div>
 
-    <!-- Map section now uses cyan pins to scroll to local cards -->
+    <!-- Map section now uses distinct pin types (town, general, landmark) -->
     <div class="map-wrap" style="max-width: 800px; margin: 30px auto;">
         <!-- Placeholder map image -->
-        <img src="../../assets/images/world-map.svg" alt="Local map placeholder (uses world map)">
+        <img src="../../assets/images/Lysenta_Raw.png" alt="Local map placeholder (uses world map)">
         
-        <!-- Cyan Pins - Jump to local card sections below (using data-target) -->
-        <!-- Pin 1: Hrafnborg (Capital) -->
-        <div class="map-pin cyan" style="top:50%; left:30%;" data-target="hrafnborg" title="Hrafnborg"></div>
-        <!-- Pin 2: Frozen Pass -->
-        <div class="map-pin cyan" style="top:35%; left:50%;" data-target="frozen-pass" title="Frozen Pass"></div>
-        <!-- Pin 3: Dragonpeak Mountain -->
-        <div class="map-pin cyan" style="top:15%; left:65%;" data-target="dragonpeak" title="Dragonpeak Mountain"></div>
+        <!-- Pin 1: Hrafnborg (Capital) - TOWN Pin -->
+        <div class="map-pin town" style="top:50%; left:30%;" data-target="hrafnborg" title="Hrafnborg (Capital)"></div>
+        
+        <!-- Pin 2: Frozen Pass - GENERAL Pin -->
+        <div class="map-pin general" style="top:35%; left:50%;" data-target="frozen-pass" title="Frozen Pass"></div>
+        
+        <!-- Pin 3: Dragonpeak Mountain - LANDMARK Pin -->
+        <div class="map-pin landmark" style="top:15%; left:65%;" data-target="dragonpeak" title="Dragonpeak Mountain"></div>
+
+        <!-- EXAMPLE PINS to show off the new types -->
+        <!-- Example Town Pin -->
+        <div class="map-pin tower" style="top:70%; left:15%;" data-target="hrafnborg" title="Example Outpost Town"></div>
+        <!-- Example Landmark Pin -->
+        <div class="map-pin landmark" style="top:25%; left:80%;" data-target="dragonpeak" title="Example Hidden Shrine"></div>
     </div>
 
-    <div class="infobox">
-      <h3>Northlands</h3>
+    <!-- FIX: Overrides the sticky positioning (position: sticky) from style.css's .infobox -->
+    <div class="infobox" style="position: static; top: unset;">
+      <h3>Northlands Summary</h3>
       <p><b>Type:</b> Continent/Region</p>
       <p><b>Capital:</b> Hrafnborg</p>
       <p><b>Population:</b> Sparse clans, raiders, exiles</p>
