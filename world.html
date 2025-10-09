@@ -36,7 +36,7 @@
         <img src="assets/images/Lysenta_Raw.png" alt="World map of Lysenta">
         
         <a class="map-pin general" href="#exampleregion-card" style="top:20%; left:40%;" title="Exampleregion"></a>
-      </div>
+        </div>
       <div class="grid" style="margin-bottom: 40px; margin-top: 10px;">
         <div class="lore-box">
           <h3>Nielemät (The Swallowing)</h3>
@@ -61,30 +61,72 @@
   </main>
 </div>
 
+<div id="map-tooltip">
+  <h3 id="tooltip-title">Location Name</h3>
+  <button id="tooltip-button">Go to Details</button>
+</div>
+
 <script>
-  document.querySelectorAll('.map-pin').forEach(pin => {
-    pin.addEventListener('click', () => {
-      // 1. Get the target ID from the href (e.g., '#exampleregion-card')
+  document.addEventListener('DOMContentLoaded', () => {
+    const mapWrap = document.querySelector('.map-wrap');
+    if (!mapWrap) return;
+
+    const tooltip = document.getElementById('map-tooltip');
+    const tooltipTitle = document.getElementById('tooltip-title');
+    const tooltipButton = document.getElementById('tooltip-button');
+    const mapPins = document.querySelectorAll('.map-pin');
+    let hideTimeout;
+
+    const showTooltip = (pin) => {
+      clearTimeout(hideTimeout); // Cancel any pending hide command
+
+      const mapRect = mapWrap.getBoundingClientRect();
+      const locationName = pin.getAttribute('title');
       const targetId = pin.getAttribute('href');
-      if (!targetId || targetId === '#') return;
 
-      // The element with the ID is the parent anchor (<a>)
-      const targetAnchor = document.querySelector(targetId);
-      
-      // FIX: The actual card to highlight is the nested <div> with class "card"
-      const targetCard = targetAnchor ? targetAnchor.querySelector('.card') : null;
+      // Calculate pin's absolute position on the page
+      const pinTopPercent = parseFloat(pin.style.top);
+      const pinLeftPercent = parseFloat(pin.style.left);
+      const pinAbsX = mapRect.left + window.scrollX + (pinLeftPercent / 100) * mapWrap.offsetWidth;
+      const pinAbsY = mapRect.top + window.scrollY + (pinTopPercent / 100) * mapWrap.offsetHeight;
 
+      // Populate, position, and show the tooltip
+      tooltipTitle.textContent = locationName;
+      tooltip.style.top = `${pinAbsY}px`;
+      tooltip.style.left = `${pinAbsX}px`;
+      tooltip.dataset.target = targetId;
+      tooltip.classList.add('visible');
+    };
+
+    const hideTooltip = () => {
+      hideTimeout = setTimeout(() => {
+        tooltip.classList.remove('visible');
+      }, 300); // A small delay before hiding
+    };
+
+    mapPins.forEach(pin => {
+      pin.addEventListener('mouseenter', () => showTooltip(pin));
+      pin.addEventListener('mouseleave', hideTooltip);
+    });
+
+    // Keep tooltip visible when mouse is over it
+    tooltip.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+    tooltip.addEventListener('mouseleave', hideTooltip);
+
+    // Button click functionality
+    tooltipButton.addEventListener('click', () => {
+      const targetId = tooltip.dataset.target;
+      if (!targetId) return;
+
+      const targetCard = document.querySelector(targetId + ' .card') || document.querySelector(targetId);
       if (targetCard) {
-        // 2. Apply the highlight class to the nested card
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         targetCard.classList.add('highlight-target');
-
-        // 3. Remove the highlight class after 1000ms (1 second)
         setTimeout(() => {
           targetCard.classList.remove('highlight-target');
-        }, 1000);
+        }, 1200);
       }
-      
-      // Allow the default link behavior (smooth scroll) to proceed
+      tooltip.classList.remove('visible');
     });
   });
 </script>

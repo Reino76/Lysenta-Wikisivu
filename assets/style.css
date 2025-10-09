@@ -306,8 +306,110 @@ a:hover {
   display: block;
 }
 
-/* ======== MAP WIDGETS (omitted for brevity) ======== */
+/* ======== MAP WIDGETS ======== */
+.map-wrap {
+  position: relative;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  /* overflow: hidden; <-- This was removed to allow the tooltip to appear outside the map borders */
+  line-height: 0;
+}
 
+.map-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius); /* Ensures image corners match the container */
+}
+
+/* DEFAULT PIN STYLE */
+.map-pin {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.8);
+  background-color: rgba(89, 166, 166, 0.9); /* Cyan */
+  transform: translate(-50%, -50%); 
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.map-pin:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* IMAGE PIN STYLES */
+.article .map-pin {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.article .map-pin.town { background-image: url('images/town.png'); }
+.article .map-pin.landmark { background-image: url('images/mountain.png'); }
+.article .map-pin.tower { background-image: url('images/tower.png'); }
+
+
+/* ======== MAP TOOLTIP (ANIMATED) ======== */
+#map-tooltip {
+  position: absolute; /* Positioned relative to the page now */
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  z-index: 100; /* High z-index to ensure it's on top of everything */
+  text-align: center;
+  width: max-content;
+  max-width: 220px;
+  
+  /* Animation properties */
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -110%) scale(0.9); /* Start slightly smaller and higher up */
+  pointer-events: none; /* Can't be interacted with when hidden */
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+#map-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -130%) scale(1); /* End at full size, slightly higher */
+  pointer-events: auto;
+}
+
+#map-tooltip h3 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  font-family: 'Texturina', serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+#map-tooltip button {
+  background-color: var(--highlight-color);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Texturina', serif;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+#map-tooltip button:hover {
+  background-color: #72ffff;
+}
 
 /* ======== CHARACTER INFOBOX LAYOUT (omitted for brevity) ======== */
 
