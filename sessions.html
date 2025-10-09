@@ -35,7 +35,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr onclick="window.location.href='sessions/example_session.html'">
+        <tr class="session-row" data-href="sessions/example_session.html">
           <td class="date">2025-10-07</td>
           <td class="title">Esimerkkikerta</td>
           <td class="summary">Lyhyt kuvaus esimerkkikerran tapahtumista.</td>
@@ -44,6 +44,22 @@
     </table>
   </section>
 </main>
+
+<script>
+  document.querySelectorAll('.session-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const targetUrl = row.getAttribute('data-href');
+      
+      // 1. Apply the flash class
+      row.classList.add('row-flash');
+
+      // 2. Wait 200ms for the highlight to flash, then navigate
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 200);
+    });
+  });
+</script>
 
 </body>
 </html>
