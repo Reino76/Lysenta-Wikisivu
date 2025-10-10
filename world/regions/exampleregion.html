@@ -112,19 +112,17 @@
     let hideTimeout;
 
     const showTooltip = (pin) => {
-      clearTimeout(hideTimeout); // Cancel any pending hide command
+      clearTimeout(hideTimeout);
 
       const mapRect = mapWrap.getBoundingClientRect();
       const locationName = pin.getAttribute('title');
       const targetId = pin.getAttribute('href');
 
-      // Calculate pin's absolute position on the page
       const pinTopPercent = parseFloat(pin.style.top);
       const pinLeftPercent = parseFloat(pin.style.left);
       const pinAbsX = mapRect.left + window.scrollX + (pinLeftPercent / 100) * mapWrap.offsetWidth;
       const pinAbsY = mapRect.top + window.scrollY + (pinTopPercent / 100) * mapWrap.offsetHeight;
 
-      // Populate, position, and show the tooltip
       tooltipTitle.textContent = locationName;
       tooltip.style.top = `${pinAbsY}px`;
       tooltip.style.left = `${pinAbsX}px`;
@@ -135,7 +133,7 @@
     const hideTooltip = () => {
       hideTimeout = setTimeout(() => {
         tooltip.classList.remove('visible');
-      }, 300); // A small delay before hiding
+      }, 300);
     };
 
     mapPins.forEach(pin => {
@@ -143,16 +141,15 @@
       pin.addEventListener('mouseleave', hideTooltip);
     });
 
-    // Keep tooltip visible when mouse is over it
     tooltip.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
     tooltip.addEventListener('mouseleave', hideTooltip);
 
-    // Button click functionality
     tooltipButton.addEventListener('click', () => {
       const targetId = tooltip.dataset.target;
       if (!targetId) return;
 
-      const targetCard = document.querySelector(targetId + ' .card') || document.querySelector(targetId);
+      // **FIXED LOGIC**
+      const targetCard = document.querySelector(targetId);
       if (targetCard) {
         targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         targetCard.classList.add('highlight-target');

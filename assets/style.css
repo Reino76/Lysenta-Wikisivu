@@ -709,3 +709,12 @@ a:hover {
     font-size: 0.85rem;
   }
 }
+
+/* NEW: Highlight effect for map pin target */
+.card.highlight-target {
+  /* Bright glow */
+  box-shadow: 0 0 25px 5px var(--highlight-color), 0 0 10px 2px rgba(255, 255, 255, 0.5);
+  /* Ensure highlight transition is fast */
+  transition: box-shadow 0.2s ease-in-out;
+  transform: scale(1.02); /* Pop out slightly */
+}
