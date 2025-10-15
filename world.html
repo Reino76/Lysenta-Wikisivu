@@ -1,145 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lysenta Kokonaisuudessaan</title>
-<link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Erratan – Mantereet Lysentissä</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark">
+<body class="light">
 
 <header class="site-header">
-  <a class="home" href="index.html">Takaisin alkusivulle</a>
+  <a class="home" href="../../index.html">Takaisin alkusivulle</a>
   <nav class="nav">
-    <a href="world.html">Lysentan Maailma</a>
-    <a href="characters.html">Hahmot</a>
-    <a href="sessions.html">Pelikerrat</a>
+    <a href="../../world.html">Lysentan Maailma</a>
+    <a href="../../characters.html">Hahmot</a>
+    <a href="../../sessions.html">Pelikerrat</a>
   </nav>
 </header>
 
 <div class="page-content">
-  <nav class="sidebar">
-    <h2>Maanosat</h2>
-    <a href="world/regions/erratan.html" class="category-link">Erratan</a>
-        <a href="world/regions/erratan.html" class="category-link">Kohn-Rotal</a>
-              <a href="world/regions/kartoittamattomat_etelamaat.html" class="category-link">Kohn-Rotal</a>
 
+  <nav class="sidebar">
+    <h2>Erratanin Sijainnit</h2>
+    <a href="#yleiskatsaus" class="active">Erratan (Yleiskatsaus)</a>
+    <a href="#sysipuu">Sysipuu (Pääkaupunki)</a>
+    <a href="#sumusola">Sumusola</a>
+    <a href="#hiidenkallio">Hiidenkallio</a>
   </nav>
 
   <main class="container">
-    <section>
-      <h2>Lysenta Kokonaisuudessaan</h2>
+    <div class="page-layout">
+      <div class="main-content">
+        <h1 id="yleiskatsaus" class="page-title">Erratan</h1>
+        <div class="location-meta">Loputtomiin kiemurtelevien lumottujen metsien maita.</div>
 
-      <div class="map-wrap">
-        <img src="assets/images/Lysenta_Raw.png" alt="World map of Lysenta">
+        <aside class="infobox">
+          <h3>Yhteenveto</h3>
+          <p><strong>Tyyppi:</strong> Manner</p>
+          <p><strong>Pääkaupunki:</strong> Sysipuu</p>
+          <p><strong>Väestö:</strong> Metsän kansoja, henkiolentoja, erakoita</p>
+          <p><strong>Tunnettu:</strong> Elävästä metsästä, taikuudesta, kadonneista poluista</p>
+        </aside>
+
+        <h2>Yleiskatsaus</h2>
+        <p>Erratan on laaja, lähes kokonaan ikivihreän metsän peittämä manner. Sen tiheiköissä sanotaan asuvan vanhoja henkiä, ja harvat polut muuttavat muotoaan auringonlaskun jälkeen. Ilmassa leijuu jatkuvasti maaginen energia, joka tekee alueesta sekä kauniin että arvaamattoman. Täällä luonto on kuningas, ja sivilisaatio on vain pieni vieras sen valtakunnassa.</p>
         
-        <a class="map-pin general" href="#erratan-card" style="top:10%; left:43%;" title="Erratan"></a>
-        <a class="map-pin general" href="#kohnrotal-card" style="top:22%; left:79%;" title="Koh-Rotal"></a>
-                <a class="map-pin general" href="#kartoittamattomat_etelamaat-card" style="top:93%; left:50%;" title="Kartoittamattomat Etelämaat"></a>
-        </div>
-      <div class="grid" style="margin-bottom: 40px; margin-top: 10px;">
-        <div class="lore-box">
-          <h3>PALJANTO</h3>
-          <p>Lysentan ylle on kauan sitten langennut mystisen, kammottavan maineen saaneen PALJANNON mahti.<br>-<br> Kuin vuoristojen huiput konsanaan, nousee Lysentan horisontissa yliluonnollinen näky.<br>-<br> Niin sankka on Paljannon sumu, ettei sitä miekallaankaan katko.</p>
-        </div>
-        <div class="lore-box">
-          <h3>Box 2</h3>
-          <p>Box 2</p>
-        </div>
-      </div>
-       <div class="gallery">
-        <a href="world/regions/erratan.html">
-          <div class="card" id="erratan-card">
-            <h3>Erratan</h3>
-            <p>Loputtomiin kiemurtelevien lumottujen metsien maita. </p>
-          </div>
-        </a>
-        <a href="world/regions/kohnrotal.html">
-          <div class="card" id="kohnrotal-card">
-            <h3>Kohn-Rotal</h3>
-            <p>Sotaisa, vuoristojen lomissa siintävien korkeiden kaupunkien kehto.</p>
-          </div>
-        </a>
-         <a href="world/regions/kartoittamattomat_etelamaat.html">
-          <div class="card" id="kartoittamattomat_etelamaat-card">
-            <h3>Kartoittamattomat Etelämaat</h3>
-            <p>Kuivaa, kuollutta ja laajalti epäasutettavaa maaperää.</p>
-          </div>
-        </a>
-      </div>
+        <h2>Paikallinen Tarina</h2>
+        <p>Tarinoiden mukaan Erratanin metsä on elävä olento, joka uneksii maailman luomisesta. Sen unet synnyttävät harhakuvia ja houkuttelevat matkaajia syvemmälle siimekseen, josta harva palaa. Alueen asukkaat, metsän lapset, ovat oppineet elämään tasapainossa metsän kanssa, kunnioittaen sen lakeja ja karttaen sen pimeimpiä sydänmaita.</p>
 
-    </section>
+        <section id="sysipuu">
+          <h2>Sysipuu (Pääkaupunki)</h2>
+          <p>Sysipuu ei ole kaupunki perinteisessä mielessä, vaan joukko valtavien, mustakaarnaisten puiden oksille ja juurakoihin rakennettuja asumuksia. Se on Erratanin suurin asutuskeskus, jossa metsän eri kansat käyvät kauppaa ja neuvottelevat rauhasta. Kaupungin keskuksena on vanhin puu, jonka juurilla asuu metsän vanhimpien neuvosto.</p>
+        </section>
+
+        <section id="sumusola">
+          <h2>Sumusola</h2>
+          <p>Tämä syvä, jatkuvan sumun peittämä sola on ainoa tunnettu reitti Erratanin halki itärannikolle. Sumu ei ole luonnollista, vaan se on täynnä menneisyyden kaikuja ja harhanäkyjä. Solan ylittäminen vaatii paitsi taitoa suunnistuksessa, myös vahvaa mieltä, joka kestää sumun kuiskaukset.</p>
+        </section>
+
+        <section id="hiidenkallio">
+          <h2>Hiidenkallio</h2>
+          <p>Korkealle metsän ylle kohoava paljas kallio, jolla asuu tarujen mukaan muinainen ja viisas hiisi. Monet matkaavat kalliolle etsimään neuvoja tai suorittamaan voimankokeita, mutta hiisi näyttäytyy vain niille, jotka se katsoo arvoisekseen. Kallion laelta sanotaan näkevän koko Erratanin.</p>
+        </section>
+      </div>
+    </div>
   </main>
 </div>
 
-<div id="map-tooltip">
-  <h3 id="tooltip-title">Location Name</h3>
-  <button id="tooltip-button">Go to Details</button>
-</div>
-
 <script>
+  // Simple script to manage active link in sidebar
   document.addEventListener('DOMContentLoaded', () => {
-    const mapWrap = document.querySelector('.map-wrap');
-    if (!mapWrap) return;
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    const sections = document.querySelectorAll('.main-content section, .main-content h1[id]');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebarLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${entry.target.id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
 
-    const tooltip = document.getElementById('map-tooltip');
-    const tooltipTitle = document.getElementById('tooltip-title');
-    const tooltipButton = document.getElementById('tooltip-button');
-    const mapPins = document.querySelectorAll('.map-pin');
-    let hideTimeout;
-
-    const showTooltip = (pin) => {
-      clearTimeout(hideTimeout);
-
-      const mapRect = mapWrap.getBoundingClientRect();
-      const locationName = pin.getAttribute('title');
-      const targetId = pin.getAttribute('href');
-
-      const pinTopPercent = parseFloat(pin.style.top);
-      const pinLeftPercent = parseFloat(pin.style.left);
-      const pinAbsX = mapRect.left + window.scrollX + (pinLeftPercent / 100) * mapWrap.offsetWidth;
-      const pinAbsY = mapRect.top + window.scrollY + (pinTopPercent / 100) * mapWrap.offsetHeight;
-
-      tooltipTitle.textContent = locationName;
-      tooltip.style.top = `${pinAbsY}px`;
-      tooltip.style.left = `${pinAbsX}px`;
-      tooltip.dataset.target = targetId;
-      tooltip.classList.add('visible');
-    };
-
-    const hideTooltip = () => {
-      hideTimeout = setTimeout(() => {
-        tooltip.classList.remove('visible');
-      }, 300);
-    };
-
-    mapPins.forEach(pin => {
-      pin.addEventListener('mouseenter', () => showTooltip(pin));
-      pin.addEventListener('mouseleave', hideTooltip);
-    });
-
-    tooltip.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
-    tooltip.addEventListener('mouseleave', hideTooltip);
-
-    tooltipButton.addEventListener('click', () => {
-      const targetId = tooltip.dataset.target;
-      if (!targetId) return;
-
-      // **FIXED LOGIC**
-      const targetCard = document.querySelector(targetId);
-      if (targetCard) {
-        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        targetCard.classList.add('highlight-target');
-        setTimeout(() => {
-          targetCard.classList.remove('highlight-target');
-        }, 1200);
-      }
-      tooltip.classList.remove('visible');
+    sections.forEach(section => {
+      observer.observe(section);
     });
   });
 </script>
