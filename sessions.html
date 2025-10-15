@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pelikerrat</title>
+<title>Pelikerrat | Lysentan Nielemät</title>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
@@ -24,38 +24,47 @@
 
 <main class="container narrow">
   <section>
-    <h2>Pelikerrat</h2>
+    <h1 class="page-title">Pelikerrat</h1>
 
     <table class="session-table">
       <thead>
         <tr>
-          <th>Päivämäärä</th>
-          <th>Otsikko</th>
-          <th>Yhteenveto</th>
+          <th scope="col">Päivämäärä</th>
+          <th scope="col">Otsikko</th>
+          <th scope="col">Yhteenveto</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="session-row" data-href="sessions/example_session.html">
+        <tr class="session-row">
           <td class="date">2025-10-07</td>
-          <td class="title">Esimerkkikerta</td>
+          <td class="title"><a href="sessions/example_session.html">Esimerkkikerta</a></td>
           <td class="summary">Lyhyt kuvaus esimerkkikerran tapahtumista.</td>
         </tr>
-      </tbody>
+        </tbody>
     </table>
   </section>
 </main>
 
 <script>
   document.querySelectorAll('.session-row').forEach(row => {
-    row.addEventListener('click', () => {
-      const targetUrl = row.getAttribute('data-href');
+    row.addEventListener('click', (event) => {
+      const link = row.querySelector('a');
+      if (!link) return;
+
+      // Don't interfere with right-clicks or special clicks
+      if (event.ctrlKey || event.metaKey || event.which > 1) {
+        return;
+      }
+
+      // Prevent the link from navigating immediately
+      event.preventDefault();
       
-      // 1. Apply the flash class
+      // 1. Apply the flash class for visual feedback
       row.classList.add('row-flash');
 
-      // 2. Wait 200ms for the highlight to flash, then navigate
+      // 2. Wait for the flash animation, then go to the link's URL
       setTimeout(() => {
-        window.location.href = targetUrl;
+        window.location.href = link.href;
       }, 200);
     });
   });

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Characters</title>
+<title>Hahmot | Lysentan Nielemät</title>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
@@ -26,35 +26,44 @@
 
   <nav class="sidebar">
     <h2>Kategoriat</h2>
-    <a href="#pc" class="category-link">Pelaajien Hahmot</a>
-    <a href="#npc" class="category-link">Sivuhahmot</a>
-    <a href="#faction" class="category-link">Ryhmät</a>
-    <a href="#creature" class="category-link">Olennot</a>
+    <a href="#pc">Pelaajien Hahmot</a>
+    <a href="#npc">Sivuhahmot</a>
+    <a href="#faction">Ryhmät</a>
+    <a href="#creature">Olennot</a>
 
     <h2>Hahmot</h2>
     <a href="characters/pc/example_character.html">Esimerkkihahmo</a>
   </nav>
 
   <main class="container">
-    <section>
-      <div id="pc" class="category-break">Pelaajien Hahmot</div>
+    <section id="pc" aria-labelledby="pc-title">
+      <h2 id="pc-title" class="category-break">Pelaajien Hahmot</h2>
       <div class="gallery">
-        <a href="characters/pc/example_character.html" id="example-character-card">
+        <a href="characters/pc/example_character.html" class="card-link">
           <div class="card">
             <h3>Esimerkkihahmo</h3>
             <p>Esimerkkihahmon kuvaus</p>
           </div>
         </a>
       </div>
+    </section>
 
-      <div id="npc" class="category-break">Sivuhahmot</div>
-      <div class="gallery"></div>
+    <section id="npc" aria-labelledby="npc-title">
+      <h2 id="npc-title" class="category-break">Sivuhahmot</h2>
+      <div class="gallery">
+        </div>
+    </section>
 
-      <div id="faction" class="category-break">Ryhmät</div>
-      <div class="gallery"></div>
+    <section id="faction" aria-labelledby="faction-title">
+      <h2 id="faction-title" class="category-break">Ryhmät</h2>
+      <div class="gallery">
+        </div>
+    </section>
 
-      <div id="creature" class="category-break">Olennot</div>
-      <div class="gallery"></div>
+    <section id="creature" aria-labelledby="creature-title">
+      <h2 id="creature-title" class="category-break">Olennot</h2>
+      <div class="gallery">
+        </div>
     </section>
   </main>
 </div>
