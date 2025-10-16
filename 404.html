@@ -1,110 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>404 | Kadonnut Sivu</title>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-    /* Custom styling for the 404 page to make the error dramatic */
-    .error-container {
-        text-align: center;
-        padding: 80px 20px;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    
-    /* New Dramatic Error Code Styling */
-    .error-code {
-        font-family: 'Metal Mania', cursive;
-        font-size: 8rem; /* Make it massive */
-        color: var(--highlight-color); /* Use the theme's highlight color (Cyan) */
-        margin-bottom: 0;
-        line-height: 1;
-        /* Add a dramatic cyan glow to fit the Metal Mania aesthetic */
-        text-shadow: 0 0 10px rgba(89, 166, 166, 0.8), 0 0 20px rgba(89, 166, 166, 0.5);
-    }
-    
-    .error-container h2 {
-        font-size: 2rem;
-        color: var(--text-primary);
-        margin-top: 10px;
-        margin-bottom: 20px;
-        /* Add a separator line using the border style from the site theme */
-        border-bottom: 2px solid var(--border-color); 
-        padding-bottom: 10px;
-    }
-    
-    .error-container p {
-        font-size: 1.1rem;
-        margin-bottom: 40px;
-        color: var(--text-secondary);
-    }
-    
-    .error-container .card {
-        padding: 25px;
-        background-color: var(--bg-secondary);
-        border: 1px solid var(--border-color);
-        display: inline-block;
-        /* Use a standard, subtle card shadow */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        border-radius: var(--radius);
-    }
-    
-    .error-container .card a {
-        display: block;
-        padding: 12px 25px;
-        
-        /* THEME BUTTON STYLING: Cyan Highlight */
-        background: var(--highlight-color); /* Highlight background */
-        border: 2px solid var(--highlight-color); /* Full border matching the background */
-        color: var(--bg-primary); /* Dark text on bright background */
-        
-        text-decoration: none;
-        font-weight: 700;
-        font-family: 'Metal Mania', cursive; /* Use the dramatic font for the button text */
-        border-radius: var(--radius);
-        transition: all 0.2s ease-in-out; 
-    }
-    
-    .error-container .card a:hover {
-        /* Hover effect: Invert to dark background, cyan border/text, and add a subtle glow */
-        background-color: var(--bg-primary); 
-        color: var(--highlight-color); 
-        border-color: var(--highlight-color);
-        box-shadow: 0 0 10px var(--highlight-color); /* Subtle cyan glow on hover */
-    }
-</style>
 </head>
 <body class="dark">
-
 <header class="site-header">
-  <a class="home" href="index.html">Takaisin alkusivulle</a>
+  <a class="home" href="/index.html">Takaisin alkusivulle</a>
   <nav class="nav">
-    <a href="world.html">Lysentan Maailma</a>
-    <a href="characters.html">Hahmot</a>
-    <a href="sessions.html">Pelikerrat</a>
+    <a href="/world.html">Lysentan Maailma</a>
+    <a href="/characters.html">Hahmot</a>
+    <a href="/sessions.html">Pelikerrat</a>
   </nav>
 </header>
-
 <main class="container">
     <div class="error-container">
         <div class="error-code">404</div>
-        
         <h2>Sivu, jota ei olla vielä luettu</h2>
-        <p>Näille urille tarina ei vielä ole astunut</p>
-        
-        <div class="card">
-            <a href="#" onclick="history.back(); return false;">Palaa Takaisin</a>
-        </div>
+        <p>Näille urille tarina ei vielä ole astunut.</p>
+        <a href="/index.html" class="home-button">Palaa Etusivulle</a>
     </div>
 </main>
-
 </body>
 </html>
