@@ -1,7 +1,7 @@
 /*
 ==================================================
   Lysentan Nielemät - Main Stylesheet
-  Version: 3.7 (Tabbed Wiki Interface)
+  Version: 3.9 (Enhanced Map Tooltips)
 ==================================================
 */
 
@@ -228,18 +228,24 @@ a:hover { text-decoration: none; color: white; }
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  padding: 15px;
+  padding: 15px 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   z-index: 100;
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, -120%);
   transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-  min-width: 200px;
+  min-width: 240px;
   text-align: center;
 }
 #map-tooltip.visible { opacity: 1; visibility: visible; transform: translate(-50%, -130%); }
-#map-tooltip h3 { margin: 0 0 15px 0; font-family: 'Metal Mania', cursive; font-size: 1.5rem; color: var(--highlight-color); }
+#map-tooltip h3 { margin: 0 0 10px 0; font-family: 'Metal Mania', cursive; font-size: 1.5rem; color: var(--highlight-color); }
+#tooltip-description {
+  margin: 0 0 15px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
 .lore-box { background: var(--bg-secondary); padding: 25px; border-radius: var(--radius); border: 1px solid var(--border-color); }
 .lore-box h3 { font-family: 'Metal Mania', cursive; font-size: 1.8rem; color: var(--highlight-color); margin: 0 0 10px 0; }
 .card.highlight-target { animation: pulse-highlight 1.5s ease-out; }
@@ -275,9 +281,10 @@ a:hover { text-decoration: none; color: white; }
 .infobox p { margin: 0 0 10px 0; font-size: 1rem; }
 .infobox p:last-child { margin-bottom: 0; }
 .infobox strong { color: var(--text-primary); }
-.error-container { text-align: center; padding: 80px 20px; max-width: 600px; margin: 0 auto; }
+.error-container, .placeholder-container { text-align: center; padding: 80px 20px; max-width: 600px; margin: 0 auto; }
 .error-code { font-family: 'Metal Mania', cursive; font-size: 8rem; color: var(--highlight-color); line-height: 1; text-shadow: 0 0 10px rgba(89, 166, 166, 0.8); }
-.error-container h2 { font-size: 2rem; margin-top: 10px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+.error-container h2, .placeholder-container h2 { font-size: 2rem; margin-top: 10px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+.placeholder-icon { color: var(--highlight-color); margin-bottom: 20px; animation: fadeIn 1s ease-in-out; }
 
 /* ======== 7. ARTICLE ENHANCEMENTS ======== */
 .tab-container { width: 100%; }

@@ -1,6 +1,6 @@
 /**
  * Lysentan Nielemät - app.js
- * Version: 3.3 (Mobile Pin Click & Click-Away)
+ * Version: 3.4 (Enhanced Map Tooltips)
  */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -41,34 +41,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * MODULE 3: Interactive World Map Tooltip (UPDATED)
+   * MODULE 3: Interactive World Map Tooltip
    */
   const mapWrap = document.querySelector('.map-wrap');
   if (mapWrap) {
     const tooltip = document.getElementById('map-tooltip');
     const tooltipTitle = document.getElementById('tooltip-title');
+    const tooltipDescription = document.getElementById('tooltip-description');
     const tooltipButton = document.getElementById('tooltip-button');
     const mapPins = document.querySelectorAll('.map-pin');
     let hideTimeout;
+    
     const showTooltip = (pin) => {
       clearTimeout(hideTimeout);
-      const mapRect = mapWrap.getBoundingClientRect();
       const pinRect = pin.getBoundingClientRect();
       tooltipTitle.textContent = pin.getAttribute('title');
+      tooltipDescription.textContent = pin.getAttribute('data-description');
       tooltip.style.top = `${pinRect.top + window.scrollY}px`;
       tooltip.style.left = `${pinRect.left + window.scrollX}px`;
       tooltip.dataset.target = pin.getAttribute('href');
       tooltip.classList.add('visible');
     };
+
     const hideTooltip = () => {
       hideTimeout = setTimeout(() => { tooltip.classList.remove('visible'); }, 200);
     };
     
     mapPins.forEach(pin => {
-      // Show on hover for desktop
       pin.addEventListener('mouseenter', () => showTooltip(pin));
       pin.addEventListener('mouseleave', hideTooltip);
-      // ADDED: Show on click for mobile/touch
       pin.addEventListener('click', (e) => {
         e.preventDefault();
         showTooltip(pin);
@@ -88,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tooltip.classList.remove('visible');
     });
 
-    // ADDED: Hide tooltip when clicking anywhere else on the page
     document.addEventListener('click', (event) => {
       if (!event.target.closest('.map-pin') && !tooltip.contains(event.target)) {
         tooltip.classList.remove('visible');
