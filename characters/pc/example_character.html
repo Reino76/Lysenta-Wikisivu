@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
-
 <header class="site-header">
   <a class="home" href="../../index.html">Takaisin alkusivulle</a>
   <nav class="nav">
@@ -20,42 +19,50 @@
     <a href="../../sessions.html">Pelikerrat</a>
   </nav>
 </header>
-
 <main class="container">
-  <article class="wiki-article">
+  <article class="wiki-article animate-on-scroll">
     <header>
       <h1 class="page-title">Esimerkkihahmo</h1>
       <p class="article-meta">Muinainen punainen lohikäärme, ahneuden ja tuhon ruumiillistuma.</p>
     </header>
-    
-    <div class="article-image">
+    <div class="tab-container">
+      <nav class="tab-navigation">
+        <button class="tab-btn">Kuvaus</button>
+        <button class="tab-btn">Tarina</button>
+        <button class="tab-btn">Kyvyt</button>
+      </nav>
+      <div class="tab-content-panel">
+        <aside class="infobox">
+          <h3>Yhteenveto</h3>
+          <p><strong>Titteli:</strong> Tuhkavuoren Valtias</p>
+          <p><strong>Laji:</strong> Lohikäärme</p>
+          <p><strong>Sidos:</strong> Itsenäinen</p>
+          <p><strong>Sijainti:</strong> Erratanin Tulivuoriketju</p>
+        </aside>
+        <div class="article-image">
+          </div>
+        <p>Tämä muinainen punainen lohikäärme on yksi Lysentan pelätyimmistä olennoista. Sen tulinen henkäys voi sulattaa kiveä, ja sen viekas äly tekee siitä juonien ja vallan mestarin.</p>
       </div>
-
-    <aside class="infobox">
-      <h3>Yhteenveto</h3>
-      <p><strong>Titteli:</strong> Tuhkavuoren Valtias</p>
-      <p><strong>Laji:</strong> Lohikäärme</p>
-      <p><strong>Sidos:</strong> Itsenäinen</p>
-      <p><strong>Sijainti:</strong> Erratanin Tulivuoriketju</p>
-    </aside>
-
-    <section>
-      <h2>Kuvaus</h2>
-      <p>Tämä muinainen punainen lohikäärme on yksi Lysentan pelätyimmistä olennoista. Sen tulinen henkäys voi sulattaa kiveä, ja sen viekas äly tekee siitä juonien ja vallan mestarin. Hänen suomunsa hohtavat kuin hiillos pimeässä, ja hänen silmissään palaa ikuinen ahneus.</p>
-    </section>
-
-    <hr class="divider">
-
-    <section>
-      <h2>Tarina</h2>
-      <p>Punaiset lohikäärmeet ovat kaikista lohikäärmeistä ahneimpia, ja tämä yksilö on lajinsa ruumiillistuma. Hän on vallannut kokonaisen vuorijonon omaksi valtakunnakseen, pakottaen lähialueiden asukkaat tuomaan hänelle aarteita ja kunnianosoituksia.</p>
-      
-      <blockquote><p>Vuosisatojen aikana hän on nähnyt valtakuntien nousevan ja tuhoutuvan, mutta on itse pysynyt järkkymättömänä voimana.</p></blockquote>
-      
-      <p>Hänen nimensä kuiskitaan varoittavissa tarinoissa, ja hänen vihansa on luonnonvoima, jota kuolevaiset eivät voi toivoa ymmärtävänsä.</p>
-    </section>
+      <div class="tab-content-panel">
+        <h2>Taustatarina</h2>
+        <p>Punaiset lohikäärmeet ovat kaikista lohikäärmeistä ahneimpia, ja tämä yksilö on lajinsa ruumiillistuma. Hän on vallannut kokonaisen vuorijonon omaksi valtakunnakseen.</p>
+        <blockquote><p>Vuosisatojen aikana hän on nähnyt valtakuntien nousevan ja tuhoutuvan, mutta on itse pysynyt järkkymättömänä voimana.</p></blockquote>
+        <p>Hänen nimensä kuiskitaan varoittavissa tarinoissa, ja hänen vihansa on luonnonvoima, jota kuolevaiset eivät voi toivoa ymmärtävänsä.</p>
+      </div>
+      <div class="tab-content-panel">
+        <h2>Merkittävät Kyvyt</h2>
+        <p>Vaikka hänen voimansa ovat lukemattomat, muutamat hänen kyvyistään ovat erityisen tunnettuja ja pelättyjä kautta maiden.</p>
+        <hr class="divider">
+        <p><strong>Tulinen Henkäys:</strong> Kykenee syöksemään tulta, joka on kuumempaa kuin mikään sepän ahjo, sulattaen vaivatta terästä ja kiveä.</p>
+        <p><strong>Pelottava Läsnäolo:</strong> Pelkkä hänen läsnäolonsa riittää lamauttamaan rohkeimmatkin soturit pelolla, saaden armeijat pakenemaan taisteluitta.</p>
+      </div>
+      <div class="tab-controls">
+        <button class="tab-nav-btn prev-tab-btn">&laquo; Edellinen</button>
+        <button class="tab-nav-btn next-tab-btn">Seuraava &raquo;</button>
+      </div>
+    </div>
   </article>
 </main>
-
+<script src="../../assets/app.js"></script>
 </body>
 </html>

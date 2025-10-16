@@ -1,6 +1,6 @@
 /**
  * Lysentan Nielemät - app.js
- * Version: 3.1 (Scroll Animations Added)
+ * Version: 3.3 (Mobile Pin Click & Click-Away)
  */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * MODULE 3: Interactive World Map Tooltip
+   * MODULE 3: Interactive World Map Tooltip (UPDATED)
    */
   const mapWrap = document.querySelector('.map-wrap');
   if (mapWrap) {
@@ -63,12 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const hideTooltip = () => {
       hideTimeout = setTimeout(() => { tooltip.classList.remove('visible'); }, 200);
     };
+    
     mapPins.forEach(pin => {
+      // Show on hover for desktop
       pin.addEventListener('mouseenter', () => showTooltip(pin));
       pin.addEventListener('mouseleave', hideTooltip);
+      // ADDED: Show on click for mobile/touch
+      pin.addEventListener('click', (e) => {
+        e.preventDefault();
+        showTooltip(pin);
+      });
     });
+
     tooltip.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
     tooltip.addEventListener('mouseleave', hideTooltip);
+
     tooltipButton.addEventListener('click', () => {
       const targetCard = document.querySelector(tooltip.dataset.target);
       if (targetCard) {
@@ -77,6 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { targetCard.classList.remove('highlight-target'); }, 1500);
       }
       tooltip.classList.remove('visible');
+    });
+
+    // ADDED: Hide tooltip when clicking anywhere else on the page
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.map-pin') && !tooltip.contains(event.target)) {
+        tooltip.classList.remove('visible');
+      }
     });
   }
 
@@ -94,5 +110,43 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.animate-on-scroll').forEach(element => {
     scrollObserver.observe(element);
   });
+  
+  /**
+   * MODULE 5: Wiki Page Tab System
+   */
+  document.querySelectorAll('.tab-container').forEach(container => {
+    const tabs = container.querySelectorAll('.tab-navigation .tab-btn');
+    const panels = container.querySelectorAll('.tab-content-panel');
+    const prevButton = container.querySelector('.prev-tab-btn');
+    const nextButton = container.querySelector('.next-tab-btn');
+    let currentIndex = 0;
 
+    const updateTabs = (index) => {
+      currentIndex = index;
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+      panels.forEach((panel, i) => panel.classList.toggle('active', i === index));
+      if (prevButton && nextButton) {
+        prevButton.disabled = index === 0;
+        nextButton.disabled = index === tabs.length - 1;
+      }
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => updateTabs(index));
+    });
+
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) updateTabs(currentIndex - 1);
+      });
+    }
+    
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        if (currentIndex < tabs.length - 1) updateTabs(currentIndex + 1);
+      });
+    }
+
+    updateTabs(0);
+  });
 });
