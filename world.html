@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lysenta Kokonaisuudessaan</title>
+<title>Lysentan Maailma | Kokonaiskuva</title>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -25,18 +25,19 @@
 <div class="page-content">
   <nav class="sidebar">
     <h2>Maanosat</h2>
-    <a href="world/regions/exampleregion.html" class="category-link">Exampleregion</a>
+    <a href="world/regions/exampleregion.html">Exampleregion</a>
   </nav>
 
   <main class="container">
     <section>
-      <h2>Lysenta Kokonaisuudessaan</h2>
+      <h1 class="page-title">Lysentan Maailma</h1>
 
       <div class="map-wrap">
         <img src="assets/images/Lysenta_Raw.png" alt="World map of Lysenta">
         
-        <a class="map-pin general" href="#exampleregion-card" style="top:20%; left:40%;" title="Exampleregion"></a>
-        </div>
+        <a class="map-pin" href="#exampleregion-card" style="top:20%; left:40%;" title="Exampleregion"></a>
+      </div>
+
       <div class="grid" style="margin-bottom: 40px; margin-top: 10px;">
         <div class="lore-box">
           <h3>Nielemät (The Swallowing)</h3>
@@ -44,19 +45,19 @@
         </div>
         <div class="lore-box">
           <h3>Ensimmäinen Loimu ja Myytit</h3>
-          <p>Muinaisten myyttien mukaan Lysenta syntyi Ensimmäisen Lohen (First Flame) sammuessa, jolloin pimeä aine alkoi sulaa todellisuuteen. Suuret mantereet ovat eristyksissä toisistaan myrskyisten merien ja maagisten esteiden vuoksi.</p>
+          <p>Muinaisten myyttien mukaan Lysenta syntyi Ensimmäisen Loimun sammuessa, jolloin pimeä aine alkoi sulaa todellisuuteen. Suuret mantereet ovat eristyksissä toisistaan myrskyisten merien ja maagisten esteiden vuoksi.</p>
         </div>
       </div>
-      <div id="exampleregion" class="category-break">Exampleregion</div>
+
+      <h2 id="exampleregion" class="category-break">Exampleregion</h2>
       <div class="gallery">
-        <a href="world/regions/exampleregion.html">
+        <a href="world/regions/exampleregion.html" class="card-link">
           <div class="card" id="exampleregion-card">
             <h3>Exampleregion</h3>
             <p>A frozen continent of warring clans, old sagas, and the slumbering Dragonpeak.</p>
           </div>
         </a>
       </div>
-
     </section>
   </main>
 </div>
@@ -86,10 +87,13 @@
 
       const pinTopPercent = parseFloat(pin.style.top);
       const pinLeftPercent = parseFloat(pin.style.left);
+      
+      // Calculate absolute position relative to the document
       const pinAbsX = mapRect.left + window.scrollX + (pinLeftPercent / 100) * mapWrap.offsetWidth;
       const pinAbsY = mapRect.top + window.scrollY + (pinTopPercent / 100) * mapWrap.offsetHeight;
 
       tooltipTitle.textContent = locationName;
+      // Position the tooltip centered above the pin
       tooltip.style.top = `${pinAbsY}px`;
       tooltip.style.left = `${pinAbsX}px`;
       tooltip.dataset.target = targetId;
@@ -99,7 +103,7 @@
     const hideTooltip = () => {
       hideTimeout = setTimeout(() => {
         tooltip.classList.remove('visible');
-      }, 300);
+      }, 200); // Shorter delay for responsiveness
     };
 
     mapPins.forEach(pin => {
@@ -114,14 +118,15 @@
       const targetId = tooltip.dataset.target;
       if (!targetId) return;
 
-      // **FIXED LOGIC**
       const targetCard = document.querySelector(targetId);
       if (targetCard) {
         targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Add a highlight class for a visual cue
         targetCard.classList.add('highlight-target');
         setTimeout(() => {
           targetCard.classList.remove('highlight-target');
-        }, 1200);
+        }, 1500); // Match animation duration
       }
       tooltip.classList.remove('visible');
     });
