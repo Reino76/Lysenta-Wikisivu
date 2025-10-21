@@ -100,67 +100,7 @@
   <button id="tooltip-button">Go to Details</button>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mapWrap = document.querySelector('.map-wrap');
-    if (!mapWrap) return;
-
-    const tooltip = document.getElementById('map-tooltip');
-    const tooltipTitle = document.getElementById('tooltip-title');
-    const tooltipButton = document.getElementById('tooltip-button');
-    const mapPins = document.querySelectorAll('.map-pin');
-    let hideTimeout;
-
-    const showTooltip = (pin) => {
-      clearTimeout(hideTimeout);
-
-      const mapRect = mapWrap.getBoundingClientRect();
-      const locationName = pin.getAttribute('title');
-      const targetId = pin.getAttribute('href');
-
-      const pinTopPercent = parseFloat(pin.style.top);
-      const pinLeftPercent = parseFloat(pin.style.left);
-      const pinAbsX = mapRect.left + window.scrollX + (pinLeftPercent / 100) * mapWrap.offsetWidth;
-      const pinAbsY = mapRect.top + window.scrollY + (pinTopPercent / 100) * mapWrap.offsetHeight;
-
-      tooltipTitle.textContent = locationName;
-      tooltip.style.top = `${pinAbsY}px`;
-      tooltip.style.left = `${pinAbsX}px`;
-      tooltip.dataset.target = targetId;
-      tooltip.classList.add('visible');
-    };
-
-    const hideTooltip = () => {
-      hideTimeout = setTimeout(() => {
-        tooltip.classList.remove('visible');
-      }, 300);
-    };
-
-    mapPins.forEach(pin => {
-      pin.addEventListener('mouseenter', () => showTooltip(pin));
-      pin.addEventListener('mouseleave', hideTooltip);
-    });
-
-    tooltip.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
-    tooltip.addEventListener('mouseleave', hideTooltip);
-
-    tooltipButton.addEventListener('click', () => {
-      const targetId = tooltip.dataset.target;
-      if (!targetId) return;
-
-      // **FIXED LOGIC**
-      const targetCard = document.querySelector(targetId);
-      if (targetCard) {
-        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        targetCard.classList.add('highlight-target');
-        setTimeout(() => {
-          targetCard.classList.remove('highlight-target');
-        }, 1200);
-      }
-      tooltip.classList.remove('visible');
-    });
-  });
-</script>
+<script src="../../assets/app.js"></script>
 
 </body>
 </html>
