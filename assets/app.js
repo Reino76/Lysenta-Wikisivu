@@ -51,4 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => {
     observer.observe(section);
   });
+
+  // Accessibility/interaction: make map pins keyboard-activatable site-wide.
+  const globalMapPins = document.querySelectorAll('.map-pin');
+  if (globalMapPins.length > 0) {
+    globalMapPins.forEach(pin => {
+      // Ensure anchors without href (rare) are focusable
+      if (!pin.hasAttribute('href') && !pin.hasAttribute('tabindex')) {
+        pin.setAttribute('tabindex', '0');
+      }
+
+      pin.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          // trigger native click behavior if present
+          pin.click();
+        }
+      });
+    });
+  }
 });
