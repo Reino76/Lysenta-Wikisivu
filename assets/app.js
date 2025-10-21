@@ -52,24 +52,3 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 });
-
-// Performance logging to diagnose initial load times
-window.addEventListener('load', () => {
-  if (performance.getEntriesByType) {
-    const navigationEntry = performance.getEntriesByType("navigation")[0];
-    const fontEntries = performance.getEntriesByType("resource").filter(r => r.initiatorType === 'link' && r.name.includes('fonts.googleapis.com'));
-
-    if (navigationEntry) {
-      console.log(`Page loaded in: ${navigationEntry.domContentLoadedEventEnd - navigationEntry.startTime}ms`);
-    }
-
-    if (fontEntries.length > 0) {
-      console.log(`Found ${fontEntries.length} blocking font request(s).`);
-      fontEntries.forEach(font => {
-        console.log(`- ${font.name}, Download time: ${font.duration}ms`);
-      });
-    }
-  } else {
-    console.log("Performance API not supported.");
-  }
-});
