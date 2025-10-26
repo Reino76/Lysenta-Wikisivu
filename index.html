@@ -1,27 +1,66 @@
+<!-- 
+  This is the main landing page for the Lysenta Wiki.
+  It serves as the central navigation hub, directing users to the main sections of the site.
+-->
 <!DOCTYPE html>
 <html lang="fi">
 <head>
+  <!-- Basic page metadata -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lysentan Nielemät</title>
   <meta name="description" content="Tervetuloa Lysentan Nielemät -kampanjasivustolle.">
+
+  <!-- Stylesheets and Favicon -->
   <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Preconnect hints for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Linking the two fonts used in the project: Metal Mania for titles and Texturina for body text -->
   <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
+
+  <!-- Site Header -->
   <header class="site-header">
+    <!-- Main link back to the home page -->
     <a class="home" href="index.html">Lysentan Nielemät</a>
   </header>
+
+  <!-- Main Content Area -->
   <main class="container">
+    <!-- Large, stylized title for the home page -->
     <h1 class="page-title home-title">Lysentan<br>Nielemät</h1>
+
+    <!-- Grid layout for the main navigation cards -->
     <div class="grid">
-      <a href="world.html" class="card-link"><div class="card"><h3>Lysentan Maailma</h3><p>Nähtävyydet, maamerkit, ja paikat joita välttää.</p></div></a>
-      <a href="characters.html" class="card-link"><div class="card"><h3>Hahmot</h3><p>Tarinan sankarit sekä maailman muut asukit.</p></div></a>
-      <a href="sessions.html" class="card-link"><div class="card"><h3>Pelikerrat</h3><p>Menneiden seikkailujen loki.</p></div></a>
+      <!-- Card linking to the World section -->
+      <a href="world.html" class="card-link">
+        <div class="card">
+          <h3>Lysentan Maailma</h3>
+          <p>Nähtävyydet, maamerkit, ja paikat joita välttää.</p>
+        </div>
+      </a>
+
+      <!-- Card linking to the Characters section -->
+      <a href="characters.html" class="card-link">
+        <div class="card">
+          <h3>Hahmot</h3>
+          <p>Tarinan sankarit sekä maailman muut asukit.</p>
+        </div>
+      </a>
+
+      <!-- Card linking to the Sessions section -->
+      <a href="sessions.html" class="card-link">
+        <div class="card">
+          <h3>Pelikerrat</h3>
+          <p>Menneiden seikkailujen loki.</p>
+        </div>
+      </a>
     </div>
   </main>
+
 </body>
 </html>

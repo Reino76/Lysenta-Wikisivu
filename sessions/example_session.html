@@ -1,64 +1,82 @@
+<!-- 
+  This is an example template for a single game session log.
+  It uses a vertical timeline to display the key events of the session in chronological order.
+-->
 <!doctype html>
 <html lang="fi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Esimerkkikerta | Pelikerrat</title>
-<link rel="stylesheet" href="../assets/style.css">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <!-- Basic page metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Esimerkkikerta | Pelikerrat</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Stylesheets, Favicon, and Google Fonts. Note the relative path to assets. -->
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
 
-<header class="site-header">
-  <a class="home" href="../index.html">Takaisin alkusivulle</a>
-  <nav class="nav">
-    <a href="../world.html">Lysentan Maailma</a>
-    <a href="../characters.html">Hahmot</a>
-    <a href="../sessions.html">Pelikerrat</a>
-  </nav>
-</header>
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../world.html">Lysentan Maailma</a>
+      <a href="../characters.html">Hahmot</a>
+      <a href="../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
 
-<div class="page-content">
+  <!-- Main page layout container -->
+  <div class="page-content">
 
-  <nav class="sidebar">
-    <h2>Pelikerrat</h2>
-    <a href="example_session.html" class="active">Esimerkkikerta</a>
-  </nav>
+    <!-- Sidebar for navigating between different session logs -->
+    <nav class="sidebar">
+      <h2>Pelikerrat</h2>
+      <!-- The current session is marked as 'active' -->
+      <a href="example_session.html" class="active">Esimerkkikerta</a>
+    </nav>
 
-  <main class="container session-log">
-    <h1 class="page-title">Esimerkkikerta</h1>
-    <div class="session-meta">
-      <strong>Päivämäärä:</strong> 2025-10-07 &nbsp;·&nbsp; <strong>Pelaajat:</strong> Esmi, Kalle &nbsp;·&nbsp; <strong>PJ:</strong> Käsikirjoittaja
-    </div>
-
-    <div class="session-timeline">
-      
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h2>Tapahtumien Alku</h2>
-          <p>Tähän tulee ensimmäisen tapahtuman kuvaus. Jokainen log-entry on nyt selkeästi erotettu toisistaan pystysuoralla aikajanalla ja korostusmerkinnällä.</p>
-        </div>
+    <!-- Main Content Area for the session log -->
+    <main class="container session-log">
+      <h1 class="page-title">Esimerkkikerta</h1>
+      <!-- Session metadata: Date, Players, and Game Master (PJ) -->
+      <div class="session-meta">
+        <strong>Päivämäärä:</strong> 2025-10-07 &nbsp;·&nbsp; <strong>Pelaajat:</strong> Esmi, Kalle &nbsp;·&nbsp; <strong>PJ:</strong> Käsikirjoittaja
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h2>Keskipiste</h2>
-          <p>Seuraava tärkeä hetki tai käännekohta seikkailussa. Aikajanalla kaikki on visuaalisesti linkitetty.</p>
+      <!-- The main timeline container for session events -->
+      <div class="session-timeline">
+        
+        <!-- A single item/event in the timeline -->
+        <div class="timeline-item">
+          <!-- The content box for the event -->
+          <div class="timeline-content">
+            <h2>Tapahtumien Alku</h2>
+            <p>Tähän tulee ensimmäisen tapahtuman kuvaus. Jokainen log-entry on nyt selkeästi erotettu toisistaan pystysuoralla aikajanalla ja korostusmerkinnällä.</p>
+          </div>
+        </div>
+
+        <!-- Another timeline item -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2>Keskipiste</h2>
+            <p>Seuraava tärkeä hetki tai käännekohta seikkailussa. Aikajanalla kaikki on visuaalisesti linkitetty.</p>
+          </div>
+        </div>
+        
+        <!-- Final timeline item -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2>Loppuratkaisu</h2>
+            <p>Mitä tapahtui istunnon lopussa ja miten se vaikuttaa seuraavaan kertaan. (Tämä on esimerkkidata.)</p>
+          </div>
         </div>
       </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h2>Loppuratkaisu</h2>
-          <p>Mitä tapahtui istunnon lopussa ja miten se vaikuttaa seuraavaan kertaan. (Tämä on esimerkkidata.)</p>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
+    </main>
+  </div>
+
 </body>
 </html>

@@ -1,65 +1,96 @@
+<!-- 
+  This page provides an overview of the world of Lysenta.
+  It features an interactive map and links to pages for specific regions.
+-->
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lysentan Maailma | Kokonaiskuva</title>
-<link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lysentan Maailma | Kokonaiskuva</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
-<header class="site-header">
-  <a class="home" href="index.html">Takaisin alkusivulle</a>
-  <nav class="nav">
-    <a href="world.html">Lysentan Maailma</a>
-    <a href="characters.html">Hahmot</a>
-    <a href="sessions.html">Pelikerrat</a>
-  </nav>
-</header>
 
-<main class="container">
-  <h1 class="page-title">Lysentan Maailma</h1>
-  <div class="map-wrap">
-    <img src="assets/images/Lysenta_Raw.png" alt="World map of Lysenta">
-    <a class="map-pin" href="#erratan-card" style="top:20%; left:40%;" title="Erratan" data-description=""></a>
-    <a class="map-pin" href="#isles-card" style="top:85%; left:75%;" title="Kuiskavat Saaret" data-description=""></a>
-    <a class="map-pin" href="#murtirna-card" style="top:20%; left:10%;" title="Murtirna" data-description=""></a>
-    <a class="map-pin" href="#tarmanto-card" style="top:55%; left:15%;" title="Tarmanto" data-description=""></a>
-    <a class="map-pin" href="#wasted-lands-card" style="top:90%; left:55%;" title="Kartoittamattomat Kuihtuneet Maat" data-description=""></a>
-    <a class="map-pin" href="#lohn-rotal-card" style="top:15%; left:75%;" title="Lohn Rotal" data-description=""></a>
-    <a class="map-pin" href="#kin-ton-card" style="top:65%; left:85%;" title="Kin-ton" data-description=""></a>
-    <a class="map-pin" href="#suursyven-card" style="top:95%; left:25%;" title="Suur' Syven" data-description=""></a>
-  </div>
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="world.html">Lysentan Maailma</a>
+      <a href="characters.html">Hahmot</a>
+      <a href="sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
 
-  <section class="lore-spotlight animate-on-scroll">
-    <h3>P A L J A N T O</h3>
-    <p>Kauan sitten Lysentan ylle laskeutui sankka, ilkikurinen ja ennalta-arvaamaton sumupeite.<br> Se jakoi mahdillaan maailman jo tunnetut alueet erilleen, tehden tutkimusmatkoista lähes varmasti tappavia. <br> - <br> Paljantoa uhmaava saa todennäköisimmin kokea karvaan kohtalonsa.</p>
-  </section>
+  <!-- Main Content Area -->
+  <main class="container">
+    <h1 class="page-title">Lysentan Maailma</h1>
 
-  <div class="animate-on-scroll">
-    <h2 class="category-break">Tunnetut Alueet</h2>
-    <div class="grid">
-      <a href="placeholder.html" class="card-link"><div class="card" id="erratan-card"><h3>Erratan</h3><p></p></div></a>
-      <a href="placeholder.html" class="card-link"><div class="card" id="isles-card"><h3>Kuiskavat Saaret</h3><p></p></div></a>
-      <a href="placeholder.html" class="card-link"><div class="card" id="murtirna-card"><h3>Murtirna</h3><p></p></div></a>
-      <a href="placeholder.html" class="card-link"><div class="card" id="tarmanto-card"><h3>Tarmanto</h3><p></p></div></a>
-      <a href="placeholder.html" class="card-link"><div class="card" id="wasted-lands-card"><h3>Kartoittamattomat Kuihtuneet Maat</h3><p> </p></div></a>
-      <a href="placeholder.html" class="card-link"><div class="card" id="lohn-rotal-card"><h3>Lohn Rotal</h3><p></p></div></a>
-      <a href="placeholder.html" class="card-link"><div class="card" id="kin-ton-card"><h3>Kin-ton</h3><p></p></div></a>
-      <a href="placeholder.html" class="card-link"><div class="card" id="suursyven-card"><h3>Suur' Syven</h3><p></p></div></a>
+    <!-- Interactive Map Container -->
+    <div class="map-wrap">
+      <!-- The base map image -->
+      <img src="assets/images/Lysenta_Raw.png" alt="World map of Lysenta">
+      
+      <!-- 
+        Interactive Map Pins.
+        - `href` links to the corresponding info card on this page.
+        - `style` positions the pin on the map using top/left percentages.
+        - `title` provides the main name for the tooltip.
+        - `data-description` holds extra text for the tooltip (currently empty).
+      -->
+      <a class="map-pin" href="#erratan-card" style="top:20%; left:40%;" title="Erratan" data-description=""></a>
+      <a class="map-pin" href="#isles-card" style="top:85%; left:75%;" title="Kuiskavat Saaret" data-description=""></a>
+      <a class="map-pin" href="#murtirna-card" style="top:20%; left:10%;" title="Murtirna" data-description=""></a>
+      <a class="map-pin" href="#tarmanto-card" style="top:55%; left:15%;" title="Tarmanto" data-description=""></a>
+      <a class="map-pin" href="#wasted-lands-card" style="top:90%; left:55%;" title="Kartoittamattomat Kuihtuneet Maat" data-description=""></a>
+      <a class="map-pin" href="#lohn-rotal-card" style="top:15%; left:75%;" title="Lohn Rotal" data-description=""></a>
+      <a class="map-pin" href="#kin-ton-card" style="top:65%; left:85%;" title="Kin-ton" data-description=""></a>
+      <a class="map-pin" href="#suursyven-card" style="top:95%; left:25%;" title="Suur' Syven" data-description=""></a>
     </div>
+
+    <!-- Lore Spotlight Section: A highlighted block of text about the world's lore. -->
+    <section class="lore-spotlight animate-on-scroll">
+      <h3>P A L J A N T O</h3>
+      <p>Kauan sitten Lysentan ylle laskeutui sankka, ilkikurinen ja ennalta-arvaamaton sumupeite.<br> Se jakoi mahdillaan maailman jo tunnetut alueet erilleen, tehden tutkimusmatkoista lähes varmasti tappavia. <br> - <br> Paljantoa uhmaava saa todennäköisimmin kokea karvaan kohtalonsa.</p>
+    </section>
+
+    <!-- Section for the region cards -->
+    <div class="animate-on-scroll">
+      <h2 class="category-break">Tunnetut Alueet</h2>
+      <!-- Grid containing cards for each known region -->
+      <div class="grid">
+        <!-- Each card is a link to a placeholder page and has an ID that the map pins link to. -->
+        <a href="placeholder.html" class="card-link"><div class="card" id="erratan-card"><h3>Erratan</h3><p></p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="isles-card"><h3>Kuiskavat Saaret</h3><p></p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="murtirna-card"><h3>Murtirna</h3><p></p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="tarmanto-card"><h3>Tarmanto</h3><p></p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="wasted-lands-card"><h3>Kartoittamattomat Kuihtuneet Maat</h3><p> </p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="lohn-rotal-card"><h3>Lohn Rotal</h3><p></p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="kin-ton-card"><h3>Kin-ton</h3><p></p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="suursyven-card"><h3>Suur' Syven</h3><p></p></div></a>
+      </div>
+    </div>
+  </main>
+
+  <!-- 
+    Tooltip Element for the Map.
+    This is hidden by default and becomes visible via JavaScript (app.js).
+    Its content is populated dynamically based on the hovered/clicked map pin.
+  -->
+  <div id="map-tooltip">
+    <h3 id="tooltip-title"></h3>
+    <p id="tooltip-description"></p>
+    <button id="tooltip-button">Tiedot</button>
   </div>
-</main>
 
-<div id="map-tooltip">
-  <h3 id="tooltip-title"></h3>
-  <p id="tooltip-description"></p>
-  <button id="tooltip-button">Tiedot</button>
-</div>
-
-<script src="assets/app.js"></script>
+  <!-- Link to the main JavaScript file -->
+  <script src="assets/app.js"></script>
 </body>
 </html>

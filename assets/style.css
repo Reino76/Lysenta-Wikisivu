@@ -1,78 +1,135 @@
-/* ======== 1. ANIMATIONS & INTERACTIONS ======== */
+/*
+  ================================================================================
+  STYLE.CSS
+  This file contains all the styles for the Lysenta Wiki project.
+  It's structured into logical sections for easier maintenance and understanding.
+  ================================================================================
+*/
+
+/* 
+  ========================================
+  1. ANIMATIONS & INTERACTIONS
+  This section defines keyframes for animations used throughout the site,
+  such as fade-ins and interactive highlight effects.
+  ========================================
+*/
+
+/* Defines a simple fade-in animation from 0 to 1 opacity. */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
+/* Applies the fadeIn animation to the main content container on page load. */
 main.container {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
+/* Prepares elements to be animated when they are scrolled into view. */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* The state of the element when it becomes visible in the viewport. */
 .animate-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* A pulsing animation used to highlight specific elements. */
 @keyframes pulse-highlight {
   0% { box-shadow: 0 0 0 0 rgba(89, 166, 166, 0.7); }
   100% { box-shadow: 0 0 15px 20px rgba(89, 166, 166, 0); }
 }
 
-/* ======== 2. VARIABLES & GLOBAL STYLES ======== */
+/* 
+  ========================================
+  2. VARIABLES & GLOBAL STYLES
+  Defines CSS custom properties (variables) for the color palette, border-radius,
+  and sets up foundational styles for the entire site.
+  ========================================
+*/
 :root {
-  --bg-primary: #121212;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #0d0d0d;
-  --text-primary: #ddd;
-  --text-secondary: #aaa;
-  --border-color: #222;
-  --highlight-color: #59a6a6;
-  --radius: 12px;
+  /* Color Palette */
+  --bg-primary: #121212;      /* Deep dark background */
+  --bg-secondary: #1a1a1a;    /* Slightly lighter background for cards/headers */
+  --bg-tertiary: #0d0d0d;     /* Even darker background for sidebars/tooltips */
+  --text-primary: #ddd;       /* Main text color */
+  --text-secondary: #aaa;     /* Subdued text color for meta info/placeholders */
+  --border-color: #222;       /* Border color for separators and outlines */
+  --highlight-color: #59a6a6; /* Accent color for links, headers, and highlights */
+
+  /* UI Elements */
+  --radius: 12px;             /* Standard border radius for cards and containers */
 }
+
+/* Enables smooth scrolling for anchor links. */
 html { scroll-behavior: smooth; }
+
+/* Ensures padding and border are included in the element's total width and height. */
 * { box-sizing: border-box; }
+
+/* Basic body styles: sets margin, font, background, and text color. */
 body {
   margin: 0;
-  font-family: 'Texturina', serif;
+  font-family: 'Texturina', serif; /* A serif font for a classic, readable feel */
   background: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.7;
+  line-height: 1.7; /* Improves readability */
 }
 
-/* ======== 3. GENERAL TYPOGRAPHY & LINKS ======== */
+/* 
+  ========================================
+  3. GENERAL TYPOGRAPHY & LINKS
+  Styles for anchor tags (links).
+  ========================================
+*/
 a {
   color: var(--highlight-color);
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  text-decoration: none; /* Removes the default underline */
+  transition: all 0.2s ease-in-out; /* Smooth transition for hover effects */
 }
-a:hover { text-decoration: none; color: white; }
+a:hover { 
+  text-decoration: none; 
+  color: white; /* Brightens link color on hover */
+}
 
-/* ======== 4. SHARED LAYOUT COMPONENTS ======== */
+/* 
+  ========================================
+  4. SHARED LAYOUT COMPONENTS
+  Styles for major layout elements like the header, navigation, sidebar,
+  and main content containers.
+  ========================================
+*/
+
+/* Main site header container */
 .site-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stacks logo and nav vertically on small screens */
   align-items: center;
   padding: 20px;
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds depth */
   transition: background-color 0.3s;
 }
+
+/* The main "Lysenta" home link in the header */
 .site-header .home {
-  font-family: 'Metal Mania', cursive;
+  font-family: 'Metal Mania', cursive; /* Thematic, stylized font */
   font-size: 1.8rem;
   color: var(--highlight-color);
   text-decoration: none;
   margin-bottom: 10px;
   transition: transform 0.2s ease-out;
 }
-.site-header .home:hover { transform: scale(1.05); }
+.site-header .home:hover { 
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Navigation links in the header */
 .nav a {
   color: var(--text-secondary);
   text-decoration: none;
@@ -80,13 +137,20 @@ a:hover { text-decoration: none; color: white; }
   font-weight: 700;
   transition: all 0.2s ease-in-out;
 }
-.nav a:hover { color: var(--text-primary); text-shadow: 0 0 5px var(--highlight-color); }
+.nav a:hover { 
+  color: var(--text-primary); 
+  text-shadow: 0 0 5px var(--highlight-color); /* Glow effect on hover */
+}
+
+/* Sidebar container for sub-navigation */
 .sidebar {
   background: var(--bg-tertiary);
   padding: 20px;
   min-width: 220px;
   border-right: 1px solid var(--border-color);
 }
+
+/* Sidebar section titles */
 .sidebar h2 {
   font-family: 'Metal Mania', cursive;
   font-size: 1.5rem;
@@ -96,8 +160,10 @@ a:hover { text-decoration: none; color: white; }
   padding-bottom: 5px;
   margin-bottom: 15px;
 }
+
+/* Links within the sidebar */
 .sidebar a {
-  display: block;
+  display: block; /* Makes the entire area clickable */
   color: var(--text-secondary);
   text-decoration: none;
   padding: 8px 5px;
@@ -105,19 +171,30 @@ a:hover { text-decoration: none; color: white; }
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
 }
+
+/* Hover and active states for sidebar links */
 .sidebar a:hover, .sidebar a.active {
   color: var(--text-primary);
-  padding-left: 10px;
-  background-color: rgba(89, 166, 166, 0.1);
+  padding-left: 10px; /* Indents text on hover/active */
+  background-color: rgba(89, 166, 166, 0.1); /* Subtle highlight */
 }
-.page-content { display: flex; flex-direction: column; }
+
+/* Flex container for the main page layout (sidebar + content) */
+.page-content { 
+  display: flex; 
+  flex-direction: column; /* Stacks sidebar and content on small screens */
+}
+
+/* Main content area wrapper */
 .container {
-  flex-grow: 1;
+  flex-grow: 1; /* Allows content to fill available space */
   padding: 30px;
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto; /* Centers the container */
 }
+
+/* Main title for each page */
 .page-title {
   font-family: 'Metal Mania', cursive;
   font-size: 3.5rem;
@@ -126,36 +203,58 @@ a:hover { text-decoration: none; color: white; }
   line-height: 1.2;
 }
 
-/* ======== 5. REUSABLE COMPONENTS ======== */
+/* 
+  ========================================
+  5. REUSABLE COMPONENTS
+  Styles for common, reusable UI elements like cards, grids, and buttons.
+  ========================================
+*/
+
+/* A responsive grid layout */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates responsive columns */
   gap: 25px;
 }
-.card-link { text-decoration: none; color: inherit; }
+
+/* Wrapper to make entire card a clickable link */
+.card-link { 
+  text-decoration: none; 
+  color: inherit; /* Ensures text inside the card inherits its color */
+}
+
+/* Standard card component */
 .card {
   background: var(--bg-secondary);
   padding: 25px;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth hover effect */
 }
+
+/* Hover effect for cards */
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--highlight-color);
+  transform: translateY(-8px) scale(1.02); /* Lifts and slightly enlarges the card */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--highlight-color); /* Deeper shadow and highlight glow */
 }
+
+/* Titles within cards */
 .card h3 {
   font-family: 'Metal Mania', cursive;
   font-size: 1.8rem;
   color: var(--highlight-color);
   margin: 0 0 10px 0;
 }
+
+/* A grid specifically for image galleries */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+
+/* Base styles for buttons */
 .home-button, #tooltip-button {
   background: var(--highlight-color);
   border: 2px solid var(--highlight-color);
@@ -166,31 +265,50 @@ a:hover { text-decoration: none; color: white; }
   font-weight: 700;
   transition: all 0.2s ease-in-out;
 }
+
+/* Specific styles for the main home page button */
 .home-button {
   display: inline-block;
   padding: 12px 25px;
   text-decoration: none;
   font-family: 'Metal Mania', cursive;
 }
+
+/* Tooltip button has no border */
 #tooltip-button { border: none; }
+
+/* Hover effect for buttons */
 .home-button:hover, #tooltip-button:hover {
   background-color: var(--bg-primary);
   color: var(--highlight-color);
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Lifts the button slightly */
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* ======== 6. PAGE-SPECIFIC STYLES ======== */
+/* 
+  ========================================
+  6. PAGE-SPECIFIC STYLES
+  Styles for elements unique to certain pages, like the world map or session logs.
+  ========================================
+*/
+
+/* Center-aligns the title on the home page */
 .home-title { text-align: center; }
+
+/* Container for the interactive map */
 .map-wrap {
-  position: relative;
+  position: relative; /* Required for absolute positioning of pins and tooltips */
   width: 100%;
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: hidden; /* Hides anything that might stick out */
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
+/* Ensures the map image is responsive */
 .map-wrap img { display: block; width: 100%; height: auto; }
+
+/* Interactive pins on the map */
 .map-pin {
   position: absolute;
   width: 20px;
@@ -199,14 +317,18 @@ a:hover { text-decoration: none; color: white; }
   border-radius: 50%;
   border: 2px solid var(--bg-primary);
   cursor: pointer;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Centers the pin on its coordinates */
   box-shadow: 0 0 5px rgba(89, 166, 166, 0.7);
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
+
+/* Hover effect for map pins */
 .map-pin:hover {
-  transform: translate(-50%, -50%) scale(1.4);
+  transform: translate(-50%, -50%) scale(1.4); /* Enlarges the pin */
   box-shadow: 0 0 15px var(--highlight-color);
 }
+
+/* Creates a larger invisible clickable area around the pin for easier interaction */
 .map-pin::after {
   content: '';
   position: absolute;
@@ -216,6 +338,8 @@ a:hover { text-decoration: none; color: white; }
   bottom: -10px;
   border-radius: 50%;
 }
+
+/* Tooltip that appears when a map pin is clicked */
 #map-tooltip {
   position: absolute;
   background: var(--bg-tertiary);
@@ -223,22 +347,39 @@ a:hover { text-decoration: none; color: white; }
   border-radius: var(--radius);
   padding: 15px 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  z-index: 100;
-  opacity: 0;
+  z-index: 100; /* Ensures tooltip appears above other elements */
+  opacity: 0; /* Hidden by default */
   visibility: hidden;
-  transform: translate(-50%, -120%);
+  transform: translate(-50%, -120%); /* Positions tooltip above the pin */
   transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
   min-width: 240px;
   text-align: center;
 }
-#map-tooltip.visible { opacity: 1; visibility: visible; transform: translate(-50%, -130%); }
-#map-tooltip h3 { margin: 0 0 10px 0; font-family: 'Metal Mania', cursive; font-size: 1.5rem; color: var(--highlight-color); }
+
+/* Visible state for the map tooltip */
+#map-tooltip.visible { 
+  opacity: 1; 
+  visibility: visible; 
+  transform: translate(-50%, -130%); /* Slightly moves tooltip up when visible */
+}
+
+/* Title inside the map tooltip */
+#map-tooltip h3 { 
+  margin: 0 0 10px 0; 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 1.5rem; 
+  color: var(--highlight-color); 
+}
+
+/* Description text inside the map tooltip */
 #tooltip-description {
   margin: 0 0 15px 0;
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
+
+/* A special section to highlight a piece of lore */
 .lore-spotlight {
   text-align: center;
   max-width: 700px;
@@ -247,18 +388,24 @@ a:hover { text-decoration: none; color: white; }
   background: radial-gradient(ellipse at top, var(--bg-secondary), var(--bg-primary));
   border-radius: var(--radius);
 }
+
 .lore-spotlight h3 {
   font-family: 'Metal Mania', cursive;
   font-size: 2.2rem;
   color: var(--highlight-color);
   margin: 0 0 10px 0;
 }
+
 .lore-spotlight p {
   font-size: 1.1rem;
   color: var(--text-secondary);
   margin-bottom: 0;
 }
+
+/* Applies the pulse animation to a card when it's targeted */
 .card.highlight-target { animation: pulse-highlight 1.5s ease-out; }
+
+/* Large, stylized headings used to break up content sections */
 .category-break, .wiki-article h2 {
   font-family: 'Metal Mania', cursive;
   font-size: 2.2rem;
@@ -268,37 +415,212 @@ a:hover { text-decoration: none; color: white; }
   margin-top: 50px;
   margin-bottom: 25px;
 }
-.session-table { width: 100%; border-collapse: collapse; background-color: var(--bg-secondary); box-shadow: 0 5px 15px rgba(0,0,0,0.3); border-radius: var(--radius); overflow: hidden; }
-.session-table th, .session-table td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--border-color); }
-.session-table thead th { font-family: 'Metal Mania', cursive; font-size: 1.3rem; color: var(--highlight-color); background-color: var(--bg-tertiary); }
+
+/* Table used for listing game sessions */
+.session-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  background-color: var(--bg-secondary); 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+  border-radius: var(--radius); 
+  overflow: hidden; /* Ensures border-radius is applied to table corners */
+}
+
+.session-table th, .session-table td { 
+  padding: 15px 20px; 
+  text-align: left; 
+  border-bottom: 1px solid var(--border-color); 
+}
+
+/* Header cells in the session table */
+.session-table thead th { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 1.3rem; 
+  color: var(--highlight-color); 
+  background-color: var(--bg-tertiary); 
+}
+
+/* Table rows for individual sessions */
 .session-row { transition: background-color 0.2s ease-out; }
-.session-table tbody .session-row:hover { background-color: rgba(89, 166, 166, 0.1); cursor: pointer; }
-.session-table .title a { color: var(--text-primary); text-decoration: none; font-weight: 700; }
+
+/* Hover effect for session table rows */
+.session-table tbody .session-row:hover { 
+  background-color: rgba(89, 166, 166, 0.1); 
+  cursor: pointer; 
+}
+
+/* Session title link within the table */
+.session-table .title a { 
+  color: var(--text-primary); 
+  text-decoration: none; 
+  font-weight: 700; 
+}
+
+/* A temporary highlight effect for a row */
 .session-row.row-flash { background-color: rgba(89, 166, 166, 0.3) !important; }
+
+/* Styles for individual session log pages */
 .session-log .page-title { margin-bottom: 10px; }
-.session-meta { color: var(--text-secondary); margin-bottom: 50px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
-.session-timeline { position: relative; padding-left: 40px; }
-.session-timeline::before { content: ''; position: absolute; left: 10px; top: 10px; bottom: 10px; width: 3px; background-color: var(--border-color); }
-.timeline-item { position: relative; margin-bottom: 40px; }
-.timeline-item::before { content: ''; position: absolute; left: -36px; top: 8px; width: 15px; height: 15px; background-color: var(--highlight-color); border-radius: 50%; border: 3px solid var(--bg-primary); z-index: 1; }
-.timeline-content { background: var(--bg-secondary); padding: 25px; border-radius: var(--radius); border: 1px solid var(--border-color); }
-.timeline-content h2 { font-family: 'Metal Mania', cursive; font-size: 2rem; color: var(--highlight-color); margin: 0 0 15px 0; }
-.wiki-article { max-width: 800px; margin: 0 auto; }
-.article-meta { font-size: 1.2rem; color: var(--text-secondary); margin-top: -30px; margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
-.wiki-article p { font-size: 1.1rem; margin-bottom: 1.5em; line-height: 1.8; }
-.infobox { background: var(--bg-secondary); border: 1px solid var(--border-color); border-left: 4px solid var(--highlight-color); border-radius: 0 var(--radius) var(--radius) 0; padding: 25px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-.infobox h3 { font-family: 'Metal Mania', cursive; font-size: 1.5rem; margin: 0 0 15px 0; color: var(--highlight-color); border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; }
-.infobox p { margin: 0 0 10px 0; font-size: 1rem; }
+
+/* Meta information on a session page (e.g., date, players) */
+.session-meta { 
+  color: var(--text-secondary); 
+  margin-bottom: 50px; 
+  border-bottom: 1px solid var(--border-color); 
+  padding-bottom: 20px; 
+}
+
+/* Vertical timeline for session events */
+.session-timeline { 
+  position: relative; 
+  padding-left: 40px; 
+}
+
+/* The vertical line of the timeline */
+.session-timeline::before { 
+  content: ''; 
+  position: absolute; 
+  left: 10px; 
+  top: 10px; 
+  bottom: 10px; 
+  width: 3px; 
+  background-color: var(--border-color); 
+}
+
+/* A single event/item in the timeline */
+.timeline-item { 
+  position: relative; 
+  margin-bottom: 40px; 
+}
+
+/* The dot on the timeline for each item */
+.timeline-item::before { 
+  content: ''; 
+  position: absolute; 
+  left: -36px; 
+  top: 8px; 
+  width: 15px; 
+  height: 15px; 
+  background-color: var(--highlight-color); 
+  border-radius: 50%; 
+  border: 3px solid var(--bg-primary); 
+  z-index: 1; 
+}
+
+/* The content box for a timeline item */
+.timeline-content { 
+  background: var(--bg-secondary); 
+  padding: 25px; 
+  border-radius: var(--radius); 
+  border: 1px solid var(--border-color); 
+}
+
+.timeline-content h2 { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 2rem; 
+  color: var(--highlight-color); 
+  margin: 0 0 15px 0; 
+}
+
+/* Container for a standard wiki article */
+.wiki-article { 
+  max-width: 800px; 
+  margin: 0 auto; /* Centers the article content */
+}
+
+/* Meta information for an article (e.g., category, tags) */
+.article-meta { 
+  font-size: 1.2rem; 
+  color: var(--text-secondary); 
+  margin-top: -30px; 
+  margin-bottom: 40px; 
+  border-bottom: 1px solid var(--border-color); 
+  padding-bottom: 20px; 
+}
+
+/* Paragraph styles within a wiki article */
+.wiki-article p { 
+  font-size: 1.1rem; 
+  margin-bottom: 1.5em; 
+  line-height: 1.8; 
+}
+
+/* An information box, typically used for stats or key facts */
+.infobox { 
+  background: var(--bg-secondary); 
+  border: 1px solid var(--border-color); 
+  border-left: 4px solid var(--highlight-color); /* Accent border */
+  border-radius: 0 var(--radius) var(--radius) 0; 
+  padding: 25px; 
+  margin-bottom: 40px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+}
+
+.infobox h3 { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 1.5rem; 
+  margin: 0 0 15px 0; 
+  color: var(--highlight-color); 
+  border-bottom: 1px dashed var(--border-color); 
+  padding-bottom: 10px; 
+}
+
+.infobox p { 
+  margin: 0 0 10px 0; 
+  font-size: 1rem; 
+}
 .infobox p:last-child { margin-bottom: 0; }
 .infobox strong { color: var(--text-primary); }
-.error-container, .placeholder-container { text-align: center; padding: 80px 20px; max-width: 600px; margin: 0 auto; }
-.error-code { font-family: 'Metal Mania', cursive; font-size: 8rem; color: var(--highlight-color); line-height: 1; text-shadow: 0 0 10px rgba(89, 166, 166, 0.8); }
-.error-container h2, .placeholder-container h2 { font-size: 2rem; margin-top: 10px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
-.placeholder-icon { color: var(--highlight-color); margin-bottom: 20px; animation: fadeIn 1s ease-in-out; }
 
-/* ======== 7. ARTICLE ENHANCEMENTS ======== */
+/* Centered container for 404 error and placeholder pages */
+.error-container, .placeholder-container { 
+  text-align: center; 
+  padding: 80px 20px; 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+/* Large "404" text */
+.error-code { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 8rem; 
+  color: var(--highlight-color); 
+  line-height: 1; 
+  text-shadow: 0 0 10px rgba(89, 166, 166, 0.8); 
+}
+
+.error-container h2, .placeholder-container h2 { 
+  font-size: 2rem; 
+  margin-top: 10px; 
+  border-bottom: 2px solid var(--border-color); 
+  padding-bottom: 10px; 
+}
+
+/* Icon used on the placeholder page */
+.placeholder-icon { 
+  color: var(--highlight-color); 
+  margin-bottom: 20px; 
+  animation: fadeIn 1s ease-in-out; 
+}
+
+/* 
+  ========================================
+  7. ARTICLE ENHANCEMENTS
+  Styles for interactive elements within articles, like tabs and blockquotes.
+  ========================================
+*/
+
+/* Container for a tabbed content interface */
 .tab-container { width: 100%; }
-.tab-navigation { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 30px; }
+
+/* Navigation bar for tabs */
+.tab-navigation { 
+  display: flex; 
+  border-bottom: 1px solid var(--border-color); 
+  margin-bottom: 30px; 
+}
+
+/* Individual tab buttons */
 .tab-btn {
   font-family: 'Metal Mania', cursive;
   font-size: 1.3rem;
@@ -308,14 +630,40 @@ a:hover { text-decoration: none; color: white; }
   padding: 15px 25px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -1px;
+  border-bottom: 3px solid transparent; /* Placeholder for active state border */
+  margin-bottom: -1px; /* Aligns border with the container's bottom border */
 }
-.tab-btn:hover { color: var(--text-primary); background-color: var(--bg-tertiary); }
-.tab-btn.active { color: var(--highlight-color); border-bottom-color: var(--highlight-color); }
-.tab-content-panel { display: none; animation: fadeIn 0.4s ease-in-out; }
+
+.tab-btn:hover { 
+  color: var(--text-primary); 
+  background-color: var(--bg-tertiary); 
+}
+
+/* Active state for a tab button */
+.tab-btn.active { 
+  color: var(--highlight-color); 
+  border-bottom-color: var(--highlight-color); 
+}
+
+/* Content panel for a tab, hidden by default */
+.tab-content-panel { 
+  display: none; 
+  animation: fadeIn 0.4s ease-in-out; 
+}
+
+/* Active (visible) state for a tab content panel */
 .tab-content-panel.active { display: block; }
-.tab-controls { display: flex; justify-content: space-between; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 20px; }
+
+/* Container for previous/next tab navigation buttons */
+.tab-controls { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-top: 40px; 
+  border-top: 1px solid var(--border-color); 
+  padding-top: 20px; 
+}
+
+/* Previous/Next buttons for navigating tabs */
 .tab-nav-btn {
   font-family: 'Metal Mania', cursive;
   font-size: 1.1rem;
@@ -327,22 +675,86 @@ a:hover { text-decoration: none; color: white; }
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.tab-nav-btn:hover { color: var(--highlight-color); border-color: var(--highlight-color); box-shadow: 0 0 10px rgba(89, 166, 166, 0.5); }
-.tab-nav-btn:disabled { color: #444; cursor: not-allowed; border-color: #222; box-shadow: none; }
-.wiki-article blockquote { margin: 30px 0; padding: 20px; border-left: 4px solid var(--highlight-color); background-color: var(--bg-tertiary); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; font-size: 1.2rem; color: var(--text-secondary); }
-.wiki-article blockquote p { margin: 0; }
-hr.divider { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0,0,0,0), var(--border-color), rgba(0,0,0,0)); margin: 60px 0; }
-.article-image { width: 100%; margin-bottom: 40px; border-radius: var(--radius); border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
-.article-image img { display: block; width: 100%; height: auto; }
 
-/* ======== 8. RESPONSIVE ADJUSTMENTS ======== */
+.tab-nav-btn:hover { 
+  color: var(--highlight-color); 
+  border-color: var(--highlight-color); 
+  box-shadow: 0 0 10px rgba(89, 166, 166, 0.5); 
+}
+
+/* Disabled state for prev/next buttons */
+.tab-nav-btn:disabled { 
+  color: #444; 
+  cursor: not-allowed; 
+  border-color: #222; 
+  box-shadow: none; 
+}
+
+/* Blockquote for quoting text in articles */
+.wiki-article blockquote { 
+  margin: 30px 0; 
+  padding: 20px; 
+  border-left: 4px solid var(--highlight-color); 
+  background-color: var(--bg-tertiary); 
+  border-radius: 0 var(--radius) var(--radius) 0; 
+  font-style: italic; 
+  font-size: 1.2rem; 
+  color: var(--text-secondary); 
+}
+.wiki-article blockquote p { margin: 0; }
+
+/* A horizontal rule with a gradient fade effect */
+hr.divider { 
+  border: 0; 
+  height: 1px; 
+  background-image: linear-gradient(to right, rgba(0,0,0,0), var(--border-color), rgba(0,0,0,0)); 
+  margin: 60px 0; 
+}
+
+/* Wrapper for images within an article */
+.article-image { 
+  width: 100%; 
+  margin-bottom: 40px; 
+  border-radius: var(--radius); 
+  border: 1px solid var(--border-color); 
+  overflow: hidden; 
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4); 
+}
+.article-image img { 
+  display: block; 
+  width: 100%; 
+  height: auto; 
+}
+
+/* 
+  ========================================
+  8. RESPONSIVE ADJUSTMENTS
+  Media queries to adjust the layout for different screen sizes.
+  ========================================
+*/
+
+/* For tablets and larger screens (768px and up) */
 @media (min-width: 768px) {
-  .site-header { flex-direction: row; justify-content: space-between; }
+  /* Changes header to a row layout */
+  .site-header { 
+    flex-direction: row; 
+    justify-content: space-between; 
+  }
   .site-header .home { margin-bottom: 0; }
 }
+
+/* For larger screens (900px and up) */
 @media (min-width: 900px) {
+  /* Changes main content to a row layout (sidebar beside content) */
   .page-content { flex-direction: row; }
 }
+
+/* For screens smaller than 900px */
 @media (max-width: 899px) {
-  .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); }
+  /* Makes the sidebar full-width and places it above the content */
+  .sidebar { 
+    width: 100%; 
+    border-right: none; 
+    border-bottom: 1px solid var(--border-color); 
+  }
 }

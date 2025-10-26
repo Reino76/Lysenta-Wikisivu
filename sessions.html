@@ -1,38 +1,65 @@
+<!-- 
+  This page lists all the game sessions that have been played.
+  It uses a table to display the date, title, and a summary for each session.
+-->
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pelikerrat | Lysentan Nielemät</title>
-<link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pelikerrat | Lysentan Nielemät</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
-<header class="site-header">
-  <a class="home" href="index.html">Takaisin alkusivulle</a>
-  <nav class="nav">
-    <a href="world.html">Lysentan Maailma</a>
-    <a href="characters.html">Hahmot</a>
-    <a href="sessions.html">Pelikerrat</a>
-  </nav>
-</header>
-<main class="container">
-  <h1 class="page-title">Pelikerrat</h1>
-  <table class="session-table">
-    <thead>
-      <tr>
-        <th scope="col">Päivämäärä</th>
-        <th scope="col">Otsikko</th>
-        <th scope="col">Yhteenveto</th>
-      </tr>
-    </thead>
-    <tbody>
+
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="world.html">Lysentan Maailma</a>
+      <a href="characters.html">Hahmot</a>
+      <a href="sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <h1 class="page-title">Pelikerrat</h1>
+
+    <!-- Table for listing game sessions -->
+    <table class="session-table">
+      <!-- Table Header -->
+      <thead>
+        <tr>
+          <th scope="col">Päivämäärä</th>
+          <th scope="col">Otsikko</th>
+          <th scope="col">Yhteenveto</th>
+        </tr>
+      </thead>
+      <!-- Table Body -->
+      <tbody>
+        <!-- 
+          Rows for each session will be added here dynamically or manually.
+          Each row will be a `<tr>` with the `session-row` class.
+          Example:
+          <tr class="session-row">
+            <td>2025-10-26</td>
+            <td class="title"><a href="sessions/example_session.html">Seikkailu alkaa</a></td>
+            <td>Ryhmä kohtaa salaperäisessä metsässä...</td>
+          </tr>
+        -->
       </tbody>
-  </table>
-</main>
-<script src="assets/app.js"></script>
+    </table>
+  </main>
+
+  <!-- Link to the main JavaScript file for table row click effects -->
+  <script src="assets/app.js"></script>
 </body>
 </html>

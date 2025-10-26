@@ -1,63 +1,91 @@
+<!-- 
+  This page details a specific region in the world: Erratan.
+  It uses the same tabbed layout as the character template to present information
+  about the region's overview, locations, and lore.
+-->
 <!doctype html>
 <html lang="fi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Erratan – Mantereet Lysentissä</title>
-<link rel="stylesheet" href="../../assets/style.css">
-<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Basic page metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Erratan – Mantereet Lysentissä</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts. Note the relative path to assets. -->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
-<header class="site-header">
-  <a class="home" href="../../index.html">Takaisin alkusivulle</a>
-  <nav class="nav">
-    <a href="../../world.html">Lysentan Maailma</a>
-    <a href="../../characters.html">Hahmot</a>
-    <a href="../../sessions.html">Pelikerrat</a>
-  </nav>
-</header>
-<main class="container">
-  <article class="wiki-article animate-on-scroll">
-    <header>
-      <h1 id="yleiskatsaus" class="page-title">Erratan</h1>
-      <p class="article-meta">Loputtomiin kiemurtelevien lumottujen metsien manner.</p>
-    </header>
-    <div class="tab-container">
-      <nav class="tab-navigation">
-        <button class="tab-btn">Yleiskatsaus</button>
-        <button class="tab-btn">Tärkeät Sijainnit</button>
-        <button class="tab-btn">Tarinat</button>
-      </nav>
-      <div class="tab-content-panel">
-        <aside class="infobox">
-          <h3>Yhteenveto</h3>
-          <p><strong>Tyyppi:</strong> Manner</p>
-          <p><strong>Pääkaupunki:</strong> Sysipuu</p>
-          <p><strong>Väestö:</strong> Metsän kansoja, henkiolentoja, erakoita</p>
-          <p><strong>Tunnettu:</strong> Elävästä metsästä, taikuudesta, kadonneista poluista</p>
-        </aside>
-        <p>Erratan on laaja, lähes kokonaan ikivihreän metsän peittämä manner. Sen tiheiköissä sanotaan asuvan vanhoja henkiä, ja harvat polut muuttavat muotoaan auringonlaskun jälkeen. Täällä luonto on kuningas.</p>
+
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../../world.html">Lysentan Maailma</a>
+      <a href="../../characters.html">Hahmot</a>
+      <a href="../../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <!-- The main article container for the region -->
+    <article class="wiki-article animate-on-scroll">
+      <!-- Article Header -->
+      <header>
+        <h1 id="yleiskatsaus" class="page-title">Erratan</h1>
+        <p class="article-meta">Loputtomiin kiemurtelevien lumottujen metsien manner.</p>
+      </header>
+
+      <!-- Tabbed Content Container -->
+      <div class="tab-container">
+        <!-- Navigation buttons for the tabs -->
+        <nav class="tab-navigation">
+          <button class="tab-btn">Yleiskatsaus</button>
+          <button class="tab-btn">Tärkeät Sijainnit</button>
+          <button class="tab-btn">Tarinat</button>
+        </nav>
+
+        <!-- Tab 1: Overview Panel -->
+        <div class="tab-content-panel">
+          <!-- Infobox for a quick summary of the region -->
+          <aside class="infobox">
+            <h3>Yhteenveto</h3>
+            <p><strong>Tyyppi:</strong> Manner</p>
+            <p><strong>Pääkaupunki:</strong> Sysipuu</p>
+            <p><strong>Väestö:</strong> Metsän kansoja, henkiolentoja, erakoita</p>
+            <p><strong>Tunnettu:</strong> Elävästä metsästä, taikuudesta, kadonneista poluista</p>
+          </aside>
+          <p>Erratan on laaja, lähes kokonaan ikivihreän metsän peittämä manner. Sen tiheiköissä sanotaan asuvan vanhoja henkiä, ja harvat polut muuttavat muotoaan auringonlaskun jälkeen. Täällä luonto on kuningas.</p>
+        </div>
+
+        <!-- Tab 2: Key Locations Panel -->
+        <div class="tab-content-panel">
+          <section id="sysipuu"><h2>Sysipuu (Pääkaupunki)</h2><p>Sysipuu ei ole kaupunki perinteisessä mielessä, vaan joukko valtavien, mustakaarnaisten puiden oksille rakennettuja asumuksia.</p></section>
+          <section id="sumusola"><h2>Sumusola</h2><p>Tämä syvä, jatkuvan sumun peittämä sola on ainoa tunnettu reitti Erratanin halki. Sumu on täynnä menneisyyden kaikuja ja harhanäkyjä.</p></section>
+          <section id="hiidenkallio"><h2>Hiidenkallio</h2><p>Korkealle metsän ylle kohoava paljas kallio, jolla asuu tarujen mukaan muinainen ja viisas hiisi.</p></section>
+        </div>
+
+        <!-- Tab 3: Lore/Stories Panel -->
+        <div class="tab-content-panel">
+          <h2>Paikallinen Tarina</h2>
+          <p>Tarinoiden mukaan Erratanin metsä on elävä olento, joka uneksii maailman luomisesta. Sen unet synnyttävät harhakuvia ja houkuttelevat matkaajia syvemmälle siimekseen, josta harva palaa.</p>
+          <blockquote><p>Alueen asukkaat, metsän lapset, ovat oppineet elämään tasapainossa metsän kanssa, kunnioittaen sen lakeja ja karttaen sen pimeimpiä sydänmaita.</p></blockquote>
+        </div>
+
+        <!-- Navigation controls (Previous/Next) for the tabs -->
+        <div class="tab-controls">
+          <button class="tab-nav-btn prev-tab-btn">&laquo; Edellinen</button>
+          <button class="tab-nav-btn next-tab-btn">Seuraava &raquo;</button>
+        </div>
       </div>
-      <div class="tab-content-panel">
-        <section id="sysipuu"><h2>Sysipuu (Pääkaupunki)</h2><p>Sysipuu ei ole kaupunki perinteisessä mielessä, vaan joukko valtavien, mustakaarnaisten puiden oksille rakennettuja asumuksia.</p></section>
-        <section id="sumusola"><h2>Sumusola</h2><p>Tämä syvä, jatkuvan sumun peittämä sola on ainoa tunnettu reitti Erratanin halki. Sumu on täynnä menneisyyden kaikuja ja harhanäkyjä.</p></section>
-        <section id="hiidenkallio"><h2>Hiidenkallio</h2><p>Korkealle metsän ylle kohoava paljas kallio, jolla asuu tarujen mukaan muinainen ja viisas hiisi.</p></section>
-      </div>
-      <div class="tab-content-panel">
-        <h2>Paikallinen Tarina</h2>
-        <p>Tarinoiden mukaan Erratanin metsä on elävä olento, joka uneksii maailman luomisesta. Sen unet synnyttävät harhakuvia ja houkuttelevat matkaajia syvemmälle siimekseen, josta harva palaa.</p>
-        <blockquote><p>Alueen asukkaat, metsän lapset, ovat oppineet elämään tasapainossa metsän kanssa, kunnioittaen sen lakeja ja karttaen sen pimeimpiä sydänmaita.</p></blockquote>
-      </div>
-      <div class="tab-controls">
-        <button class="tab-nav-btn prev-tab-btn">&laquo; Edellinen</button>
-        <button class="tab-nav-btn next-tab-btn">Seuraava &raquo;</button>
-      </div>
-    </div>
-  </article>
-</main>
-<script src="../../assets/app.js"></script>
+    </article>
+  </main>
+
+  <!-- Link to the main JavaScript file for tab functionality -->
+  <script src="../../assets/app.js"></script>
 </body>
 </html>
