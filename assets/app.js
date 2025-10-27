@@ -85,18 +85,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const showTooltip = (pin) => {
       clearTimeout(hideTimeout); // Cancel any pending hide actions.
       const pinRect = pin.getBoundingClientRect(); // Get pin's position.
-      
-      // Populate the tooltip with data from the pin's attributes.
+
+      // 1. Populate content
       tooltipTitle.textContent = pin.getAttribute('title');
       tooltipDescription.textContent = pin.getAttribute('data-description');
       
-      // Position the tooltip just above the pin.
+      // 2. Reset classes and prepare for measurement
+      tooltip.classList.remove('visible', 'adjust-left', 'adjust-right');
+      tooltip.style.transition = 'none';
+
+      // 3. Position and measure
       tooltip.style.top = `${pinRect.top + window.scrollY}px`;
-      tooltip.style.left = `${pinRect.left + window.scrollX}px`;
+      tooltip.style.left = `${pinRect.left + window.scrollX + (pinRect.width / 2)}px`;
       
-      // Store the target link for the tooltip's button.
-      tooltip.dataset.target = pin.getAttribute('href');
-      tooltip.classList.add('visible'); // Make the tooltip visible.
+      // Temporarily make it visible but transparent to measure its rendered width
+      tooltip.classList.add('visible'); 
+      const tooltipWidth = tooltip.offsetWidth;
+      tooltip.classList.remove('visible'); // Hide it again before animation
+
+      // 4. Check for clipping and add adjustment classes
+      const viewportMargin = 10;
+      const pinCenter = pinRect.left + pinRect.width / 2;
+
+      if (pinCenter + (tooltipWidth / 2) > window.innerWidth - viewportMargin) {
+        tooltip.classList.add('adjust-left');
+      } else if (pinCenter - (tooltipWidth / 2) < viewportMargin) {
+        tooltip.classList.add('adjust-right');
+      }
+
+      // 5. Re-enable transitions and show the tooltip
+      tooltip.style.transition = '';
+      // Use a timeout to ensure the classes are applied before the transition starts
+      setTimeout(() => {
+        tooltip.dataset.target = pin.getAttribute('href');
+        tooltip.classList.add('visible'); // Make the tooltip visible
+      }, 10);
     };
 
     // Function to hide the tooltip after a short delay.

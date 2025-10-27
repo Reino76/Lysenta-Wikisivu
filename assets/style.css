@@ -352,7 +352,8 @@ a:hover {
   visibility: hidden;
   transform: translate(-50%, -120%); /* Positions tooltip above the pin */
   transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-  min-width: 240px;
+  min-width: 300px;
+  max-width: 400px;
   text-align: center;
 }
 
@@ -361,6 +362,22 @@ a:hover {
   opacity: 1; 
   visibility: visible; 
   transform: translate(-50%, -130%); /* Slightly moves tooltip up when visible */
+}
+
+/* Adjust tooltip to prevent it from going off the right side of the screen */
+#map-tooltip.adjust-left {
+  transform: translate(-95%, -120%);
+}
+#map-tooltip.visible.adjust-left {
+  transform: translate(-95%, -130%);
+}
+
+/* Adjust tooltip to prevent it from going off the left side of the screen */
+#map-tooltip.adjust-right {
+  transform: translate(-5%, -120%);
+}
+#map-tooltip.visible.adjust-right {
+  transform: translate(-5%, -130%);
 }
 
 /* Title inside the map tooltip */
@@ -377,6 +394,7 @@ a:hover {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
+  white-space: normal; /* Ensures long descriptions will wrap */
 }
 
 /* A special section to highlight a piece of lore */
