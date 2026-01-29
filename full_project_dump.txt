@@ -1,0 +1,2730 @@
+PROJECT DUMP: Lysenta-Wikisivu
+Generated for AI Analysis
+============================================================
+⚠️  FILES SKIPPED (Large or Binary):
+ - .gitattributes (Non-source extension)
+ - assets\favicon.svg (Non-source extension)
+ - assets\images\Lysenta_Raw.png (Large file (2764.3KB))
+ - assets\images\mountain.png (Non-source extension)
+ - assets\images\tower.png (Non-source extension)
+ - assets\images\town.png (Non-source extension)
+============================================================
+
+--- [ PART 1: FOLDER STRUCTURE ] ---
+📁 ./
+    📊 .gitattributes  [0.1 KB]
+    📄 404.html  [1.8 KB]
+    📄 characters.html  [3.1 KB]
+    📄 edit.py  [13.7 KB]
+    📄 index.html  [2.3 KB]
+    📄 placeholder.html  [1.8 KB]
+    📄 publish.py  [12.5 KB]
+    📄 sessions.html  [1.9 KB]
+    📄 world.html  [7.1 KB]
+    📁 assets/
+        📄 app.js  [9.9 KB]
+        📊 favicon.svg  [0.2 KB]
+        📄 style.css  [21.1 KB]
+        📁 images/
+            📊 Lysenta_Raw.png  [2764.3 KB]
+            📊 mountain.png  [114.7 KB]
+            📊 tower.png  [50.8 KB]
+            📊 town.png  [93.7 KB]
+    📁 characters/
+        📁 pc/
+            📄 esimerkkihahmo.html  [4.1 KB]
+    📁 sessions/
+        📄 esimerkkikerta.html  [1.9 KB]
+    📁 vault/
+        📁 .obsidian/
+            📄 app.json  [0.0 KB]
+            📄 appearance.json  [0.0 KB]
+            📄 core-plugins.json  [0.7 KB]
+            📄 workspace.json  [5.0 KB]
+        📁 Characters/
+            📄 Esimerkkihahmo.md  [1.2 KB]
+        📁 Sessions/
+            📄 Esimerkkikerta.md  [0.0 KB]
+        📁 World/
+            📄 Erratan.md  [1.4 KB]
+    📁 world/
+        📁 regions/
+            📄 erratan.html  [3.5 KB]
+
+--- [ PART 2: SOURCE CODE ] ---
+
+============================================================
+ FILE: 404.html
+============================================================
+<!-- 
+  This is the 404 "Not Found" error page.
+  It is displayed whenever a user tries to access a URL that does not exist.
+  It provides a clear error message and a link back to the home page.
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>404 | Kadonnut Sivu</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="world.html">Lysentan Maailma</a>
+      <a href="characters.html">Hahmot</a>
+      <a href="sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <!-- Centered container for the error message -->
+    <div class="error-container">
+        <!-- The large "404" error code -->
+        <div class="error-code">404</div>
+        <!-- The main error heading -->
+        <h2>Sivu, jota ei olla vielä luettu</h2>
+        <!-- A thematic error description -->
+        <p>Näille urille tarina ei vielä ole astunut.</p>
+        <!-- A button that links back to the main index.html page -->
+        <a href="index.html" class="home-button">Palaa Etusivulle</a>
+    </div>
+  </main>
+
+</body>
+</html>
+
+
+============================================================
+ FILE: characters.html
+============================================================
+<!-- 
+  This page serves as a directory for all characters in the campaign.
+  It is structured with a sidebar for quick navigation to character categories.
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hahmot | Lysentan Nielemät</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="world.html">Lysentan Maailma</a>
+      <a href="characters.html">Hahmot</a>
+      <a href="sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <!-- Main page layout container, using Flexbox for sidebar and main content -->
+  <div class="page-content">
+    <!-- Sidebar for navigating character categories -->
+    <nav class="sidebar">
+      <h2>Kategoriat</h2>
+      <!-- These links jump to the corresponding sections on the page -->
+      <a href="#pc">Pelaajien Hahmot</a>
+      <a href="#npc">Sivuhahmot</a>
+      <a href="#creature">Olennot</a>
+      <!-- This second H2 is likely a placeholder or could be used for a list of all characters -->
+      <h2>Hahmot</h2>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+      <!-- Section for Player Characters (PCs) -->
+      <section id="pc" class="animate-on-scroll">
+        <h2 id="pc-title" class="category-break">Pelaajien Hahmot</h2>
+        <!-- The gallery will contain cards for each player character. Currently empty. -->
+        <div class="gallery"><a href="characters/pc/esimerkkihahmo.html" class="card-link"><div class="card"><h3>Esimerkkihahmo</h3><p>Muinainen punainen lohikäärme, ahneuden ja tuhon ruumiillistuma.</p></div></a></div></a></div></a></div>
+        </a>
+        </div>
+      </section>
+
+      <!-- Section for Non-Player Characters (NPCs) -->
+      <section id="npc" class="animate-on-scroll">
+        <h2 id="npc-title" class="category-break">Sivuhahmot</h2>
+        <!-- The gallery will contain cards for each non-player character. Currently empty. -->
+        <div class="gallery"></div>
+      </section>
+
+      <!-- Section for Creatures -->
+      <section id="creature" class="animate-on-scroll">
+        <h2 id="creature-title" class="category-break">Olennot</h2>
+        <!-- The gallery will contain cards for each creature. Currently empty. -->
+        <div class="gallery"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Link to the main JavaScript file for animations and interactivity -->
+  <script src="assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+ FILE: edit.py
+============================================================
+import os
+import re
+import json
+import markdown2
+import frontmatter
+from datetime import datetime
+
+# --- DAGITI CONFIGURATION ---
+VAULT_DIR = "vault"  # Ti folder ti Obsidian Vault-mo
+OUTPUT_DIR = "."     # Ti ramut (root) ti website-mo
+TEMPLATES_DIR = "templates" # No sadino ti pakaidulinan ti HTML skeleton
+
+# Regex para kadagiti Obsidian Wikilink: [[Nagan ti Link]] wenno [[Dalan ti Link|Nagan a Maipakita]]
+WIKILINK_RE = re.compile(r'\[\[([^\]|]+)(?:\|([^\]]+))?\]\]')
+
+# Standard a Lysenta HTML Header/Nav (Napapintas babaen ti Fade-Fix a lohika)
+# TANDAAN: Dagiti CSS braces ket nadoble ({{ }}) tapno malaksid ti KeyError iti .format()
+HTML_WRAPPER = """
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title} | Lysentan Nielemät</title>
+  <link rel="stylesheet" href="{root_path}assets/style.css">
+  <link rel="icon" href="{root_path}assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* FADE-OUT BUG FIX: Siguraduen a saan a mapukaw ti artikulo gapu iti rurod ti animation */
+    .wiki-article {{
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        display: block !important;
+    }}
+    /* Siguraduen a makita a dagus ti umuna a tab uray no saan pay a nagtaray ti JS */
+    .tab-content-panel.active {{
+        display: block !important;
+        opacity: 1 !important;
+    }}
+    /* Dalusan dagiti pre/code blocks a saan koma nga adda dita */
+    .wiki-content pre {{
+        background: rgba(0,0,0,0.3);
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+    }}
+  </style>
+</head>
+<body class="dark">
+  <header class="site-header">
+    <a class="home" href="{root_path}index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="{root_path}world.html">Lysentan Maailma</a>
+      <a href="{root_path}characters.html">Hahmot</a>
+      <a href="{root_path}sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+  <main class="container">
+    <article class="wiki-article">
+        {content}
+    </article>
+  </main>
+  <script src="{root_path}assets/app.js"></script>
+</body>
+</html>
+"""
+
+def slugify(text):
+    """Pagbalinen ti nagan ti file a natalged a URL slug."""
+    return text.lower().replace(" ", "_").replace("ä", "a").replace("ö", "o")
+
+def parse_obsidian_links(html, current_dir_depth):
+    """Pagbalinen dagiti [[Wikilinks]] a standard nga HTML links."""
+    def replace_link(match):
+        target = match.group(1).strip()
+        display = match.group(2).strip() if match.group(2) else target
+        link_target = f"{slugify(target)}.html"
+        return f'<a href="{link_target}">{display}</a>'
+    
+    return WIKILINK_RE.sub(replace_link, html)
+
+def generate_infobox(metadata):
+    """Mangaramid iti thematic nga infobox manipud iti YAML metadata."""
+    if not metadata: return ""
+    rows = ""
+    for key, value in metadata.items():
+        if key.lower() in ['title', 'tags', 'type', 'date', 'summary']: continue
+        rows += f"<p><strong>{key.capitalize()}:</strong> {value}</p>"
+    
+    if not rows: return ""
+    
+    return f"""
+    <aside class="infobox">
+        <h3>Tiedot</h3>
+        {rows}
+    </aside>
+    """
+
+def markdown_to_tabs(md_content):
+    """
+    I-parse ti Markdown ken pagbalinen dagiti Level 2 headers a tabbed nga UI structure.
+    Adda 'Dedent' a lohika tapno matarimaan dagiti Obsidian indentation bugs.
+    """
+    # Tarimaanen ti Obsidian Indentation Bug:
+    # Ikas ti sango a baet (spaces) kadagiti linia a mangrugi iti baet ngem saan a listaan.
+    lines = md_content.splitlines()
+    cleaned_lines = []
+    for line in lines:
+        if re.match(r'^ {1,4}[^ \-*+0-9]', line):
+            cleaned_lines.append(line.lstrip())
+        else:
+            cleaned_lines.append(line)
+    md_content = "\n".join(cleaned_lines)
+
+    # Bingayen ti linaon babaen kadagiti Level 2 headers: ## Nagan ti Header
+    parts = re.split(r'^##\s+(.+)$', md_content, flags=re.MULTILINE)
+    
+    if len(parts) <= 1:
+        return f'<div class="wiki-content">{markdown2.markdown(md_content, extras=["tables", "fenced-code-blocks", "break-on-newline"])}</div>'
+
+    intro = parts[0].strip()
+    tab_data = [] 
+    
+    for i in range(1, len(parts), 2):
+        title = parts[i].strip()
+        content = parts[i+1].strip() if i+1 < len(parts) else ""
+        tab_data.append((title, content))
+
+    # Mangaramid kadagiti Tab Buttons (Ti umuna ket aktibo)
+    nav_html = '<nav class="tab-navigation">'
+    for i, (title, _) in enumerate(tab_data):
+        active_class = " active" if i == 0 else ""
+        nav_html += f'<button class="tab-btn{active_class}">{title}</button>'
+    nav_html += '</nav>'
+
+    # Mangaramid kadagiti Content Panels (Ti umuna ket aktibo)
+    panels_html = ""
+    for i, (title, content) in enumerate(tab_data):
+        active_class = " active" if i == 0 else ""
+        html_inner = markdown2.markdown(content, extras=["tables", "fenced-code-blocks", "break-on-newline"])
+        panels_html += f'<div class="tab-content-panel{active_class}"><div class="wiki-content">{html_inner}</div></div>'
+
+    intro_html = markdown2.markdown(intro, extras=["tables"]) if intro else ""
+    
+    return f"""
+    {intro_html}
+    <div class="tab-container">
+        {nav_html}
+        {panels_html}
+        <div class="tab-controls">
+          <button class="tab-nav-btn prev-tab-btn">&laquo; Edellinen</button>
+          <button class="tab-nav-btn next-tab-btn">Seuraava &raquo;</button>
+        </div>
+    </div>
+    """
+
+def process_file(filepath, category):
+    """I-parse ti maysa nga MD file ken isubli ti metadata ken HTML content."""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        post = frontmatter.load(f)
+        
+    title = post.get('title', os.path.splitext(os.path.basename(filepath))[0])
+    content_html = markdown_to_tabs(post.content)
+    infobox = generate_infobox(post.metadata)
+    
+    full_body = f"""
+    <header>
+        <h1 class="page-title">{title}</h1>
+        <p class="article-meta">{post.get('summary', '')}</p>
+    </header>
+    {infobox}
+    {content_html}
+    """
+    
+    return {
+        "title": title,
+        "metadata": post.metadata,
+        "body": full_body,
+        "slug": slugify(title)
+    }
+
+def rebuild_wiki():
+    print("🧙‍♂️ Mangibangon manen ti Lysenta Wiki manipud iti Obsidian Vault...")
+    
+    sections = {
+        "Characters": {"path": "characters/pc", "depth": 2, "files": []},
+        "World": {"path": "world/regions", "depth": 2, "files": []},
+        "Sessions": {"path": "sessions", "depth": 1, "files": []}
+    }
+
+    for section, config in sections.items():
+        src_path = os.path.join(VAULT_DIR, section)
+        if not os.path.exists(src_path):
+            os.makedirs(src_path)
+            continue
+            
+        dest_path = os.path.join(OUTPUT_DIR, config["path"])
+        if not os.path.exists(dest_path): os.makedirs(dest_path)
+
+        for filename in os.listdir(src_path):
+            if filename.endswith(".md"):
+                data = process_file(os.path.join(src_path, filename), section)
+                final_html = parse_obsidian_links(data["body"], config["depth"])
+                
+                full_page = HTML_WRAPPER.format(
+                    title=data["title"],
+                    content=final_html,
+                    root_path="../" * config["depth"]
+                )
+                
+                output_file = os.path.join(dest_path, f"{data['slug']}.html")
+                with open(output_file, "w", encoding="utf-8") as f:
+                    f.write(full_page)
+                
+                config["files"].append(data)
+                print(f"  📄 Naaramid: {config['path']}/{data['slug']}.html")
+
+    update_session_index(sections["Sessions"]["files"])
+    update_character_index(sections["Characters"]["files"])
+
+    print("✅ Nabangon manen ti Wiki!")
+
+def update_session_index(files):
+    """I-update ti listaan dagiti pelikerrat (sessions)."""
+    session_rows = ""
+    sorted_sessions = sorted(files, key=lambda x: str(x["metadata"].get("date", "")), reverse=True)
+    for s in sorted_sessions:
+        date = s["metadata"].get("date", "???")
+        summary = s["metadata"].get("summary", "-")
+        session_rows += f'<tr class="session-row"><td>{date}</td><td class="title"><a href="sessions/{s["slug"]}.html">{s["title"]}</a></td><td>{summary}</td></tr>'
+    
+    path = os.path.join(OUTPUT_DIR, "sessions.html")
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f: content = f.read()
+        updated = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{session_rows}</tbody>', content, flags=re.DOTALL)
+        with open(path, "w", encoding="utf-8") as f: f.write(updated)
+
+def update_character_index(files):
+    """I-update ti listaan dagiti hahmot (characters)."""
+    char_cards = ""
+    for c in files:
+        summary = c["metadata"].get("summary", "")
+        char_cards += f'<a href="characters/pc/{c["slug"]}.html" class="card-link"><div class="card"><h3>{c["title"]}</h3><p>{summary}</p></div></a>'
+    
+    path = os.path.join(OUTPUT_DIR, "characters.html")
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f: content = f.read()
+        updated = re.sub(r'<div class="gallery">.*?</div>', f'<div class="gallery">{char_cards}</div>', content, count=1, flags=re.DOTALL)
+        with open(path, "w", encoding="utf-8") as f: f.write(updated)
+
+# --- LOHIKA TI PANAGALA (HTML -> MD) ---
+
+def html_to_markdown(html):
+    """Pagbalinen ti Lysenta HTML a kas nadalus a MD."""
+    md = html
+    md = re.sub(r'<h[12][^>]*>(.*?)</h[12]>', r'## \1', md) 
+    md = re.sub(r'<h3[^>]*>(.*?)</h3>', r'### \1', md)
+    md = re.sub(r'<(?:strong|b)>(.*?)</(?:strong|b)>', r'**\1**', md)
+    md = re.sub(r'<(?:em|i)>(.*?)</(?:em|i)>', r'*\1*', md)
+    md = re.sub(r'<blockquote>\s*<p>(.*?)</p>\s*</blockquote>', r'> \1', md, flags=re.DOTALL)
+    md = re.sub(r'<a href="[^"]*html"[^>]*>(.*?)</a>', r'[[\1]]', md)
+    md = re.sub(r'<[^>]+>', '', md)
+    return md.strip()
+
+def ingest_existing_html():
+    """Manganup kadagiti adda nga HTML a panid tapno pagbalinen nga MD iti vault."""
+    print("📂 Manganup kadagiti adda nga HTML a panid tapno maipan iti Obsidian Vault...")
+    
+    targets = {
+        "Characters": os.path.join(OUTPUT_DIR, "characters/pc"),
+        "World": os.path.join(OUTPUT_DIR, "world/regions"),
+        "Sessions": os.path.join(OUTPUT_DIR, "sessions")
+    }
+
+    for category, folder in targets.items():
+        if not os.path.exists(folder): continue
+        vault_cat_dir = os.path.join(VAULT_DIR, category)
+        if not os.path.exists(vault_cat_dir): os.makedirs(vault_cat_dir)
+
+        for filename in os.listdir(folder):
+            if filename.endswith(".html") and filename not in ['index.html', 'world.html', 'characters.html', 'sessions.html']:
+                with open(os.path.join(folder, filename), 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                title_match = re.search(r'<h1[^>]*>(.*?)</h1>', content)
+                if not title_match: title_match = re.search(r'<title>(.*?)\|', content)
+                title = title_match.group(1).strip() if title_match else filename.replace(".html", "").capitalize()
+                
+                summary_match = re.search(r'<p class="article-meta">(.*?)</p>', content)
+                summary = summary_match.group(1).strip() if summary_match else ""
+                
+                metadata = {"title": title, "summary": summary}
+                
+                infobox = re.search(r'<aside class="infobox">(.*?)</aside>', content, re.DOTALL)
+                if infobox:
+                    kv = re.findall(r'<p><strong>(.*?):</strong> (.*?)</p>', infobox.group(1))
+                    for k, v in kv: metadata[k.lower()] = v
+
+                tab_btns = re.findall(r'<button[^>]*class="tab-btn"[^>]*>(.*?)</button>', content)
+                tab_panels = re.findall(r'<div[^>]*class="tab-content-panel"[^>]*>(.*?)</div>', content, re.DOTALL)
+                
+                md_body = ""
+                if tab_btns and tab_panels:
+                    for i in range(min(len(tab_btns), len(tab_panels))):
+                        md_body += f"\n## {tab_btns[i]}\n{html_to_markdown(tab_panels[i])}\n"
+                else:
+                    body_match = re.search(r'<article[^>]*>(.*?)</article>', content, re.DOTALL)
+                    if body_match:
+                        body = body_match.group(1)
+                        body = re.sub(r'<(?:header|aside)[^>]*>.*?</(?:header|aside)>', '', body, flags=re.DOTALL)
+                        md_body = html_to_markdown(body)
+
+                post = frontmatter.Post(md_body.strip(), **metadata)
+                md_filename = os.path.join(vault_cat_dir, f"{title}.md")
+                with open(md_filename, 'wb') as f:
+                    frontmatter.dump(post, f)
+                print(f"  📥 Naala: {category}/{title}.md")
+
+    print("✅ Nakalpas ti panagala! Nakasaganan ti Obsidian vault-mo.")
+
+if __name__ == "__main__":
+    print("--- LYSENTA WIKI TOOL ---")
+    print("1: Mangibangon manen ti Website (Vault -> HTML)")
+    print("2: Manganup iti adda a Site (HTML -> Vault)")
+    choice = input("Pilien ti operasion [1/2]: ")
+    
+    if choice == "1":
+        rebuild_wiki()
+    elif choice == "2":
+        ingest_existing_html()
+
+============================================================
+ FILE: index.html
+============================================================
+<!-- 
+  This is the main landing page for the Lysenta Wiki.
+  It serves as the central navigation hub, directing users to the main sections of the site.
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lysentan Nielemät</title>
+  <meta name="description" content="Tervetuloa Lysentan Nielemät -kampanjasivustolle.">
+
+  <!-- Stylesheets and Favicon -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Preconnect hints for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Linking the two fonts used in the project: Metal Mania for titles and Texturina for body text -->
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <!-- Main link back to the home page -->
+    <a class="home" href="index.html">Lysentan Nielemät</a>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <!-- Large, stylized title for the home page -->
+    <h1 class="page-title home-title">Lysentan<br>Nielemät</h1>
+
+    <!-- Grid layout for the main navigation cards -->
+    <div class="grid">
+      <!-- Card linking to the World section -->
+      <a href="world.html" class="card-link">
+        <div class="card">
+          <h3>Lysentan Maailma</h3>
+          <p>Nähtävyydet, maamerkit, ja paikat joita välttää.</p>
+        </div>
+      </a>
+
+      <!-- Card linking to the Characters section -->
+      <a href="characters.html" class="card-link">
+        <div class="card">
+          <h3>Hahmot</h3>
+          <p>Tarinan sankarit sekä maailman muut asukit.</p>
+        </div>
+      </a>
+
+      <!-- Card linking to the Sessions section -->
+      <a href="sessions.html" class="card-link">
+        <div class="card">
+          <h3>Pelikerrat</h3>
+          <p>Menneiden seikkailujen loki.</p>
+        </div>
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>
+
+
+============================================================
+ FILE: placeholder.html
+============================================================
+<!-- 
+  This is a generic placeholder page.
+  It is used for links that point to content that has not yet been created.
+  It provides a user-friendly message and a way to go back to the previous page.
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sivua Kirjoitetaan | Lysentan Nielemät</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="world.html">Lysentan Maailma</a>
+      <a href="characters.html">Hahmot</a>
+      <a href="sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <!-- Centered container for the placeholder message -->
+    <div class="placeholder-container">
+        <!-- An icon could be placed here. Currently empty. -->
+        <div class="placeholder-icon">
+        </div>
+        <!-- Placeholder title and text -->
+        <h2>Tätä sivua ei vielä olla kirjoitettu</h2>
+        <p>-</p>
+        <!-- A button that takes the user back to the page they came from -->
+        <a href="#" onclick="history.back(); return false;" class="home-button">Palaa Takaisin</a>
+    </div>
+  </main>
+
+</body>
+</html>
+
+
+============================================================
+ FILE: publish.py
+============================================================
+import os
+import re
+import json
+import markdown2
+import frontmatter
+from datetime import datetime
+
+# --- CONFIGURATION ---
+VAULT_DIR = "vault"  # Your Obsidian Vault folder
+OUTPUT_DIR = "."     # Root of your website
+TEMPLATES_DIR = "templates" # Where we store the HTML skeleton
+
+# Regex for Obsidian Wikilinks: [[Link Name]] or [[Link Path|Display Name]]
+WIKILINK_RE = re.compile(r'\[\[([^\]|]+)(?:\|([^\]]+))?\]\]')
+
+# Standard Lysenta HTML Header/Nav (Modified to be used as a wrapper)
+HTML_WRAPPER = """
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title} | Lysentan Nielemät</title>
+  <link rel="stylesheet" href="{root_path}assets/style.css">
+  <link rel="icon" href="{root_path}assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <a class="home" href="{root_path}index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="{root_path}world.html">Lysentan Maailma</a>
+      <a href="{root_path}characters.html">Hahmot</a>
+      <a href="{root_path}sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+  <main class="container">
+    <article class="wiki-article">
+        {content}
+    </article>
+  </main>
+  <script src="{root_path}assets/app.js"></script>
+</body>
+</html>
+"""
+
+def slugify(text):
+    """Converts filename to a safe URL slug."""
+    return text.lower().replace(" ", "_").replace("ä", "a").replace("ö", "o")
+
+def parse_obsidian_links(html, current_dir_depth):
+    """Converts [[Wikilinks]] to standard HTML links."""
+    def replace_link(match):
+        target = match.group(1).strip()
+        display = match.group(2).strip() if match.group(2) else target
+        link_target = f"{slugify(target)}.html"
+        return f'<a href="{link_target}">{display}</a>'
+    
+    return WIKILINK_RE.sub(replace_link, html)
+
+def generate_infobox(metadata):
+    """Creates a thematic infobox from YAML metadata."""
+    if not metadata: return ""
+    rows = ""
+    for key, value in metadata.items():
+        if key.lower() in ['title', 'tags', 'type', 'date', 'summary']: continue
+        rows += f"<p><strong>{key.capitalize()}:</strong> {value}</p>"
+    
+    if not rows: return ""
+    
+    return f"""
+    <aside class="infobox">
+        <h3>Tiedot</h3>
+        {rows}
+    </aside>
+    """
+
+def markdown_to_tabs(md_content):
+    """
+    Parses Markdown and converts Level 2 headers into a tabbed UI structure.
+    """
+    # Clean leading indentation to prevent accidental code blocks
+    lines = md_content.splitlines()
+    cleaned_lines = [line.lstrip() for line in lines]
+    md_content = "\n".join(cleaned_lines)
+
+    # Split content by Level 2 headers: ## Header Name
+    parts = re.split(r'^##\s+(.+)$', md_content, flags=re.MULTILINE)
+    
+    if len(parts) <= 1:
+        return f'<div class="wiki-content">{markdown2.markdown(md_content, extras=["tables", "fenced-code-blocks", "break-on-newline"])}</div>'
+
+    intro = parts[0].strip()
+    tab_data = [] 
+    
+    for i in range(1, len(parts), 2):
+        title = parts[i].strip()
+        content = parts[i+1].strip() if i+1 < len(parts) else ""
+        tab_data.append((title, content))
+
+    # Generate Navigation Buttons (First one is active)
+    nav_html = '<nav class="tab-navigation">'
+    for i, (title, _) in enumerate(tab_data):
+        active_class = " active" if i == 0 else ""
+        nav_html += f'<button class="tab-btn{active_class}">{title}</button>'
+    nav_html += '</nav>'
+
+    # Generate Content Panels (First one is active)
+    panels_html = ""
+    for i, (title, content) in enumerate(tab_data):
+        active_class = " active" if i == 0 else ""
+        html_inner = markdown2.markdown(content, extras=["tables", "fenced-code-blocks", "break-on-newline"])
+        panels_html += f'<div class="tab-content-panel{active_class}"><div class="wiki-content">{html_inner}</div></div>'
+
+    intro_html = markdown2.markdown(intro, extras=["tables"]) if intro else ""
+    
+    return f"""
+    {intro_html}
+    <div class="tab-container">
+        {nav_html}
+        {panels_html}
+        <div class="tab-controls">
+          <button class="tab-nav-btn prev-tab-btn">&laquo; Edellinen</button>
+          <button class="tab-nav-btn next-tab-btn">Seuraava &raquo;</button>
+        </div>
+    </div>
+    """
+
+def process_file(filepath, category):
+    """Parses an MD file and returns metadata and HTML content."""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        post = frontmatter.load(f)
+        
+    title = post.get('title', os.path.splitext(os.path.basename(filepath))[0])
+    content_html = markdown_to_tabs(post.content)
+    infobox = generate_infobox(post.metadata)
+    
+    full_body = f"""
+    <header>
+        <h1 class="page-title">{title}</h1>
+        <p class="article-meta">{post.get('summary', '')}</p>
+    </header>
+    {infobox}
+    {content_html}
+    """
+    
+    return {
+        "title": title,
+        "metadata": post.metadata,
+        "body": full_body,
+        "slug": slugify(title)
+    }
+
+def rebuild_wiki():
+    print("🧙‍♂️ Rebuilding Lysenta Wiki from Obsidian Vault...")
+    
+    sections = {
+        "Characters": {"path": "characters/pc", "depth": 2, "files": []},
+        "World": {"path": "world/regions", "depth": 2, "files": []},
+        "Sessions": {"path": "sessions", "depth": 1, "files": []}
+    }
+
+    for section, config in sections.items():
+        src_path = os.path.join(VAULT_DIR, section)
+        if not os.path.exists(src_path):
+            os.makedirs(src_path)
+            continue
+            
+        dest_path = os.path.join(OUTPUT_DIR, config["path"])
+        if not os.path.exists(dest_path): os.makedirs(dest_path)
+
+        for filename in os.listdir(src_path):
+            if filename.endswith(".md"):
+                data = process_file(os.path.join(src_path, filename), section)
+                final_html = parse_obsidian_links(data["body"], config["depth"])
+                
+                full_page = HTML_WRAPPER.format(
+                    title=data["title"],
+                    content=final_html,
+                    root_path="../" * config["depth"]
+                )
+                
+                output_file = os.path.join(dest_path, f"{data['slug']}.html")
+                with open(output_file, "w", encoding="utf-8") as f:
+                    f.write(full_page)
+                
+                config["files"].append(data)
+                print(f"  📄 Generated: {config['path']}/{data['slug']}.html")
+
+    update_session_index(sections["Sessions"]["files"])
+    update_character_index(sections["Characters"]["files"])
+
+    print("✅ Wiki Rebuilt!")
+
+def update_session_index(files):
+    session_rows = ""
+    sorted_sessions = sorted(files, key=lambda x: str(x["metadata"].get("date", "")), reverse=True)
+    for s in sorted_sessions:
+        date = s["metadata"].get("date", "???")
+        summary = s["metadata"].get("summary", "-")
+        session_rows += f'<tr class="session-row"><td>{date}</td><td class="title"><a href="sessions/{s["slug"]}.html">{s["title"]}</a></td><td>{summary}</td></tr>'
+    
+    path = os.path.join(OUTPUT_DIR, "sessions.html")
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f: content = f.read()
+        updated = re.sub(r'<tbody>.*?</tbody>', f'<tbody>{session_rows}</tbody>', content, flags=re.DOTALL)
+        with open(path, "w", encoding="utf-8") as f: f.write(updated)
+
+def update_character_index(files):
+    char_cards = ""
+    for c in files:
+        summary = c["metadata"].get("summary", "")
+        char_cards += f'<a href="characters/pc/{c["slug"]}.html" class="card-link"><div class="card"><h3>{c["title"]}</h3><p>{summary}</p></div></a>'
+    
+    path = os.path.join(OUTPUT_DIR, "characters.html")
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f: content = f.read()
+        updated = re.sub(r'<div class="gallery">.*?</div>', f'<div class="gallery">{char_cards}</div>', content, count=1, flags=re.DOTALL)
+        with open(path, "w", encoding="utf-8") as f: f.write(updated)
+
+# --- INGESTION LOGIC (HTML -> MD) ---
+
+def html_to_markdown(html):
+    """Refined converter for Lysenta HTML to clean MD."""
+    md = html
+    # Clean headers
+    md = re.sub(r'<h[12][^>]*>(.*?)</h[12]>', r'## \1', md) 
+    md = re.sub(r'<h3[^>]*>(.*?)</h3>', r'### \1', md)
+    # Formatting
+    md = re.sub(r'<(?:strong|b)>(.*?)</(?:strong|b)>', r'**\1**', md)
+    md = re.sub(r'<(?:em|i)>(.*?)</(?:em|i)>', r'*\1*', md)
+    # Blockquotes
+    md = re.sub(r'<blockquote>\s*<p>(.*?)</p>\s*</blockquote>', r'> \1', md, flags=re.DOTALL)
+    # Links
+    md = re.sub(r'<a href="[^"]*html"[^>]*>(.*?)</a>', r'[[\1]]', md)
+    # Strip garbage tags
+    md = re.sub(r'<[^>]+>', '', md)
+    return md.strip()
+
+def ingest_existing_html():
+    print("📂 Ingesting existing HTML pages into Obsidian Vault...")
+    
+    targets = {
+        "Characters": os.path.join(OUTPUT_DIR, "characters/pc"),
+        "World": os.path.join(OUTPUT_DIR, "world/regions"),
+        "Sessions": os.path.join(OUTPUT_DIR, "sessions")
+    }
+
+    for category, folder in targets.items():
+        if not os.path.exists(folder): continue
+        vault_cat_dir = os.path.join(VAULT_DIR, category)
+        if not os.path.exists(vault_cat_dir): os.makedirs(vault_cat_dir)
+
+        for filename in os.listdir(folder):
+            if filename.endswith(".html") and filename not in ['index.html', 'world.html', 'characters.html', 'sessions.html']:
+                with open(os.path.join(folder, filename), 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                # Robust Title extraction
+                title_match = re.search(r'<h1[^>]*>(.*?)</h1>', content)
+                if not title_match: title_match = re.search(r'<title>(.*?)\|', content)
+                title = title_match.group(1).strip() if title_match else filename.replace(".html", "").capitalize()
+                
+                # Robust Summary extraction
+                summary_match = re.search(r'<p class="article-meta">(.*?)</p>', content)
+                summary = summary_match.group(1).strip() if summary_match else ""
+                
+                metadata = {"title": title, "summary": summary}
+                
+                # Extract Infobox
+                infobox = re.search(r'<aside class="infobox">(.*?)</aside>', content, re.DOTALL)
+                if infobox:
+                    kv = re.findall(r'<p><strong>(.*?):</strong> (.*?)</p>', infobox.group(1))
+                    for k, v in kv: metadata[k.lower()] = v
+
+                # Extract Tabs
+                tab_btns = re.findall(r'<button[^>]*class="tab-btn"[^>]*>(.*?)</button>', content)
+                tab_panels = re.findall(r'<div[^>]*class="tab-content-panel"[^>]*>(.*?)</div>', content, re.DOTALL)
+                
+                md_body = ""
+                if tab_btns and tab_panels:
+                    for i in range(min(len(tab_btns), len(tab_panels))):
+                        md_body += f"\n## {tab_btns[i]}\n{html_to_markdown(tab_panels[i])}\n"
+                else:
+                    body_match = re.search(r'<article[^>]*>(.*?)</article>', content, re.DOTALL)
+                    if body_match:
+                        body = body_match.group(1)
+                        body = re.sub(r'<(?:header|aside)[^>]*>.*?</(?:header|aside)>', '', body, flags=re.DOTALL)
+                        md_body = html_to_markdown(body)
+
+                post = frontmatter.Post(md_body.strip(), **metadata)
+                md_filename = os.path.join(vault_cat_dir, f"{title}.md")
+                with open(md_filename, 'wb') as f:
+                    frontmatter.dump(post, f)
+                print(f"  📥 Ingested: {category}/{title}.md")
+
+    print("✅ Ingestion Complete! Your Obsidian vault is ready.")
+
+if __name__ == "__main__":
+    print("--- LYSENTA WIKI TOOL ---")
+    print("1: Rebuild Website (Vault -> HTML)")
+    print("2: Ingest Current Site (HTML -> Vault)")
+    choice = input("Select operation [1/2]: ")
+    
+    if choice == "1": rebuild_wiki()
+    elif choice == "2": ingest_existing_html()
+
+============================================================
+ FILE: sessions.html
+============================================================
+<!-- 
+  This page lists all the game sessions that have been played.
+  It uses a table to display the date, title, and a summary for each session.
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pelikerrat | Lysentan Nielemät</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="world.html">Lysentan Maailma</a>
+      <a href="characters.html">Hahmot</a>
+      <a href="sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <h1 class="page-title">Pelikerrat</h1>
+
+    <!-- Table for listing game sessions -->
+    <table class="session-table">
+      <!-- Table Header -->
+      <thead>
+        <tr>
+          <th scope="col">Päivämäärä</th>
+          <th scope="col">Otsikko</th>
+          <th scope="col">Yhteenveto</th>
+        </tr>
+      </thead>
+      <!-- Table Body -->
+      <tbody><tr class="session-row"><td>???</td><td class="title"><a href="sessions/esimerkkikerta.html">Esimerkkikerta</a></td><td></td></tr></tbody>
+    </table>
+  </main>
+
+  <!-- Link to the main JavaScript file for table row click effects -->
+  <script src="assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+ FILE: world.html
+============================================================
+<!-- 
+  This page provides an overview of the world of Lysenta.
+  It features an interactive map and links to pages for specific regions.
+-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <!-- Basic page metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lysentan Maailma | Kokonaiskuva</title>
+
+  <!-- Stylesheets, Favicon, and Google Fonts -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <!-- Site Header with navigation -->
+  <header class="site-header">
+    <a class="home" href="index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="world.html">Lysentan Maailma</a>
+      <a href="characters.html">Hahmot</a>
+      <a href="sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <h1 class="page-title">Lysentan Maailma</h1>
+
+    <!-- Interactive Map Container -->
+    <div class="map-wrap">
+      <!-- The base map image -->
+      <img src="assets/images/Lysenta_Raw.png" alt="World map of Lysenta">
+      
+      <!-- 
+        Interactive Map Pins.
+        - `href` links to the corresponding info card on this page.
+        - `style` positions the pin on the map using top/left percentages.
+        - `title` provides the main name for the tooltip.
+        - `data-description` holds extra text for the tooltip (currently empty).
+      -->
+      <a class="map-pin" href="#erratan-card" style="top:20%; left:40%;" title="Erratan" data-description="Erakoituneitten haltijain maita. Erratanin suunnattomat metsät ja arot mulkoilevat vieraitaan murhaavin silmin."></a>
+      <a class="map-pin" href="#isles-card" style="top:85%; left:75%;" title="Kuiskavat Saaret" data-description="Kuiskivien Saarten hiljaisten mäkien kupeessa eli aikoinaan kansaa, joka pyrki löytämään saaren kuoren alta jotakin suurta."></a>
+      <a class="map-pin" href="#murtirna-card" style="top:20%; left:10%;" title="Murtirna" data-description=""></a>
+      <a class="map-pin" href="#tarmanto-card" style="top:55%; left:15%;" title="Tarmanto" data-description="Tarmannon soista maata peittää arvoituksellinen väreily. Sen hylätyksi jääneet taikuuden koulukuntain linnoitukset tuijottavat korkeine torneineen kulkijoita."></a>
+      <a class="map-pin" href="#wasted-lands-card" style="top:90%; left:55%;" title="Kartoittamattomat Kuihtuneet Maat" data-description="Kuihtuneita, aavoja hiekkadyynejä. Kartoittamattomia kuolleita maita asuttavat niin uhkarohkeat, kuin Suur' Syvenen ahmaasta kidasta ryömineet olennot."></a>
+      <a class="map-pin" href="#lohn-rotal-card" style="top:15%; left:75%;" title="Lohn Rotal" data-description="Lohn Rotalin alati taistelevat kansat eivät vuosituhansienkaan saatossa ole löytäneet toisistaan syytä yhteisymmärrykseen. Suunnattomia linnoituksia, suojapaikkoja ja vuoria."></a>
+      <a class="map-pin" href="#kin-ton-card" style="top:65%; left:85%;" title="Kin-ton" data-description="Kin-Tonia koristavat loputtomat jalokivin koristellut vuortein huiput. Sen kupeessa elää kansa, joka tietää arvonsa."></a>
+      <a class="map-pin" href="#suursyven-card" style="top:95%; left:25%;" title="Suur' Syven" data-description="Kauan ennen kirjattua aikaa syntyneeksi uumoiltu Suur' Syven' on kammottava, loputtomiin maan uumeniin kaartuva pyörtymä. Kenties sen toi tähän maailmaan velhoin suuri alkutaistelu?"></a>
+    </div>
+
+    <!-- Lore Spotlight Section: A highlighted block of text about the world's lore. -->
+    <section class="lore-spotlight animate-on-scroll">
+      <h3>P A L J A N T O</h3>
+      <p>Kauan sitten Lysentan ylle laskeutui sankka, ilkikurinen ja ennalta-arvaamaton sumupeite.<br> Se jakoi mahdillaan maailman jo tunnetut alueet erilleen, tehden tutkimusmatkoista lähes varmasti tappavia. <br> - <br> Paljantoa uhmaava saa todennäköisimmin kokea karvaan kohtalonsa.</p>
+    </section>
+
+    <!-- Section for the region cards -->
+    <div class="animate-on-scroll">
+      <h2 class="category-break">Tunnetut Alueet</h2>
+      <!-- Grid containing cards for each known region -->
+      <div class="grid">
+        <!-- Each card is a link to a placeholder page and has an ID that the map pins link to. -->
+        <a href="placeholder.html" class="card-link"><div class="card" id="erratan-card"><h3>Erratan</h3><p>Erakoituneitten haltijain maita. Erratanin suunnattomat metsät ja arot mulkoilevat vieraitaan murhaavin silmin.</p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="isles-card"><h3>Kuiskavat Saaret</h3><p>Kuiskivien Saarten hiljaisten mäkien kupeessa eli aikoinaan kansaa, joka pyrki löytämään saaren kuoren alta jotakin suurta.</p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="murtirna-card"><h3>Murtirna</h3><p></p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="tarmanto-card"><h3>Tarmanto</h3><p>Tarmannon soista maata peittää arvoituksellinen väreily. Sen hylätyksi jääneet taikuuden koulukuntain linnoitukset tuijottavat korkeine torneineen kulkijoita.</p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="wasted-lands-card"><h3>Kartoittamattomat Kuihtuneet Maat</h3><p>Kuihtuneita, aavoja hiekkadyynejä. Kartoittamattomia kuolleita maita asuttavat niin uhkarohkeat, kuin Suur' Syvenen ahmaasta kidasta ryömineet olennot.</p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="lohn-rotal-card"><h3>Lohn Rotal</h3><p>Lohn Rotalin alati taistelevat kansat eivät vuosituhansienkaan saatossa ole löytäneet toisistaan syytä yhteisymmärrykseen. Suunnattomia linnoituksia, suojapaikkoja ja vuoria.</p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="kin-ton-card"><h3>Kin-ton</h3><p>Kin-Tonia koristavat loputtomat jalokivin koristellut vuortein huiput. Sen kupeessa elää kansa, joka tietää arvonsa.</p></div></a>
+        <a href="placeholder.html" class="card-link"><div class="card" id="suursyven-card"><h3>Suur' Syven</h3><p>Kauan ennen kirjattua aikaa syntyneeksi uumoiltu Suur' Syven' on kammottava, loputtomiin maan uumeniin kaartuva pyörtymä. Kenties sen toi tähän maailmaan velhoin suuri alkutaistelu?</p></div></a>
+      </div>
+    </div>
+  </main>
+
+  <!-- 
+    Tooltip Element for the Map.
+    This is hidden by default and becomes visible via JavaScript (app.js).
+    Its content is populated dynamically based on the hovered/clicked map pin.
+  -->
+  <div id="map-tooltip">
+    <h3 id="tooltip-title"></h3>
+    <p id="tooltip-description"></p>
+    <button id="tooltip-button">Tiedot</button>
+  </div>
+
+  <!-- Link to the main JavaScript file -->
+  <script src="assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+ FILE: assets\app.js
+============================================================
+/**
+ * Lysenta Wiki - app.js
+ * Version: 3.4 (Enhanced Map Tooltips)
+ * 
+ * This file contains all the JavaScript functionality for the Lysenta Wiki project.
+ * It is organized into modules that are initialized when the DOM is fully loaded.
+ */
+
+// Wait for the entire HTML document to be loaded and parsed before running the script.
+document.addEventListener('DOMContentLoaded', () => {
+
+  /**
+   * MODULE 1: Active Sidebar Link on Scroll
+   * 
+   * This module highlights the corresponding link in the sidebar when the user scrolls
+   * to a new section on a page. It uses the IntersectionObserver API for performance.
+   */
+  // Select all sidebar links that point to an anchor on the same page.
+  const sidebarLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+  if (sidebarLinks.length > 0) {
+    // Get the actual section elements these links point to.
+    const sections = Array.from(sidebarLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    
+    if (sections.length > 0) {
+      // Create an observer that watches for sections entering the middle of the viewport.
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // When a section is intersecting with the viewport...
+          if (entry.isIntersecting) {
+            // ...loop through all sidebar links...
+            sidebarLinks.forEach(link => {
+              // ...and toggle the 'active' class if its href matches the intersecting section's id.
+              link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -60% 0px' }); // Defines the "trigger zone" in the middle of the screen.
+      
+      // Start observing each section.
+      sections.forEach(section => observer.observe(section));
+    }
+  }
+
+  /**
+   * MODULE 2: Session Table Row Click Effect
+   * 
+   * This module makes entire rows in the session table clickable and adds a brief
+   * visual effect before navigating to the session's page.
+   */
+  const sessionRows = document.querySelectorAll('.session-row');
+  if (sessionRows.length > 0) {
+    sessionRows.forEach(row => {
+      row.addEventListener('click', (event) => {
+        // Find the link within the row.
+        const link = row.querySelector('a');
+        // Don't interfere with right-clicks, ctrl/cmd-clicks, or if there's no link.
+        if (!link || event.ctrlKey || event.metaKey || event.which > 1) return;
+        
+        event.preventDefault(); // Prevent the browser from navigating immediately.
+        row.classList.add('row-flash'); // Add a CSS class for a visual flash effect.
+        
+        // Wait a short moment for the effect to be visible, then navigate.
+        setTimeout(() => { window.location.href = link.href; }, 150);
+      });
+    });
+  }
+
+  /**
+   * MODULE 3: Interactive World Map Tooltip
+   * 
+   * This module controls the behavior of the interactive map, showing a detailed
+   * tooltip when a user hovers over or clicks a map pin.
+   */
+  const mapWrap = document.querySelector('.map-wrap');
+  if (mapWrap) {
+    // Get all necessary elements for the map and its tooltip.
+    const tooltip = document.getElementById('map-tooltip');
+    const tooltipTitle = document.getElementById('tooltip-title');
+    const tooltipDescription = document.getElementById('tooltip-description');
+    const tooltipButton = document.getElementById('tooltip-button');
+    const mapPins = document.querySelectorAll('.map-pin');
+    let hideTimeout; // Used to manage the delay before hiding the tooltip.
+    
+    // Function to display and position the tooltip.
+    const showTooltip = (pin) => {
+      clearTimeout(hideTimeout); // Cancel any pending hide actions.
+      const pinRect = pin.getBoundingClientRect(); // Get pin's position.
+
+      // 1. Populate content
+      tooltipTitle.textContent = pin.getAttribute('title');
+      tooltipDescription.textContent = pin.getAttribute('data-description');
+      
+      // 2. Reset classes and prepare for measurement
+      tooltip.classList.remove('visible', 'adjust-left', 'adjust-right');
+      tooltip.style.transition = 'none';
+
+      // 3. Position and measure
+      tooltip.style.top = `${pinRect.top + window.scrollY}px`;
+      tooltip.style.left = `${pinRect.left + window.scrollX + (pinRect.width / 2)}px`;
+      
+      // Temporarily make it visible but transparent to measure its rendered width
+      tooltip.classList.add('visible'); 
+      const tooltipWidth = tooltip.offsetWidth;
+      tooltip.classList.remove('visible'); // Hide it again before animation
+
+      // 4. Check for clipping and add adjustment classes
+      const viewportMargin = 10;
+      const pinCenter = pinRect.left + pinRect.width / 2;
+
+      if (pinCenter + (tooltipWidth / 2) > window.innerWidth - viewportMargin) {
+        tooltip.classList.add('adjust-left');
+      } else if (pinCenter - (tooltipWidth / 2) < viewportMargin) {
+        tooltip.classList.add('adjust-right');
+      }
+
+      // 5. Re-enable transitions and show the tooltip
+      tooltip.style.transition = '';
+      // Use a timeout to ensure the classes are applied before the transition starts
+      setTimeout(() => {
+        tooltip.dataset.target = pin.getAttribute('href');
+        tooltip.classList.add('visible'); // Make the tooltip visible
+      }, 10);
+    };
+
+    // Function to hide the tooltip after a short delay.
+    const hideTooltip = () => {
+      hideTimeout = setTimeout(() => { tooltip.classList.remove('visible'); }, 200);
+    };
+    
+    // Add event listeners to each map pin.
+    mapPins.forEach(pin => {
+      pin.addEventListener('mouseenter', () => showTooltip(pin)); // Show on hover.
+      pin.addEventListener('mouseleave', hideTooltip); // Hide when mouse leaves.
+      pin.addEventListener('click', (e) => { // Also show on click.
+        e.preventDefault();
+        showTooltip(pin);
+      });
+    });
+
+    // Keep the tooltip visible if the user moves their mouse over it.
+    tooltip.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+    tooltip.addEventListener('mouseleave', hideTooltip);
+
+    // Handle clicks on the button inside the tooltip.
+    tooltipButton.addEventListener('click', () => {
+      const targetCard = document.querySelector(tooltip.dataset.target);
+      if (targetCard) {
+        // Scroll to the corresponding content card.
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Add a temporary highlight effect to the card.
+        targetCard.classList.add('highlight-target');
+        setTimeout(() => { targetCard.classList.remove('highlight-target'); }, 1500);
+      }
+      tooltip.classList.remove('visible'); // Hide the tooltip.
+    });
+
+    // Hide the tooltip if the user clicks anywhere else on the page.
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.map-pin') && !tooltip.contains(event.target)) {
+        tooltip.classList.remove('visible');
+      }
+    });
+  }
+
+  /**
+   * MODULE 4: Animate Elements on Scroll
+   * 
+   * This module adds a fade-in-and-up animation to elements as they are scrolled
+   * into the viewport. It uses the IntersectionObserver API for efficiency.
+   */
+  const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      // When an element becomes visible...
+      if (entry.isIntersecting) {
+        // ...add the 'is-visible' class to trigger the CSS animation.
+        entry.target.classList.add('is-visible');
+        // Stop observing the element to prevent re-animation.
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 }); // Trigger when 10% of the element is visible.
+  
+  // Apply this observer to all elements with the 'animate-on-scroll' class.
+  document.querySelectorAll('.animate-on-scroll').forEach(element => {
+    scrollObserver.observe(element);
+  });
+  
+  /**
+   * MODULE 5: Wiki Page Tab System
+   * 
+   * This module powers the tabbed content sections found on some wiki pages.
+   * It handles switching between tabs and updating their state.
+   */
+  document.querySelectorAll('.tab-container').forEach(container => {
+    // Get all parts of the tab system within this container.
+    const tabs = container.querySelectorAll('.tab-navigation .tab-btn');
+    const panels = container.querySelectorAll('.tab-content-panel');
+    const prevButton = container.querySelector('.prev-tab-btn');
+    const nextButton = container.querySelector('.next-tab-btn');
+    let currentIndex = 0; // Keep track of the currently active tab.
+
+    // Function to show a specific tab and hide others.
+    const updateTabs = (index) => {
+      currentIndex = index;
+      // Toggle 'active' class for tab buttons.
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+      // Toggle 'active' class for content panels.
+      panels.forEach((panel, i) => panel.classList.toggle('active', i === index));
+      
+      // Enable/disable previous/next buttons based on the current index.
+      if (prevButton && nextButton) {
+        prevButton.disabled = index === 0;
+        nextButton.disabled = index === tabs.length - 1;
+      }
+    };
+
+    // Add click listeners to each tab button.
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => updateTabs(index));
+    });
+
+    // Add click listener for the "Previous" button.
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) updateTabs(currentIndex - 1);
+      });
+    }
+    
+    // Add click listener for the "Next" button.
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        if (currentIndex < tabs.length - 1) updateTabs(currentIndex + 1);
+      });
+    }
+
+    // Initialize the tab system by showing the first tab.
+    updateTabs(0);
+  });
+});
+
+
+============================================================
+ FILE: assets\style.css
+============================================================
+/*
+  ================================================================================
+  STYLE.CSS
+  This file contains all the styles for the Lysenta Wiki project.
+  It's structured into logical sections for easier maintenance and understanding.
+  ================================================================================
+*/
+
+/* 
+  ========================================
+  1. ANIMATIONS & INTERACTIONS
+  This section defines keyframes for animations used throughout the site,
+  such as fade-ins and interactive highlight effects.
+  ========================================
+*/
+
+/* Defines a simple fade-in animation from 0 to 1 opacity. */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Applies the fadeIn animation to the main content container on page load. */
+main.container {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Prepares elements to be animated when they are scrolled into view. */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* The state of the element when it becomes visible in the viewport. */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* A pulsing animation used to highlight specific elements. */
+@keyframes pulse-highlight {
+  0% { box-shadow: 0 0 0 0 rgba(89, 166, 166, 0.7); }
+  100% { box-shadow: 0 0 15px 20px rgba(89, 166, 166, 0); }
+}
+
+/* 
+  ========================================
+  2. VARIABLES & GLOBAL STYLES
+  Defines CSS custom properties (variables) for the color palette, border-radius,
+  and sets up foundational styles for the entire site.
+  ========================================
+*/
+:root {
+  /* Color Palette */
+  --bg-primary: #121212;      /* Deep dark background */
+  --bg-secondary: #1a1a1a;    /* Slightly lighter background for cards/headers */
+  --bg-tertiary: #0d0d0d;     /* Even darker background for sidebars/tooltips */
+  --text-primary: #ddd;       /* Main text color */
+  --text-secondary: #aaa;     /* Subdued text color for meta info/placeholders */
+  --border-color: #222;       /* Border color for separators and outlines */
+  --highlight-color: #59a6a6; /* Accent color for links, headers, and highlights */
+
+  /* UI Elements */
+  --radius: 12px;             /* Standard border radius for cards and containers */
+}
+
+/* Enables smooth scrolling for anchor links. */
+html { scroll-behavior: smooth; }
+
+/* Ensures padding and border are included in the element's total width and height. */
+* { box-sizing: border-box; }
+
+/* Basic body styles: sets margin, font, background, and text color. */
+body {
+  margin: 0;
+  font-family: 'Texturina', serif; /* A serif font for a classic, readable feel */
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7; /* Improves readability */
+}
+
+/* 
+  ========================================
+  3. GENERAL TYPOGRAPHY & LINKS
+  Styles for anchor tags (links).
+  ========================================
+*/
+a {
+  color: var(--highlight-color);
+  text-decoration: none; /* Removes the default underline */
+  transition: all 0.2s ease-in-out; /* Smooth transition for hover effects */
+}
+a:hover { 
+  text-decoration: none; 
+  color: white; /* Brightens link color on hover */
+}
+
+/* 
+  ========================================
+  4. SHARED LAYOUT COMPONENTS
+  Styles for major layout elements like the header, navigation, sidebar,
+  and main content containers.
+  ========================================
+*/
+
+/* Main site header container */
+.site-header {
+  display: flex;
+  flex-direction: column; /* Stacks logo and nav vertically on small screens */
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds depth */
+  transition: background-color 0.3s;
+}
+
+/* The main "Lysenta" home link in the header */
+.site-header .home {
+  font-family: 'Metal Mania', cursive; /* Thematic, stylized font */
+  font-size: 1.8rem;
+  color: var(--highlight-color);
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease-out;
+}
+.site-header .home:hover { 
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Navigation links in the header */
+.nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 15px;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+.nav a:hover { 
+  color: var(--text-primary); 
+  text-shadow: 0 0 5px var(--highlight-color); /* Glow effect on hover */
+}
+
+/* Sidebar container for sub-navigation */
+.sidebar {
+  background: var(--bg-tertiary);
+  padding: 20px;
+  min-width: 220px;
+  border-right: 1px solid var(--border-color);
+}
+
+/* Sidebar section titles */
+.sidebar h2 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.5rem;
+  color: var(--highlight-color);
+  margin-top: 0;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* Links within the sidebar */
+.sidebar a {
+  display: block; /* Makes the entire area clickable */
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover and active states for sidebar links */
+.sidebar a:hover, .sidebar a.active {
+  color: var(--text-primary);
+  padding-left: 10px; /* Indents text on hover/active */
+  background-color: rgba(89, 166, 166, 0.1); /* Subtle highlight */
+}
+
+/* Flex container for the main page layout (sidebar + content) */
+.page-content { 
+  display: flex; 
+  flex-direction: column; /* Stacks sidebar and content on small screens */
+}
+
+/* Main content area wrapper */
+.container {
+  flex-grow: 1; /* Allows content to fill available space */
+  padding: 30px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto; /* Centers the container */
+}
+
+/* Main title for each page */
+.page-title {
+  font-family: 'Metal Mania', cursive;
+  font-size: 3.5rem;
+  margin: 0 0 40px 0;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* 
+  ========================================
+  5. REUSABLE COMPONENTS
+  Styles for common, reusable UI elements like cards, grids, and buttons.
+  ========================================
+*/
+
+/* A responsive grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates responsive columns */
+  gap: 25px;
+}
+
+/* Wrapper to make entire card a clickable link */
+.card-link { 
+  text-decoration: none; 
+  color: inherit; /* Ensures text inside the card inherits its color */
+}
+
+/* Standard card component */
+.card {
+  background: var(--bg-secondary);
+  padding: 25px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth hover effect */
+}
+
+/* Hover effect for cards */
+.card:hover {
+  transform: translateY(-8px) scale(1.02); /* Lifts and slightly enlarges the card */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--highlight-color); /* Deeper shadow and highlight glow */
+}
+
+/* Titles within cards */
+.card h3 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.8rem;
+  color: var(--highlight-color);
+  margin: 0 0 10px 0;
+}
+
+/* A grid specifically for image galleries */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Base styles for buttons */
+.home-button, #tooltip-button {
+  background: var(--highlight-color);
+  border: 2px solid var(--highlight-color);
+  color: var(--bg-primary);
+  padding: 8px 15px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Specific styles for the main home page button */
+.home-button {
+  display: inline-block;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-family: 'Metal Mania', cursive;
+}
+
+/* Tooltip button has no border */
+#tooltip-button { border: none; }
+
+/* Hover effect for buttons */
+.home-button:hover, #tooltip-button:hover {
+  background-color: var(--bg-primary);
+  color: var(--highlight-color);
+  transform: translateY(-2px); /* Lifts the button slightly */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* 
+  ========================================
+  6. PAGE-SPECIFIC STYLES
+  Styles for elements unique to certain pages, like the world map or session logs.
+  ========================================
+*/
+
+/* Center-aligns the title on the home page */
+.home-title { text-align: center; }
+
+/* Container for the interactive map */
+.map-wrap {
+  position: relative; /* Required for absolute positioning of pins and tooltips */
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden; /* Hides anything that might stick out */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Ensures the map image is responsive */
+.map-wrap img { display: block; width: 100%; height: auto; }
+
+/* Interactive pins on the map */
+.map-pin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--highlight-color);
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+  cursor: pointer;
+  transform: translate(-50%, -50%); /* Centers the pin on its coordinates */
+  box-shadow: 0 0 5px rgba(89, 166, 166, 0.7);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+/* Hover effect for map pins */
+.map-pin:hover {
+  transform: translate(-50%, -50%) scale(1.4); /* Enlarges the pin */
+  box-shadow: 0 0 15px var(--highlight-color);
+}
+
+/* Creates a larger invisible clickable area around the pin for easier interaction */
+.map-pin::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+}
+
+/* Tooltip that appears when a map pin is clicked */
+#map-tooltip {
+  position: absolute;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 15px 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  z-index: 100; /* Ensures tooltip appears above other elements */
+  opacity: 0; /* Hidden by default */
+  visibility: hidden;
+  transform: translate(-50%, -120%); /* Positions tooltip above the pin */
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Visible state for the map tooltip */
+#map-tooltip.visible { 
+  opacity: 1; 
+  visibility: visible; 
+  transform: translate(-50%, -130%); /* Slightly moves tooltip up when visible */
+}
+
+/* Adjust tooltip to prevent it from going off the right side of the screen */
+#map-tooltip.adjust-left {
+  transform: translate(-95%, -120%);
+}
+#map-tooltip.visible.adjust-left {
+  transform: translate(-95%, -130%);
+}
+
+/* Adjust tooltip to prevent it from going off the left side of the screen */
+#map-tooltip.adjust-right {
+  transform: translate(-5%, -120%);
+}
+#map-tooltip.visible.adjust-right {
+  transform: translate(-5%, -130%);
+}
+
+/* Title inside the map tooltip */
+#map-tooltip h3 { 
+  margin: 0 0 10px 0; 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 1.5rem; 
+  color: var(--highlight-color); 
+}
+
+/* Description text inside the map tooltip */
+#tooltip-description {
+  margin: 0 0 15px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  white-space: normal; /* Ensures long descriptions will wrap */
+}
+
+/* A special section to highlight a piece of lore */
+.lore-spotlight {
+  text-align: center;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: radial-gradient(ellipse at top, var(--bg-secondary), var(--bg-primary));
+  border-radius: var(--radius);
+}
+
+.lore-spotlight h3 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 2.2rem;
+  color: var(--highlight-color);
+  margin: 0 0 10px 0;
+}
+
+.lore-spotlight p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Applies the pulse animation to a card when it's targeted */
+.card.highlight-target { animation: pulse-highlight 1.5s ease-out; }
+
+/* Large, stylized headings used to break up content sections */
+.category-break, .wiki-article h2 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 2.2rem;
+  color: var(--highlight-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+/* Table used for listing game sessions */
+.session-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  background-color: var(--bg-secondary); 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+  border-radius: var(--radius); 
+  overflow: hidden; /* Ensures border-radius is applied to table corners */
+}
+
+.session-table th, .session-table td { 
+  padding: 15px 20px; 
+  text-align: left; 
+  border-bottom: 1px solid var(--border-color); 
+}
+
+/* Header cells in the session table */
+.session-table thead th { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 1.3rem; 
+  color: var(--highlight-color); 
+  background-color: var(--bg-tertiary); 
+}
+
+/* Table rows for individual sessions */
+.session-row { transition: background-color 0.2s ease-out; }
+
+/* Hover effect for session table rows */
+.session-table tbody .session-row:hover { 
+  background-color: rgba(89, 166, 166, 0.1); 
+  cursor: pointer; 
+}
+
+/* Session title link within the table */
+.session-table .title a { 
+  color: var(--text-primary); 
+  text-decoration: none; 
+  font-weight: 700; 
+}
+
+/* A temporary highlight effect for a row */
+.session-row.row-flash { background-color: rgba(89, 166, 166, 0.3) !important; }
+
+/* Styles for individual session log pages */
+.session-log .page-title { margin-bottom: 10px; }
+
+/* Meta information on a session page (e.g., date, players) */
+.session-meta { 
+  color: var(--text-secondary); 
+  margin-bottom: 50px; 
+  border-bottom: 1px solid var(--border-color); 
+  padding-bottom: 20px; 
+}
+
+/* Vertical timeline for session events */
+.session-timeline { 
+  position: relative; 
+  padding-left: 40px; 
+}
+
+/* The vertical line of the timeline */
+.session-timeline::before { 
+  content: ''; 
+  position: absolute; 
+  left: 10px; 
+  top: 10px; 
+  bottom: 10px; 
+  width: 3px; 
+  background-color: var(--border-color); 
+}
+
+/* A single event/item in the timeline */
+.timeline-item { 
+  position: relative; 
+  margin-bottom: 40px; 
+}
+
+/* The dot on the timeline for each item */
+.timeline-item::before { 
+  content: ''; 
+  position: absolute; 
+  left: -36px; 
+  top: 8px; 
+  width: 15px; 
+  height: 15px; 
+  background-color: var(--highlight-color); 
+  border-radius: 50%; 
+  border: 3px solid var(--bg-primary); 
+  z-index: 1; 
+}
+
+/* The content box for a timeline item */
+.timeline-content { 
+  background: var(--bg-secondary); 
+  padding: 25px; 
+  border-radius: var(--radius); 
+  border: 1px solid var(--border-color); 
+}
+
+.timeline-content h2 { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 2rem; 
+  color: var(--highlight-color); 
+  margin: 0 0 15px 0; 
+}
+
+/* Container for a standard wiki article */
+.wiki-article { 
+  max-width: 800px; 
+  margin: 0 auto; /* Centers the article content */
+}
+
+/* Meta information for an article (e.g., category, tags) */
+.article-meta { 
+  font-size: 1.2rem; 
+  color: var(--text-secondary); 
+  margin-top: -30px; 
+  margin-bottom: 40px; 
+  border-bottom: 1px solid var(--border-color); 
+  padding-bottom: 20px; 
+}
+
+/* Paragraph styles within a wiki article */
+.wiki-article p { 
+  font-size: 1.1rem; 
+  margin-bottom: 1.5em; 
+  line-height: 1.8; 
+}
+
+/* An information box, typically used for stats or key facts */
+.infobox { 
+  background: var(--bg-secondary); 
+  border: 1px solid var(--border-color); 
+  border-left: 4px solid var(--highlight-color); /* Accent border */
+  border-radius: 0 var(--radius) var(--radius) 0; 
+  padding: 25px; 
+  margin-bottom: 40px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+}
+
+.infobox h3 { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 1.5rem; 
+  margin: 0 0 15px 0; 
+  color: var(--highlight-color); 
+  border-bottom: 1px dashed var(--border-color); 
+  padding-bottom: 10px; 
+}
+
+.infobox p { 
+  margin: 0 0 10px 0; 
+  font-size: 1rem; 
+}
+.infobox p:last-child { margin-bottom: 0; }
+.infobox strong { color: var(--text-primary); }
+
+/* Centered container for 404 error and placeholder pages */
+.error-container, .placeholder-container { 
+  text-align: center; 
+  padding: 80px 20px; 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+/* Large "404" text */
+.error-code { 
+  font-family: 'Metal Mania', cursive; 
+  font-size: 8rem; 
+  color: var(--highlight-color); 
+  line-height: 1; 
+  text-shadow: 0 0 10px rgba(89, 166, 166, 0.8); 
+}
+
+.error-container h2, .placeholder-container h2 { 
+  font-size: 2rem; 
+  margin-top: 10px; 
+  border-bottom: 2px solid var(--border-color); 
+  padding-bottom: 10px; 
+}
+
+/* Icon used on the placeholder page */
+.placeholder-icon { 
+  color: var(--highlight-color); 
+  margin-bottom: 20px; 
+  animation: fadeIn 1s ease-in-out; 
+}
+
+/* 
+  ========================================
+  7. ARTICLE ENHANCEMENTS
+  Styles for interactive elements within articles, like tabs and blockquotes.
+  ========================================
+*/
+
+/* Container for a tabbed content interface */
+.tab-container { width: 100%; }
+
+/* Navigation bar for tabs */
+.tab-navigation { 
+  display: flex; 
+  border-bottom: 1px solid var(--border-color); 
+  margin-bottom: 30px; 
+}
+
+/* Individual tab buttons */
+.tab-btn {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 3px solid transparent; /* Placeholder for active state border */
+  margin-bottom: -1px; /* Aligns border with the container's bottom border */
+}
+
+.tab-btn:hover { 
+  color: var(--text-primary); 
+  background-color: var(--bg-tertiary); 
+}
+
+/* Active state for a tab button */
+.tab-btn.active { 
+  color: var(--highlight-color); 
+  border-bottom-color: var(--highlight-color); 
+}
+
+/* Content panel for a tab, hidden by default */
+.tab-content-panel { 
+  display: none; 
+  animation: fadeIn 0.4s ease-in-out; 
+}
+
+/* Active (visible) state for a tab content panel */
+.tab-content-panel.active { display: block; }
+
+/* Container for previous/next tab navigation buttons */
+.tab-controls { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-top: 40px; 
+  border-top: 1px solid var(--border-color); 
+  padding-top: 20px; 
+}
+
+/* Previous/Next buttons for navigating tabs */
+.tab-nav-btn {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.1rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-nav-btn:hover { 
+  color: var(--highlight-color); 
+  border-color: var(--highlight-color); 
+  box-shadow: 0 0 10px rgba(89, 166, 166, 0.5); 
+}
+
+/* Disabled state for prev/next buttons */
+.tab-nav-btn:disabled { 
+  color: #444; 
+  cursor: not-allowed; 
+  border-color: #222; 
+  box-shadow: none; 
+}
+
+/* Blockquote for quoting text in articles */
+.wiki-article blockquote { 
+  margin: 30px 0; 
+  padding: 20px; 
+  border-left: 4px solid var(--highlight-color); 
+  background-color: var(--bg-tertiary); 
+  border-radius: 0 var(--radius) var(--radius) 0; 
+  font-style: italic; 
+  font-size: 1.2rem; 
+  color: var(--text-secondary); 
+}
+.wiki-article blockquote p { margin: 0; }
+
+/* A horizontal rule with a gradient fade effect */
+hr.divider { 
+  border: 0; 
+  height: 1px; 
+  background-image: linear-gradient(to right, rgba(0,0,0,0), var(--border-color), rgba(0,0,0,0)); 
+  margin: 60px 0; 
+}
+
+/* Wrapper for images within an article */
+.article-image { 
+  width: 100%; 
+  margin-bottom: 40px; 
+  border-radius: var(--radius); 
+  border: 1px solid var(--border-color); 
+  overflow: hidden; 
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4); 
+}
+.article-image img { 
+  display: block; 
+  width: 100%; 
+  height: auto; 
+}
+
+/* 
+  ========================================
+  8. RESPONSIVE ADJUSTMENTS
+  Media queries to adjust the layout for different screen sizes.
+  ========================================
+*/
+
+/* For tablets and larger screens (768px and up) */
+@media (min-width: 768px) {
+  /* Changes header to a row layout */
+  .site-header { 
+    flex-direction: row; 
+    justify-content: space-between; 
+  }
+  .site-header .home { margin-bottom: 0; }
+}
+
+/* For larger screens (900px and up) */
+@media (min-width: 900px) {
+  /* Changes main content to a row layout (sidebar beside content) */
+  .page-content { flex-direction: row; }
+}
+
+/* For screens smaller than 900px */
+@media (max-width: 899px) {
+  /* Makes the sidebar full-width and places it above the content */
+  .sidebar { 
+    width: 100%; 
+    border-right: none; 
+    border-bottom: 1px solid var(--border-color); 
+  }
+}
+
+
+============================================================
+ FILE: characters\pc\esimerkkihahmo.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esimerkkihahmo | Lysentan Nielemät</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* FADE-OUT BUG FIX: Siguraduen a saan a mapukaw ti artikulo gapu iti rurod ti animation */
+    .wiki-article {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    /* Siguraduen a makita a dagus ti umuna a tab uray no saan pay a nagtaray ti JS */
+    .tab-content-panel.active {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    /* Dalusan dagiti pre/code blocks a saan koma nga adda dita */
+    .wiki-content pre {
+        background: rgba(0,0,0,0.3);
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+  </style>
+</head>
+<body class="dark">
+  <header class="site-header">
+    <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../../world.html">Lysentan Maailma</a>
+      <a href="../../characters.html">Hahmot</a>
+      <a href="../../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+  <main class="container">
+    <article class="wiki-article">
+        
+    <header>
+        <h1 class="page-title">Esimerkkihahmo</h1>
+        <p class="article-meta">Muinainen punainen lohikäärme, ahneuden ja tuhon ruumiillistuma.</p>
+    </header>
+    
+    <aside class="infobox">
+        <h3>Tiedot</h3>
+        <p><strong>Laji:</strong> Lohikäärme</p><p><strong>Sidos:</strong> Itsenäinen</p><p><strong>Sijainti:</strong> Erratanin Tulivuoriketju</p><p><strong>Titteli:</strong> Skibidi Toilet</p>
+    </aside>
+    
+    
+    
+    <div class="tab-container">
+        <nav class="tab-navigation"><button class="tab-btn active">Kuvaus</button><button class="tab-btn">Tarina</button><button class="tab-btn">Taustatarina</button><button class="tab-btn">Kyvyt</button><button class="tab-btn">Merkittävät Kyvyt</button></nav>
+        <div class="tab-content-panel active"><div class="wiki-content"><h3>Yhteenveto</h3>
+
+<pre><code>        **Titteli:** Tuhkavuoren Valtias
+        **Laji:** Lohikäärme
+        **Sidos:** Itsenäinen
+        **Sijainti:** Erratanin Tulivuoriketju
+</code></pre>
+</div></div><div class="tab-content-panel"><div class="wiki-content"><p></p>
+</div></div><div class="tab-content-panel"><div class="wiki-content"><p>Jabadabaduu ja niin edelleen.<br />
+          Ahahahaa.</p>
+
+<pre><code>      &gt; Vuosisatojen aikana hän on nähnyt valtakuntien nousevan ja tuhoutuvan, mutta on itse pysynyt järkkymättömänä voimana.
+      Hänen nimensä kuiskitaan varoittavissa tarinoissa, ja hänen vihansa on luonnonvoima, jota kuolevaiset eivät voi toivoa ymmärtävänsä.
+</code></pre>
+</div></div><div class="tab-content-panel"><div class="wiki-content"><p></p>
+</div></div><div class="tab-content-panel"><div class="wiki-content"><p>Vaikka hänen voimansa ovat lukemattomat, muutamat hänen kyvyistään ovat erityisen tunnettuja ja pelättyjä kautta maiden.</p>
+
+<pre><code>      **Tulinen Henkäys:** Kykenee syöksemään tulta, joka on kuumempaa kuin mikään sepän ahjo, sulattaen vaivatta terästä ja kiveä.
+      **Pelottava Läsnäolo:** Pelkkä hänen läsnäolonsa riittää lamauttamaan rohkeimmatkin soturit pelolla, saaden armeijat pakenemaan taisteluitta.
+</code></pre>
+</div></div>
+        <div class="tab-controls">
+          <button class="tab-nav-btn prev-tab-btn">&laquo; Edellinen</button>
+          <button class="tab-nav-btn next-tab-btn">Seuraava &raquo;</button>
+        </div>
+    </div>
+    
+    
+    </article>
+  </main>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+ FILE: sessions\esimerkkikerta.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esimerkkikerta | Lysentan Nielemät</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* FADE-OUT BUG FIX: Siguraduen a saan a mapukaw ti artikulo gapu iti rurod ti animation */
+    .wiki-article {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    /* Siguraduen a makita a dagus ti umuna a tab uray no saan pay a nagtaray ti JS */
+    .tab-content-panel.active {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    /* Dalusan dagiti pre/code blocks a saan koma nga adda dita */
+    .wiki-content pre {
+        background: rgba(0,0,0,0.3);
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+  </style>
+</head>
+<body class="dark">
+  <header class="site-header">
+    <a class="home" href="../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../world.html">Lysentan Maailma</a>
+      <a href="../characters.html">Hahmot</a>
+      <a href="../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+  <main class="container">
+    <article class="wiki-article">
+        
+    <header>
+        <h1 class="page-title">Esimerkkikerta</h1>
+        <p class="article-meta"></p>
+    </header>
+    
+    <div class="wiki-content"><p></p>
+</div>
+    
+    </article>
+  </main>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+ FILE: vault\.obsidian\app.json
+============================================================
+{}
+
+============================================================
+ FILE: vault\.obsidian\appearance.json
+============================================================
+{}
+
+============================================================
+ FILE: vault\.obsidian\core-plugins.json
+============================================================
+{
+  "file-explorer": true,
+  "global-search": true,
+  "switcher": true,
+  "graph": true,
+  "backlink": true,
+  "canvas": true,
+  "outgoing-link": true,
+  "tag-pane": true,
+  "footnotes": false,
+  "properties": true,
+  "page-preview": true,
+  "daily-notes": true,
+  "templates": true,
+  "note-composer": true,
+  "command-palette": true,
+  "slash-command": false,
+  "editor-status": true,
+  "bookmarks": true,
+  "markdown-importer": false,
+  "zk-prefixer": false,
+  "random-note": false,
+  "outline": true,
+  "word-count": true,
+  "slides": false,
+  "audio-recorder": false,
+  "workspaces": false,
+  "file-recovery": true,
+  "publish": false,
+  "sync": true,
+  "bases": true,
+  "webviewer": false
+}
+
+============================================================
+ FILE: vault\.obsidian\workspace.json
+============================================================
+{
+  "main": {
+    "id": "a55105c811705bbc",
+    "type": "split",
+    "children": [
+      {
+        "id": "0e67dcc8ecd5d9ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ffda7a6d00474a0d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Characters/Esimerkkihahmo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Esimerkkihahmo"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "582c984ed23f212b",
+    "type": "split",
+    "children": [
+      {
+        "id": "c30c534f6694d378",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "00a06741186afc36",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e59a636ca0698762",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "48af7d5716cc45c5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "27acf945765b8274",
+    "type": "split",
+    "children": [
+      {
+        "id": "11edce18d1444278",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54e5c96c6e70a3a1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "World/Erratan.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Erratan"
+            }
+          },
+          {
+            "id": "6cdeef11130a9c07",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "World/Erratan.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Erratan"
+            }
+          },
+          {
+            "id": "7a7566468e500270",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9f436babfee863d9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "2f3933946b0f1f8e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "World/Erratan.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Erratan"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "ffda7a6d00474a0d",
+  "lastOpenFiles": [
+    "Sessions/Esimerkkikerta.md",
+    "World/Erratan.md",
+    "Characters/Esimerkkihahmo.md"
+  ]
+}
+
+============================================================
+ FILE: vault\Characters\Esimerkkihahmo.md
+============================================================
+---
+laji: Lohikäärme
+sidos: Itsenäinen
+sijainti: Erratanin Tulivuoriketju
+summary: Muinainen punainen lohikäärme, ahneuden ja tuhon ruumiillistuma.
+title: Esimerkkihahmo
+titteli: Skibidi Toilet
+---
+
+## Kuvaus
+### Yhteenveto
+            **Titteli:** Tuhkavuoren Valtias
+            **Laji:** Lohikäärme
+            **Sidos:** Itsenäinen
+            **Sijainti:** Erratanin Tulivuoriketju
+
+## Tarina
+## Taustatarina
+          Jabadabaduu ja niin edelleen.
+          Ahahahaa.
+          
+          > Vuosisatojen aikana hän on nähnyt valtakuntien nousevan ja tuhoutuvan, mutta on itse pysynyt järkkymättömänä voimana.
+          Hänen nimensä kuiskitaan varoittavissa tarinoissa, ja hänen vihansa on luonnonvoima, jota kuolevaiset eivät voi toivoa ymmärtävänsä.
+
+## Kyvyt
+## Merkittävät Kyvyt
+          Vaikka hänen voimansa ovat lukemattomat, muutamat hänen kyvyistään ovat erityisen tunnettuja ja pelättyjä kautta maiden.
+          
+          
+          **Tulinen Henkäys:** Kykenee syöksemään tulta, joka on kuumempaa kuin mikään sepän ahjo, sulattaen vaivatta terästä ja kiveä.
+          **Pelottava Läsnäolo:** Pelkkä hänen läsnäolonsa riittää lamauttamaan rohkeimmatkin soturit pelolla, saaden armeijat pakenemaan taisteluitta.
+
+============================================================
+ FILE: vault\Sessions\Esimerkkikerta.md
+============================================================
+---
+summary: ''
+title: Esimerkkikerta
+---
+
+
+============================================================
+ FILE: vault\World\Erratan.md
+============================================================
+---
+pääkaupunki: Sysipuu
+summary: Loputtomiin kiemurtelevien lumottujen metsien manner.
+title: Erratan
+tunnettu: Elävästä metsästä, taikuudesta, kadonneista poluista
+tyyppi: Manner
+väestö: Metsän kansoja, henkiolentoja, erakoita
+---
+
+Yleiskatsaus
+          Tärkeät Sijainnit
+          Tarinat
+
+      Erratan on laaja, lähes kokonaan ikivihreän metsän peittämä manner. Sen tiheiköissä sanotaan asuvan vanhoja henkiä, ja harvat polut muuttavat muotoaan auringonlaskun jälkeen. Täällä luonto on kuningas.
+
+
+
+
+      ## Sysipuu (Pääkaupunki)Sysipuu ei ole kaupunki perinteisessä mielessä, vaan joukko valtavien, mustakaarnaisten puiden oksille rakennettuja asumuksia.
+      ## SumusolaTämä syvä, jatkuvan sumun peittämä sola on ainoa tunnettu reitti Erratanin halki. Sumu on täynnä menneisyyden kaikuja ja harhanäkyjä.
+      ## HiidenkallioKorkealle metsän ylle kohoava paljas kallio, jolla asuu tarujen mukaan muinainen ja viisas hiisi.
+
+
+
+
+      ## Paikallinen Tarina
+      Tarinoiden mukaan Erratanin metsä on elävä olento, joka uneksii maailman luomisesta. Sen unet synnyttävät harhakuvia ja houkuttelevat matkaajia syvemmälle siimekseen, josta harva palaa.
+      Alueen asukkaat, metsän lapset, ovat oppineet elämään tasapainossa metsän kanssa, kunnioittaen sen lakeja ja karttaen sen pimeimpiä sydänmaita.
+
+
+
+
+      &amp;laquo; Edellinen
+      Seuraava &amp;raquo;
+
+============================================================
+ FILE: world\regions\erratan.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erratan | Lysentan Nielemät</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* FADE-OUT BUG FIX: Siguraduen a saan a mapukaw ti artikulo gapu iti rurod ti animation */
+    .wiki-article {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    /* Siguraduen a makita a dagus ti umuna a tab uray no saan pay a nagtaray ti JS */
+    .tab-content-panel.active {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    /* Dalusan dagiti pre/code blocks a saan koma nga adda dita */
+    .wiki-content pre {
+        background: rgba(0,0,0,0.3);
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+  </style>
+</head>
+<body class="dark">
+  <header class="site-header">
+    <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../../world.html">Lysentan Maailma</a>
+      <a href="../../characters.html">Hahmot</a>
+      <a href="../../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+  <main class="container">
+    <article class="wiki-article">
+        
+    <header>
+        <h1 class="page-title">Erratan</h1>
+        <p class="article-meta">Loputtomiin kiemurtelevien lumottujen metsien manner.</p>
+    </header>
+    
+    <aside class="infobox">
+        <h3>Tiedot</h3>
+        <p><strong>Pääkaupunki:</strong> Sysipuu</p><p><strong>Tunnettu:</strong> Elävästä metsästä, taikuudesta, kadonneista poluista</p><p><strong>Tyyppi:</strong> Manner</p><p><strong>Väestö:</strong> Metsän kansoja, henkiolentoja, erakoita</p>
+    </aside>
+    
+    <div class="wiki-content"><p>Yleiskatsaus<br />
+          Tärkeät Sijainnit<br />
+          Tarinat</p>
+
+<pre><code>  Erratan on laaja, lähes kokonaan ikivihreän metsän peittämä manner. Sen tiheiköissä sanotaan asuvan vanhoja henkiä, ja harvat polut muuttavat muotoaan auringonlaskun jälkeen. Täällä luonto on kuningas.
+
+
+
+
+  ## Sysipuu (Pääkaupunki)Sysipuu ei ole kaupunki perinteisessä mielessä, vaan joukko valtavien, mustakaarnaisten puiden oksille rakennettuja asumuksia.
+  ## SumusolaTämä syvä, jatkuvan sumun peittämä sola on ainoa tunnettu reitti Erratanin halki. Sumu on täynnä menneisyyden kaikuja ja harhanäkyjä.
+  ## HiidenkallioKorkealle metsän ylle kohoava paljas kallio, jolla asuu tarujen mukaan muinainen ja viisas hiisi.
+
+
+
+
+  ## Paikallinen Tarina
+  Tarinoiden mukaan Erratanin metsä on elävä olento, joka uneksii maailman luomisesta. Sen unet synnyttävät harhakuvia ja houkuttelevat matkaajia syvemmälle siimekseen, josta harva palaa.
+  Alueen asukkaat, metsän lapset, ovat oppineet elämään tasapainossa metsän kanssa, kunnioittaen sen lakeja ja karttaen sen pimeimpiä sydänmaita.
+
+
+
+
+  &amp;amp;laquo; Edellinen
+  Seuraava &amp;amp;raquo;
+</code></pre>
+</div>
+    
+    </article>
+  </main>
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
+

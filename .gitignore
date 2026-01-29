@@ -1,0 +1,35 @@
+# --------------------------------------------------
+# LYSENTA WIKI - PUBLISH ONLY CONFIGURATION
+# --------------------------------------------------
+# This file ensures ONLY the generated website (HTML/CSS/JS)
+# is uploaded to GitHub. All source code and notes stay local.
+
+# 1. Ignore the Source Material (Your Brain)
+vault/
+*.md
+
+# 2. Ignore the Engine (Your Tools)
+*.py
+requirements.txt
+__pycache__/
+venv/
+.venv/
+
+# 3. Ignore Editor/System Junk
+.vscode/
+.idea/
+.obsidian/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --------------------------------------------------
+# ALLOWLIST (Just in case specific exclusions block these)
+# --------------------------------------------------
+!index.html
+!world.html
+!characters.html
+!sessions.html
+!404.html
+!placeholder.html
+!assets/
