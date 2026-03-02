@@ -3,15 +3,22 @@ PROJECT STRUCTURE: Lysenta-Wikisivu
 Lysenta-Wikisivu/
 ├── assets
 │   ├── images
-│   │   └── Lysenta_Raw.png
+│   │   ├── Lysenta_Raw.png
+│   │   └── Sessio1.png
 │   ├── app.js
 │   ├── favicon.svg
 │   └── style.css
 ├── characters
 │   └── pc
+│       ├── magdalena.html
+│       ├── rhoja.html
+│       ├── robin.html
+│       └── rory.html
 ├── sessions
+│   └── sessio_1.html
 ├── utility
 │   ├── create_path.py
+│   ├── generate.py
 │   └── project_codebase.txt
 ├── world
 │   └── regions
@@ -1560,6 +1567,248 @@ hr.divider {
     
 
 ============================================================
+FILE: characters\pc\magdalena.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magdalena | Lysentan Nielemät</title>
+
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <header class="site-header">
+    <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../../world.html">Lysentan Maailma</a>
+      <a href="../../characters.html">Hahmot</a>
+      <a href="../../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <main class="container wiki-content animate-on-scroll">
+    <h1 class="page-title">Magdalena</h1>
+    
+    <p>Tietoa lisätään myöhemmin...</p>
+    
+  </main>
+
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+FILE: characters\pc\rhoja.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rhoja | Lysentan Nielemät</title>
+
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <header class="site-header">
+    <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../../world.html">Lysentan Maailma</a>
+      <a href="../../characters.html">Hahmot</a>
+      <a href="../../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <main class="container wiki-content animate-on-scroll">
+    <h1 class="page-title">Rhoja</h1>
+    
+    <p>Tietoa lisätään myöhemmin...</p>
+    
+  </main>
+
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+FILE: characters\pc\robin.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robin | Lysentan Nielemät</title>
+
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <header class="site-header">
+    <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../../world.html">Lysentan Maailma</a>
+      <a href="../../characters.html">Hahmot</a>
+      <a href="../../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <main class="container wiki-content animate-on-scroll">
+    <h1 class="page-title">Robin</h1>
+    
+    <p>Tietoa lisätään myöhemmin...</p>
+    
+  </main>
+
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+FILE: characters\pc\rory.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rory | Lysentan Nielemät</title>
+
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <header class="site-header">
+    <a class="home" href="../../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../../world.html">Lysentan Maailma</a>
+      <a href="../../characters.html">Hahmot</a>
+      <a href="../../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <main class="container wiki-content animate-on-scroll">
+    <h1 class="page-title">Rory</h1>
+    
+    <p>Tietoa lisätään myöhemmin...</p>
+    
+  </main>
+
+  <script src="../../assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
+FILE: sessions\sessio_1.html
+============================================================
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sessio 1</title>
+
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark session-log">
+
+  <header class="site-header">
+    <a class="home" href="../index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="../world.html">Lysentan Maailma</a>
+      <a href="../characters.html">Hahmot</a>
+      <a href="../sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <main class="container wiki-article animate-on-scroll">
+    <h1 class="page-title">Sessio 1</h1>
+    
+    <div class="session-meta">
+        <span>24.02.2026</span> | <span></span>
+    </div>
+
+    <div class="article-image">
+        <img src="../assets/images/Sessio1.png" alt="Sessio 1 Kansikuva">
+    </div>
+
+    <h2 class="category-break">Yhteenveto</h2>
+    <p>Neljän matkaajan joukko kokee kamalia, kun Naivete-laivaa höykyttää Paljannon sumusta noussut olentojen kimara.</p>
+
+    <div class="session-timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h2>Sumu nousee</h2>
+                <p>Rhoja puhuttaa kannella laivan kapteenia. Magdalena ja Robin vuoroin pelottavat ja ärsyttävät mastoissa työskenteleviä kääpiöitä. </p>
+            </div>
+            <div class="timeline-content">
+                <h2>Ruuman pimiössä</h2>
+                <p>Rory löydetään laivan uppeluksissa olevasta ruumasta. Kapteeni ei kuitenkaan rankaise tätä, vaan kehottaa tulemaan esille, esimerkiksi laivalla järjestettäviin musiikkiesityksiin.</p>
+            </div>
+            <div class="timeline-content">
+                <h2>Sumu leviää</h2>
+                <p>Rhoja ja Magdalena pelästyttävät matruusin, joka heidän vuoksensa huomaa laivan ikkunaruudusta sisään tulvivan sumun. Tämä ryntää kertomaan asiasta kapteenille.</p>
+            </div>
+             <div class="timeline-content">
+                <h2>Paniikkia ja pippaloita</h2>
+                <p>Paniikki laivalla alkaa levitä, vaikka matkustajat eivät sitä alkaneiden musiikkijuhlien vuoksi huomaa. Nelikko löytää kapteenin ravaamasta ruumaan, matruusin yrittäessä estää sinne pääsyn.</p>
+            </div>
+             <div class="timeline-content">
+                <h2>Naiveten kohtalo</h2>
+                <p>Magdalenan kimppuun hyökkää lonkeroinen olento. Robin päättää ottaa selvää kapteenin aikeista ja löytää hänet pieksemästä merenneidon kaltaista olentoa ruumassa. Rory saa nähdä, kun suuri lyhtykalan näköinen olento räväyttää itsensä laivaa vasten ja riepottaa sen täysin ympäri.</p>
+            </div>
+             <div class="timeline-content">
+                <h2>Näky</h2>
+                <p>Rhoja ja Magdalena saavat näyn Jumalallisesta äänestä, joka kätkeytyy pimeässä Magdalenan pimeääkin mustemman kirjan sisään ja katoaa tyystin. Koko seurue herää Galden-saarelta.</p>
+            </div>
+             <div class="timeline-content">
+                <h2>Galden</h2>
+                <p>Galden-saaren autiossa rantamaassa ei näy muuta, kuin Naiveten hylky ja ruumiskasoja. Laiha ja kalpea vanhus esittelee itsensä seurueelle ja kertoo joidenkin eloonjääneiden olevan vielä laivassa.</p>
+            </div>
+        </div>
+    </div>
+
+  </main>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>
+
+
+============================================================
 FILE: utility\create_path.py
 ============================================================
 
@@ -1646,6 +1895,143 @@ if __name__ == "__main__":
         out_f.write(get_file_contents(main_project_dir))
         
     print(f"Success! The full codebase has been exported to:\n{output_file}")
+
+============================================================
+FILE: utility\generate.py
+============================================================
+
+import os
+
+def create_html_file(file_path, content):
+    """Writes the HTML content to the specified path."""
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    print(f"Created: {os.path.relpath(file_path, start=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))}")
+
+def generate_pc_page(name, rel_depth):
+    """Generates the boilerplate HTML for an empty character page."""
+    return f"""<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{name} | Lysentan Nielemät</title>
+
+  <link rel="stylesheet" href="{rel_depth}assets/style.css">
+  <link rel="icon" href="{rel_depth}assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <header class="site-header">
+    <a class="home" href="{rel_depth}index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="{rel_depth}world.html">Lysentan Maailma</a>
+      <a href="{rel_depth}characters.html">Hahmot</a>
+      <a href="{rel_depth}sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <main class="container wiki-content animate-on-scroll">
+    <h1 class="page-title">{name}</h1>
+    
+    <p>Tietoa lisätään myöhemmin...</p>
+    
+  </main>
+
+  <script src="{rel_depth}assets/app.js"></script>
+</body>
+</html>
+"""
+
+def generate_session_page(rel_depth):
+    """Generates the boilerplate HTML for the first session page with a wide image."""
+    return f"""<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sessio 1 | Lysentan Nielemät</title>
+
+  <link rel="stylesheet" href="{rel_depth}assets/style.css">
+  <link rel="icon" href="{rel_depth}assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Texturina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark session-log">
+
+  <header class="site-header">
+    <a class="home" href="{rel_depth}index.html">Takaisin alkusivulle</a>
+    <nav class="nav">
+      <a href="{rel_depth}world.html">Lysentan Maailma</a>
+      <a href="{rel_depth}characters.html">Hahmot</a>
+      <a href="{rel_depth}sessions.html">Pelikerrat</a>
+    </nav>
+  </header>
+
+  <main class="container wiki-article animate-on-scroll">
+    <h1 class="page-title">Sessio 1: Nimeämätön Alku</h1>
+    
+    <div class="session-meta">
+        <span>Päivämäärä: PP.KK.VVVV</span> | <span>Sijainti: Paljanto</span>
+    </div>
+
+    <div class="article-image">
+        <img src="{rel_depth}assets/images/Lysenta_Raw.png" alt="Sessio 1 Kansikuva">
+    </div>
+
+    <h2 class="category-break">Yhteenveto</h2>
+    <p>Tähän kirjataan session päätapahtumat kunhan askel on otettu...</p>
+
+    <div class="session-timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h2>Ensimmäinen Askel</h2>
+                <p>Mistä matka alkoi...</p>
+            </div>
+        </div>
+    </div>
+
+  </main>
+
+  <script src="{rel_depth}assets/app.js"></script>
+</body>
+</html>
+"""
+
+if __name__ == "__main__":
+    # Setup paths relative to the utility folder
+    utility_dir = os.path.dirname(os.path.abspath(__file__))
+    main_dir = os.path.dirname(utility_dir)
+    
+    pc_dir = os.path.join(main_dir, "characters", "pc")
+    sessions_dir = os.path.join(main_dir, "sessions")
+    
+    # Ensure directories exist (they should, but just in case)
+    os.makedirs(pc_dir, exist_ok=True)
+    os.makedirs(sessions_dir, exist_ok=True)
+    
+    print("Generating pages...")
+    
+    # 1. Generate Character Pages
+    characters = ["Rhoja", "Rory", "Magdalena", "Robin"]
+    pc_rel_depth = "../../" # Two folders deep (characters/pc/)
+    
+    for char in characters:
+        file_path = os.path.join(pc_dir, f"{char.lower()}.html")
+        content = generate_pc_page(char, pc_rel_depth)
+        create_html_file(file_path, content)
+        
+    # 2. Generate First Session Page
+    session_rel_depth = "../" # One folder deep (sessions/)
+    session_file_path = os.path.join(sessions_dir, "sessio_1.html")
+    session_content = generate_session_page(session_rel_depth)
+    create_html_file(session_file_path, session_content)
+    
+    print("\nSuccess! All pages have been generated.")
 
 ============================================================
 FILE: utility\project_codebase.txt
